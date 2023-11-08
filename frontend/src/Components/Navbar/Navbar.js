@@ -1,5 +1,8 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
+import HomePage from '../Pages/HomePage';
+import LoginPage from '../Pages/LoginPage';
+import RegisterPage from '../Pages/RegisterPage';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -9,11 +12,16 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
  */
 
 const Navbar = () => {
-  const navbarWrapper = document.querySelector('#navbarWrapper');
-  const navbar = `
+  renderNavbar();
+  onNavBarClick();
+};
+
+function renderNavbar(){
+  const navbar = document.querySelector('#navbarWrapper');
+  navbar.innerHTML = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
+          <a class="navbar-brand" href="#">La grande critique</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -30,18 +38,35 @@ const Navbar = () => {
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/game">Game</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>                        
+              <li id="loginItem" class="nav-item">
+                <a class="nav-link" href="#" data-uri="/login">Login</a>
+              </li>     
+              <li id="registerItem" class="nav-item">
+              <a class="nav-link" href="#" data-uri="/register">Register</a>
+            </li>                     
             </ul>
           </div>
         </div>
       </nav>
   `;
-  navbarWrapper.innerHTML = navbar;
 };
+
+
+function onNavBarClick() {
+  const navItems = document.querySelectorAll('.nav-link');
+
+  navItems.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      console.log(`click on ${e.target.dataset.uri} navbar item`);
+      if (e.target.dataset.uri === '/') {
+        HomePage();
+      } else if (e.target.dataset.uri === '/login') {
+        LoginPage();
+      } else if (e.target.dataset.uri === '/register') {
+        RegisterPage();
+      }
+    });
+  });
+}
 
 export default Navbar;
