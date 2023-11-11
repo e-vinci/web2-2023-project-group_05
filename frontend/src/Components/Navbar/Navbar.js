@@ -39,17 +39,28 @@ function renderNavbar() {
               <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
             </li>
             <nav class="wrapper">
-            <li class="nav-item">
-              <a id="categorie" class="nav-link" href="#" data-uri="/categories">Categories</a>
-              <ul class="sub-menu">
-              <li><a href="#">Jeux-Vidéo</a></li>
-              <li><a href="#">Films</a></li>
-              <li><a href="#">Séries</a></li>
-              <li><a href="#">Livres</a></li>
-              <li><a href="#">Animé</a></li>
-            </ul>
+      <ul class="nav-item">
+        <li class="categorie">
+          <a class="nav-link" href="#" data-uri="/categories">Categories</a>
+          <ul class="sub-menu">
+            <li><a href="#">Jeux-Vidéo</a></li>
+            <li><a href="#">Films</a></li>
+            <li><a href="#">Séries</a></li>
+            
+            <li class="livres">
+              <a href="#">Livres</a>
+              <ul class="sous-sub">
+                <li><a href="#">Rejoindre sujet deja existant</a></li>
+                
+                <li><a href="#">Crée sujet</a></li>
+                
+              </ul>
             </li>
-          </nav>
+            <li><a href="#">Animé</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>
             </li>
@@ -79,6 +90,14 @@ function onNavBarClick() {
       }
     });
   });
+
+
+
+
+
+
+
+
 }
 
 export default Navbar;

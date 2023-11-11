@@ -1,48 +1,53 @@
-
-
-
-
-
 a {
     text-decoration: none;
-}
-
-.wrapper{
+  }
+  
+  .wrapper {
     margin: 0 auto;
     width: 1000px;
-}
-
-
-
-
-li{
+  }
+  
+  .nav-item {
+    list-style: none;
     display: inline-block;
     vertical-align: top;
     position: relative;
-}
-
-.nav-item a:hover {
+  }
+  
+  .nav-item a:hover {
     background-color: brown;
     color: blue;
-}
-
-.nav-item:hover .sub-menu {
+  }
+  
+  .nav-item:hover .sub-menu {
     display: block;
-}
-
-.sub-menu {
+  }
+  
+  .sub-menu {
     display: none;
     position: absolute;
-    background-color:aqua;
+    background-color: aqua;
     width: 150px;
-    
-    
-    
-}
-
-.sub-menu li {
+    padding: 0;
+  }
+  
+  .sub-menu li {
     display: block;
     margin-top: 10px;
-}
-
-
+  }
+  
+  .livres:hover .sous-sub {
+    display: block;
+  }
+  
+  .sous-sub {
+    display: none;
+    position: absolute;
+    margin-top: 85px;
+    background-color: wheat;
+    width: 200px;
+    padding: 0;
+    left: 100%; 
+    top: 0;
+  }
+  
