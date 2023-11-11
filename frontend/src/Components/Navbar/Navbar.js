@@ -42,11 +42,11 @@ function renderNavbar() {
             <li class="nav-item">
               <a id="categorie" class="nav-link" href="#" data-uri="/categories">Categories</a>
               <ul class="sub-menu">
-              <li><a href="#"></a>Jeux-Vidéo</li>
-              <li><a href="#"></a>Films</li>
-              <li><a href="#"></a>Séries</li>
-              <li><a href="#"></a>Livres</li>
-              <li><a href="#"></a>Animé</li>
+              <li><a href="#">Jeux-Vidéo</a></li>
+              <li><a href="#">Films</a></li>
+              <li><a href="#">Séries</a></li>
+              <li><a href="#">Livres</a></li>
+              <li><a href="#">Animé</a></li>
             </ul>
             </li>
           </nav>
