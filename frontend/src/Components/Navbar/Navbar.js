@@ -16,40 +16,52 @@ const Navbar = () => {
   onNavBarClick();
 };
 
-function renderNavbar(){
+function renderNavbar() {
   const navbar = document.querySelector('#navbarWrapper');
   navbar.innerHTML = `
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">La grande critique</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
-              </li>
-              <li id="loginItem" class="nav-item">
-                <a class="nav-link" href="#" data-uri="/login">Login</a>
-              </li>     
-              <li id="registerItem" class="nav-item">
-              <a class="nav-link" href="#" data-uri="/register">Register</a>
-            </li>                     
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">La grande critique</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
+            </li>
+            <nav class="wrapper">
+            <li class="nav-item">
+              <a id="categorie" class="nav-link" href="#" data-uri="/categories">Categories</a>
+              <ul class="sub-menu">
+              <li><a href="#"></a>Jeux-Vidéo</li>
+              <li><a href="#"></a>Films</li>
+              <li><a href="#"></a>Séries</li>
+              <li><a href="#"></a>Livres</li>
+              <li><a href="#"></a>Animé</li>
             </ul>
-          </div>
+            </li>
+          </nav>
+            <li id="loginItem" class="nav-item">
+              <a class="nav-link" href="#" data-uri="/login">Login</a>
+            </li>
+            <li id="registerItem" class="nav-item">
+              <a class="nav-link" href="#" data-uri="/register">Register</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
   `;
-};
+}
 
 
 function onNavBarClick() {

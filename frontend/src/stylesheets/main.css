@@ -1,0 +1,48 @@
+
+
+
+
+
+a {
+            
+}
+
+.wrapper{
+    margin: 0 auto;
+    width: 1000px;
+}
+
+
+
+
+li{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.nav-item a:hover {
+    background-color: brown;
+    color: blue;
+}
+
+.nav-item:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    background-color:aqua;
+    width: 150px;
+    
+    
+    
+}
+
+.sub-menu li {
+    display: block;
+    margin-top: 10px;
+}
+
+
