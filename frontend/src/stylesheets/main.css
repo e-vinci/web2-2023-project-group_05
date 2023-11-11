@@ -2,10 +2,7 @@ a {
     text-decoration: none;
   }
   
-  .wrapper {
-    margin: 0 auto;
-    width: 1000px;
-  }
+
   
   .nav-item {
     list-style: none;
@@ -50,4 +47,7 @@ a {
     left: 100%; 
     top: 0;
   }
+
+
+  
   

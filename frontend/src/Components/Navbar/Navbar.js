@@ -21,7 +21,7 @@ function renderNavbar() {
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">La grande critique</a>
+        <a class="navbar-brand" href="">La grande critique</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -36,12 +36,14 @@ function renderNavbar() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
+              <a class="nav-link" aria-current="page" href="" data-uri="/">Home</a>
             </li>
-            <nav class="wrapper">
+
+    <!--The beginning of the 'menu déroulant on categories' -->
+    
       <ul class="nav-item">
         <li class="categorie">
-          <a class="nav-link" href="#" data-uri="/categories">Categories</a>
+          <a class="nav-link" href="" data-uri="/categories">Categories</a>
           <ul class="sub-menu">
             <li><a href="#">Jeux-Vidéo</a></li>
             <li><a href="#">Films</a></li>
@@ -60,7 +62,9 @@ function renderNavbar() {
           </ul>
         </li>
       </ul>
-    </nav>
+    
+    <!-- the end of the 'menu deroulant' for categories  -->
+    
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>
             </li>
@@ -73,7 +77,6 @@ function renderNavbar() {
     </nav>
   `;
 }
-
 
 function onNavBarClick() {
   const navItems = document.querySelectorAll('.nav-link');
@@ -90,14 +93,6 @@ function onNavBarClick() {
       }
     });
   });
-
-
-
-
-
-
-
-
 }
 
 export default Navbar;
