@@ -1,8 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
+
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
+import Topic from '../Pages/Topic';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -39,6 +41,10 @@ function renderNavbar() {
               <a class="nav-link" aria-current="page" href="" data-uri="/">Home</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#" data-uri="/topic/add">Crée un sujet</a>
+            </li>
+
     <!--The beginning of the 'menu déroulant on categories' -->
     
       <ul class="nav-item">
@@ -54,7 +60,7 @@ function renderNavbar() {
               <ul class="sous-sub">
                 <li><a href="#">Rejoindre sujet deja existant</a></li>
                 
-                <li><a href="#">Crée sujet</a></li>
+                
                 
               </ul>
             </li>
@@ -64,7 +70,8 @@ function renderNavbar() {
       </ul>
     
     <!-- the end of the 'menu deroulant' for categories  -->
-    
+
+
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>
             </li>
@@ -90,6 +97,8 @@ function onNavBarClick() {
         LoginPage();
       } else if (e.target.dataset.uri === '/register') {
         RegisterPage();
+      } else if (e.target.dataset.uri === '/topic/add') {
+        Topic();
       }
     });
   });
