@@ -23,7 +23,7 @@ function renderNavbar() {
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="">La grande critique</a>
+        <a class="navbar-brand" href="/">La grande critique</a>
         <button
           class="navbar-toggler"
           type="button"
