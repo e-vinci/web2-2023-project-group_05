@@ -72,6 +72,10 @@ function renderNavbar() {
               <a class="nav-link" href="#" data-uri="/register">Register</a>
             </li>
           </ul>
+          <form action="/results" id="searchForm">
+            <input type="text" name="search" id="serach" placeholder="search for a category/subject" required />
+            <input type="submit" name="submit" id="submit" value"Search" />
+          </form>
         </div>
       </div>
     </nav>
