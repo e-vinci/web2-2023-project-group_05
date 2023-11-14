@@ -1,21 +1,15 @@
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
-<<<<<<< HEAD
 import ResultsPage from '../Pages/ResultsPage';
-=======
 import Topic from '../Pages/Topic';
->>>>>>> d1968034eb04870e6c182d4c02d3c03a593cbb44
 
 const routes = {
   '/' : HomePage,
   '/login' : LoginPage,
   '/register' : RegisterPage,
-<<<<<<< HEAD
   '/results' : ResultsPage,
-=======
   '/topic/add':Topic,
->>>>>>> d1968034eb04870e6c182d4c02d3c03a593cbb44
 }
 
 const Router = () => {
