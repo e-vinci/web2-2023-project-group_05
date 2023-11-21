@@ -51,20 +51,20 @@ function renderNavbar() {
         <li class="categorie">
           <a class="nav-link" href="" data-uri="/categories">Categories</a>
           <ul class="sub-menu">
-            <li><a href="#">Jeux-Vidéo</a></li>
-            <li><a href="#">Films</a></li>
-            <li><a href="#">Séries</a></li>
+            <li class="nav-link"><a href="#">Jeux-Vidéo</a></li>
+            <li class="nav-link"><a href="#">Films</a></li>
+            <li class="nav-link"><a href="#">Séries</a></li>
             
-            <li class="livres">
+            <li class="nav-link" id="livres">
               <a href="#">Livres</a>
               <ul class="sous-sub">
-                <li><a href="#">Rejoindre sujet deja existant</a></li>
+                <li class="nav-link"><a href="#">Rejoindre sujet deja existant</a></li>
                 
                 
                 
               </ul>
             </li>
-            <li><a href="#">Animé</a></li>
+            <li class="nav-link"><a href="#">Animé</a></li>
           </ul>
         </li>
       </ul>
