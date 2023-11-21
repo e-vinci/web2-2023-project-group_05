@@ -1,7 +1,7 @@
 import Navigate from '../Router/Navigate';
 import { addOneTopic } from '../../model/topic';
 
-const Topic = () => {
+const TopicAdd = () => {
 
     const addTopic = `
     <h3>Reglement :</h3>
@@ -109,7 +109,7 @@ const Topic = () => {
       });
     };
 
-export default Topic;
+export default TopicAdd;
 
 
 

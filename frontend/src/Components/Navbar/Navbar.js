@@ -4,7 +4,8 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
-import Topic from '../Pages/Topic';
+import TopicAdd from '../Pages/TopicAdd';
+import TopicView from '../Pages/TopicView';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -45,6 +46,10 @@ function renderNavbar() {
               <a class="nav-link" aria-current="page" href="#" data-uri="/topic/add">Crée un sujet</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#" data-uri="/topic/view">Voir un sujet</a>
+            </li>
+
     <!--The beginning of the 'menu déroulant on categories' -->
     
       <ul class="nav-item">
@@ -80,7 +85,7 @@ function renderNavbar() {
             </li>
           </ul>
           <form action="/results" id="searchForm">
-            <input type="text" name="search" id="serach" placeholder="search for a category/subject" required />
+            <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
             <input type="submit" name="submit" id="submit" value"Search" />
           </form>
         </div>
@@ -102,7 +107,9 @@ function onNavBarClick() {
       } else if (e.target.dataset.uri === '/register') {
         RegisterPage();
       } else if (e.target.dataset.uri === '/topic/add') {
-        Topic();
+        TopicAdd();
+      }else if (e.target.dataset.uri === '/topic/view') {
+        TopicView();
       }
     });
   });

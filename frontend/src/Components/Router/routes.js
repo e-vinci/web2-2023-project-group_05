@@ -3,7 +3,8 @@ import NewPage from '../Pages/NewPage';
 import GamePage from '../Pages/GamePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
-import Topic from '../Pages/Topic';
+import TopicAdd from '../Pages/TopicAdd';
+import TopicView from '../Pages/TopicView'
 
 
 const routes = {
@@ -11,8 +12,9 @@ const routes = {
   '/new': NewPage,
   '/gamepage' :GamePage,
   '/login' : LoginPage,
-  '/register':RegisterPage,
-  '/topic/add':Topic,
+  '/register': RegisterPage,
+  '/topic/add': TopicAdd,
+  '/topic/view': TopicView,
 };
 
 export default routes;
