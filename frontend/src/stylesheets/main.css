@@ -31,18 +31,19 @@ a {
   .sub-menu li {
     display: block;
     margin-top: 10px;
+    padding-left: 10%;
   }
   
-  .livres:hover .sous-sub {
+  #livres:hover .sous-sub {
     display: block;
   }
   
   .sous-sub {
     display: none;
     position: absolute;
-    margin-top: 85px;
+    margin-top: 130px;
     background-color: wheat;
-    width: 200px;
+    width: 250px;
     padding: 0;
     left: 100%; 
     top: 0;
