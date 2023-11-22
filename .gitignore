@@ -9,4 +9,4 @@ package-lock.json
 # ignore all dist directories files (and subdirectories) from .gitignore
 dist/*
 # ignoring all BD
-.config.js
+config.js

@@ -1,4 +1,4 @@
 module.exports={
     secret: "Errors should never pass sliently", 
-    dbPath:"C:/zCoding/JSProject",
+    dbPath:"D:/db_projectWeb2/ProjetDBWeb2",
 };
