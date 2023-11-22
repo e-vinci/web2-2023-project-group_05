@@ -1,4 +1,3 @@
-const db = require('./db_conf');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const path = require('node:path');
@@ -100,5 +99,3 @@ module.exports = {
   register,
   readOneUserFromUsername,
 };
-
-
