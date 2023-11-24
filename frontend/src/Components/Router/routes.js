@@ -5,6 +5,7 @@ import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
 import TopicView from '../Pages/TopicView'
+import ResultsPage from '../Pages/ResultsPage';
 
 
 const routes = {
@@ -15,6 +16,7 @@ const routes = {
   '/register': RegisterPage,
   '/topic/add': TopicAdd,
   '/topic/view': TopicView,
+  '/results': ResultsPage
 };
 
 export default routes;
