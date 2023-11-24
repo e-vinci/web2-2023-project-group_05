@@ -2,8 +2,7 @@ import Navigate from '../Router/Navigate';
 import { addOneTopic } from '../../model/topic';
 
 const TopicAdd = () => {
-
-    const addTopic = `
+  const addTopic = `
     <h3>Reglement :</h3>
   <button class="buttonForRule">Cliquer ici pour afficher le réglement</button>
   <div class="rule">
@@ -41,20 +40,20 @@ const TopicAdd = () => {
     <input type="submit" class="btn btn-primary" value="Add Topic" />
 </form>  
     `;
-  
-      const main = document.querySelector('main');
-      main.innerHTML = addTopic;
 
-      const myForm = document.querySelector('form');
-      const title = document.querySelector('#title');
-      const description = document.querySelector('#description');
-      const image = document.querySelector('#image');
+  const main = document.querySelector('main');
+  main.innerHTML = addTopic;
 
-      const buttonRule = document.querySelector('.buttonForRule');
+  const myForm = document.querySelector('form');
+  const title = document.querySelector('#title');
+  const description = document.querySelector('#description');
+  const image = document.querySelector('#image');
 
-      let messageIsVisible = false;
-      const messageRule = document.querySelector('.rule');
-      const message =`Réglement pour la création d'un sujet : 
+  const buttonRule = document.querySelector('.buttonForRule');
+
+  let messageIsVisible = false;
+  const messageRule = document.querySelector('.rule');
+  const message = `Réglement pour la création d'un sujet : 
 
       Règlement de Création de Sujets
 
@@ -80,36 +79,30 @@ const TopicAdd = () => {
         Les titres et le contenu ne doivent pas être exagérés ou utilisés à des fins sensationnalistes. Restez fidèle au sujet et évitez les informations fausses ou trompeuses.
 
         Modération et Respect des Règles :
-        Tout sujet ne respectant pas ces règles peut être édité, déplacé ou supprimé par l'équipe de modération. En cas de non-respect répété, des mesures disciplinaires pourront être prises`
+        Tout sujet ne respectant pas ces règles peut être édité, déplacé ou supprimé par l'équipe de modération. En cas de non-respect répété, des mesures disciplinaires pourront être prises`;
 
-      buttonRule.addEventListener('click', () => {
-          if (messageIsVisible) {
-              messageRule.innerHTML = ''; // Efface le contenu du message
-              messageIsVisible = false; // Change l'état à "non visible"
-          } else {
-              messageRule.innerHTML = message; // Affiche le message
-              messageIsVisible = true; // Change l'état à "visible"
-          }   
-      })
+  buttonRule.addEventListener('click', () => {
+    if (messageIsVisible) {
+      messageRule.innerHTML = ''; // Efface le contenu du message
+      messageIsVisible = false; // Change l'état à "non visible"
+    } else {
+      messageRule.innerHTML = message; // Affiche le message
+      messageIsVisible = true; // Change l'état à "visible"
+    }
+  });
 
+  myForm.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-      myForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        
-        
-        const topicToBeCreated = {
-          title: title.value,
-          description: description.value,
-          image: image.value,
-        };
-    
-        addOneTopic(topicToBeCreated);
-        Navigate('/topic/add');
-      });
+    const topicToBeCreated = {
+      title: title.value,
+      description: description.value,
+      image: image.value,
     };
 
+    addOneTopic(topicToBeCreated);
+    Navigate('/topic/add');
+  });
+};
+
 export default TopicAdd;
-
-
-
