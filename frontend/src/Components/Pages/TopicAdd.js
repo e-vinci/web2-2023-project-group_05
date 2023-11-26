@@ -100,7 +100,6 @@ const TopicAdd = () => {
       description: description.value,
       image: image.value,
     };
-    console.log(topicToBeCreated);
 
     addOneTopic(topicToBeCreated);
 
