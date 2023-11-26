@@ -9,6 +9,7 @@ const ResultsPage = () => {
 function renderResults() {
     const main = document.querySelector('main');
     const form = document.querySelector('#searchForm');
+    // eslint-disable-next-line no-unused-vars
     const resultsSearch = document.querySelector('#mySearch');
     const p = document.createElement('p');
     const p2 = document.createElement('p');
@@ -17,6 +18,7 @@ function renderResults() {
 
     form.addEventListener("click", (e) => {
         e.preventDefault();
+        // eslint-disable-next-line no-unused-vars
         const searchTab = ["Jeux vidéos", "Films", "Séries", "Livres", "Animé"];
     });
 

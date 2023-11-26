@@ -44,7 +44,8 @@ const TopicAdd = () => {
   const main = document.querySelector('main');
   main.innerHTML = addTopic;
 
-  const myForm = document.querySelector('form');
+  const myForm = document.querySelector('.px-5');
+
   const title = document.querySelector('#title');
   const description = document.querySelector('#description');
   const image = document.querySelector('#image');
@@ -99,8 +100,10 @@ const TopicAdd = () => {
       description: description.value,
       image: image.value,
     };
+    console.log(topicToBeCreated);
 
     addOneTopic(topicToBeCreated);
+
     Navigate('/topic/add');
   });
 };
