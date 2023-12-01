@@ -1,3 +1,4 @@
+import Header from '../Header/Header';
 import HomePage from '../Pages/HomePage';
 import NewPage from '../Pages/NewPage';
 import GamePage from '../Pages/GamePage';
@@ -8,6 +9,7 @@ import TopicView from '../Pages/TopicView'
 
 
 const routes = {
+  '/Header': Header,
   '/': HomePage,
   '/new': NewPage,
   '/gamepage' :GamePage,
