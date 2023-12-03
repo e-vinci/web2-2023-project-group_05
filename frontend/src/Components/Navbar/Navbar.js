@@ -7,6 +7,8 @@ import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
 import TopicView from '../Pages/TopicView';
 
+import logo from '../../img/IMAGE.png';
+
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -25,8 +27,12 @@ function renderNavbar() {
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a href="/"><img src="../../img/IMAGE.jpg"/></a>
+      <a class="nav-link" href="#" data-uri="/">        
+       <img class= "logo" src="${logo}" data-uri="/">
+      </a>
         <a class="navbar-brand" href="/">La grande critique</a>
+        
+        
         <button
           class="navbar-toggler"
           type="button"

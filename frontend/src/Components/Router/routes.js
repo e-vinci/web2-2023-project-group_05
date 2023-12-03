@@ -1,4 +1,3 @@
-import Header from '../Header/Header';
 import HomePage from '../Pages/HomePage';
 import NewPage from '../Pages/NewPage';
 import LoginPage from '../Pages/LoginPage';
@@ -9,7 +8,6 @@ import ResultsPage from '../Pages/ResultsPage';
 
 
 const routes = {
-  '/Header': Header,
   '/': HomePage,
   '/new': NewPage,
   '/login' : LoginPage,

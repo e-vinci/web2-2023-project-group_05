@@ -49,6 +49,11 @@ a {
     top: 0;
   }
 
+  /*Navbar*/
+  .logo{
+    height: 40px;
+    padding-right: 30px;
+  }
 
   
   
