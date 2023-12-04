@@ -7,6 +7,9 @@ import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
 import TopicView from '../Pages/TopicView';
 
+import logo from '../../img/IMAGE.png';
+
+
 /**
  * Render the Navbar which is styled by using Bootstrap
  * Each item in the Navbar is tightly coupled with the Router configuration :
@@ -24,7 +27,12 @@ function renderNavbar() {
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
+      <a class="nav-link" href="#" data-uri="/">        
+       <img class= "logo" src="${logo}" data-uri="/">
+      </a>
         <a class="navbar-brand" href="/">La grande critique</a>
+        
+        
         <button
           class="navbar-toggler"
           type="button"
@@ -32,14 +40,13 @@ function renderNavbar() {
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="" data-uri="/">Home</a>
+              <a class="nav-link" aria-current="page" href="" data-uri="/">Accueil</a>
             </li>
 
             <li class="nav-item">
