@@ -1,7 +1,6 @@
-import Navigate from '../Router/Navigate';
-import { readAllTopics } from '../../model/topic';
+import { readAllTopics, deleteOneTopic, updateOneTopic } from '../../model/topic';
 
-const TopicView = () => {
+const TopicView = async () => {
   const viewTopic = `<div id="topicWrapper"></div>`;
 
   const main = document.querySelector('main');
@@ -9,20 +8,20 @@ const TopicView = () => {
 
   const topicWrapper = document.querySelector('#topicWrapper');
 
-  const topics = readAllTopics();
+  const topics = await readAllTopics();
 
   const topicAsHtmlTable = getHtmlTopicTableAsString(topics);
 
   topicWrapper.innerHTML = topicAsHtmlTable;
 
-  Navigate('/topic/view');
+  attachEventListeners();
 };
 
 function getHtmlTopicTableAsString(topics){
   if(topics?.length === undefined || topics.length === 0){
     return '<p class=p-5> No topics yet : (</p>';
   }
-  let htmlTopicTable = `<div class="table-responsive p-5">
+  const htmlTopicTable = `<div class="table-responsive p-5">
   <table class="table">
   <thead>
   <tr>
@@ -31,21 +30,56 @@ function getHtmlTopicTableAsString(topics){
   <th scope = "col">Image </th>
   </tr>
   </thead>
-  <tbody>`;
+  <tbody>
+    ${topics
+      .map(
+        (element) => `
+        <tr>
+          <td class="fw-bold text-info" contenteditable="true">${element.title}</td>
+          <td class="text-info" contenteditable="true">${element.description}</td>
+          <td class="text-info" contenteditable="true">${element.image}</td>
+          <td>
+            <button type="button" class="btn btn-info delete" data-element-id="${element.id}">Delete</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-info update" data-element-id="${element.id}">Save</button>
+          </td>
+        </tr>
+        `,
+      )
+      .join('')}
+      </tbody></table>`;
+    
+    return htmlTopicTable;
+}
 
+function attachEventListeners() {
+  const topicWrapper = document.querySelector('#topicWrapper');
 
-topics.forEach((element)=> {
-  htmlTopicTable += `
-  <tr>
-    <td><a href="${element.link}" target="_blank"">${element.title}</a></td>
-    <td>${element.description}</td>
-    <td>${element.budget}</td>
-    </tr>`;
-});
+  topicWrapper.querySelectorAll('.delete').forEach((button) => {
+    button.addEventListener('click', async (e) => {
+      const { elementId } = e.target.dataset;
+      await deleteOneTopic(elementId);
+      TopicView();
+    });
+  });
 
-htmlTopicTable +='</tbody></table>';
+  topicWrapper.querySelectorAll('.update').forEach((button) => {
+    button.addEventListener('click', async (e) => {
+      const { elementId } = e.target.dataset;
 
-return htmlTopicTable;
+      const topicRow = e.target.parentElement.parentElement;
+      const fileInput = topicRow.querySelector('.file-input');
+
+      const newTopicData = {
+        title: topicRow.children[0].innerText,
+        description: topicRow.children[1].innerText,
+        image: fileInput.files[0],
+      };
+      await updateOneTopic(elementId, newTopicData);
+      TopicView();
+    });
+  });
 }
 
 export default TopicView;
