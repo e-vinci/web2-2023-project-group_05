@@ -1,12 +1,7 @@
 const express = require('express');
 
-const { getAllCategories } = require('../models/Categories');
-
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  const categories = getAllCategories();
-  return res.json(categories);
-});
+router.get('/', (req, res) => res.json());
 
 module.exports = router;
