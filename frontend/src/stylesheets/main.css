@@ -116,3 +116,10 @@ h1, #title{
   margin-bottom: 30px;
   font-family:cursive;
 }
+
+#footerWrapper {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Ajoutez d'autres styles nécessaires */
+}

@@ -5,6 +5,7 @@ import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
 import TopicView from '../Pages/TopicView'
 import ResultsPage from '../Pages/ResultsPage';
+import LoginAdminPage from '../Pages/LoginAdminPage';
 
 
 const routes = {
@@ -14,7 +15,8 @@ const routes = {
   '/register': RegisterPage,
   '/topic/add': TopicAdd,
   '/topic/view': TopicView,
-  '/results': ResultsPage
+  '/results': ResultsPage, 
+  '/login/admin': LoginAdminPage,
 };
 
 export default routes;
