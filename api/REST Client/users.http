@@ -1,0 +1,13 @@
+@baseUrl = http://localhost:3000
+
+### read all users
+GET {{baseUrl}}/auths
+
+### register a user
+POST {{baseUrl}}/auths/register
+Content-type: application/json
+
+{
+    "username": "Alice",
+    "password": "alice123"
+}

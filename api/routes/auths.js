@@ -1,7 +1,13 @@
 const express = require('express');
-const { register, login } = require('../models/users');
+const { register, login, readAllUsers } = require('../models/users');
 
 const router = express.Router();
+
+/* GET users listing. */
+router.get('/', (req, res) => {
+  const users = readAllUsers();
+  res.json(users);
+});
 
 /* Register a user */
 router.post('/register', async (req, res) => {

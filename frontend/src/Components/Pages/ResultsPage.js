@@ -1,4 +1,5 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
+import readAllCategories from '../../model/categories';
 
 const ResultsPage = () => {
     clearPage();
@@ -21,28 +22,12 @@ async function renderResults() {
         p2.innerHTML = '';
 
 
-        const categories = await getCategoriesFromSearch();
+        const categories = await readAllCategories();
 
         const filteredCategories = filterCategories(search.value,categories);
         displayCategories(filteredCategories);
     });
-}
-
-async function getCategoriesFromSearch() {
-    try {
-        const response = await fetch('/api/categories');
-
-        if (!response.ok) {
-            throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-        }
-
-        const categories = await response.json();
-        return categories;
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
-}
+};
 
 function displayCategories(categories) {
     p2.innerHTML = `Nombre de résultat(s) : ${categories.length}`;
