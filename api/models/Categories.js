@@ -3,12 +3,12 @@ const { serialize, parse } = require('../utils/json');
 
 const jsonDbPath = path.join(__dirname, '/../data/categories.json');
 
-const categoriesTable = [];
+// const categoriesTable = [];
 
 function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
-  const categories = parse(jsonDbPath, categoriesTable);
+  const categories = parse(jsonDbPath);
   // eslint-disable-next-line max-len
   if (orderByTitle) orderedCategoriesTable = [...categories].sort((a, b) => a.title.localeCompare(b.title));
   if (orderByTitle === '-title') orderedCategoriesTable = orderedCategoriesTable.reverse();
@@ -18,7 +18,7 @@ function readAllCategories(orderBy) {
 }
 
 function createCategory(title) {
-  const categories = parse(jsonDbPath, categoriesTable);
+  const categories = parse(jsonDbPath);
 
   console.log('TOPICS', categories);
 
@@ -35,7 +35,7 @@ function createCategory(title) {
   return newCategory;
 }
 function getNextId() {
-  const categories = parse(jsonDbPath, categoriesTable);
+  const categories = parse(jsonDbPath);
 
   const lastItemIndex = categories?.length !== 0 ? categories.length - 1 : undefined;
 
@@ -64,7 +64,7 @@ function deleteCategory(id) {
   return deletedCategorie;
 }
 function isTitleAlreadyExists(title) {
-  const categories = parse(jsonDbPath, categoriesTable);
+  const categories = parse(jsonDbPath);
   return categories.some((category) => category.title.toLowerCase() === title.toLowerCase());
 }
 
