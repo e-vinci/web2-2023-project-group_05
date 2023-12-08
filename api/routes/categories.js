@@ -2,6 +2,7 @@ const express = require('express');
 
 const {
   readAllCategories, createCategory, deleteCategory, isTitleAlreadyExists,
+// eslint-disable-next-line import/no-unresolved
 } = require('../models/categories');
 
 const router = express.Router();

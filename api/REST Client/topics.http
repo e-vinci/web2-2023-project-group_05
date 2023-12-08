@@ -1,0 +1,107 @@
+@baseUrl = http://localhost:3000
+
+### Read all topic
+GET {{baseUrl}}/topics
+
+### Read all topics with minimum-duration of 140min
+GET {{baseUrl}}/topics/
+
+### Try to read topics with wrong minimum-duration
+GET {{baseUrl}}/topics/
+
+### Read topic with ID == 1
+GET {{baseUrl}}/topics/1
+
+### Read topic which does not exist
+GET {{baseUrl}}/topics/500
+
+### Try to create an existing topic
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+
+{
+    "title":"Star Wars: The Phantom Menace (Episode I)",
+    "description": "lala",
+    "image": "IMAGE.png"
+}
+
+### Try to create a topic with a parameter missing or empty string or string with whitespaces only
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+
+{
+    "title":" ",
+    "description": "lalak",
+    "image": "IMAGE.png"
+}
+
+### Try to create a topic with a wrong budget
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+
+{
+    "title":"Star Wars: The Phantom Menace (Episode I)",
+    "description": "lalan",
+    "image": "IMAGE.png"
+}
+
+### Create a topic
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+
+{
+    "title":"Star Wars: Episode 6666664",
+    "description": "lalasSSS",
+    "image": "IMAGE.png"
+}
+
+### Delete the topic with ID == 2
+DELETE {{baseUrl}}/topics/5
+
+
+### Update topic with ID == 2
+PATCH {{baseUrl}}/topics/2
+Content-Type: application/json
+
+{
+    "title":"Star Wars: Episode II – Attack of the Clones",
+    "description": "lolo"
+}
+
+### Try to update topic with ID == 2 with empty param
+PATCH {{baseUrl}}/topics/2
+Content-Type: application/json
+
+{
+    "title":""
+}
+
+### Update topic with ID == 2
+PUT {{baseUrl}}/topics/6
+Content-Type: application/json
+
+{
+    "title":"Star Wars: Episode II – Attack of the Clones",
+    "description": "lalax",
+    "image": "IMAGE.png"
+}
+
+### Try to update topic with ID == 2 when missing one param
+PUT {{baseUrl}}/topics/2
+Content-Type: application/json
+
+{
+    "title":"Star Wars: Episode II – Attack of the Clones",
+    "description": "lalaq",
+    "image": "IMAGE.png"
+}
+
+### Create new topic with ID == 666
+PUT {{baseUrl}}/topics/666
+Content-Type: application/json
+
+{
+    "title":"Attack of the beast",
+    "description": "lalalu",
+    "image": "IMAGE.png"
+}

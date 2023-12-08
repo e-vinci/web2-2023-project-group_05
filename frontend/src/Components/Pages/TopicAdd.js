@@ -7,7 +7,7 @@ const TopicAdd = () => {
   <button class="buttonForRule">Cliquer ici pour afficher le réglement</button>
   <div class="rule">
   </div>
-  <form class="px-5">
+  <form class="px-5" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="nameTopic">Enter le nom pour le sujet</label>
       <input
@@ -94,16 +94,16 @@ const TopicAdd = () => {
 
   myForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
+  
     const topicToBeCreated = {
       title: title.value,
       description: description.value,
       image: image.value,
     };
-
+    
     addOneTopic(topicToBeCreated);
 
-    Navigate('/topic/add');
+    Navigate('/topic/view');
   });
 };
 
