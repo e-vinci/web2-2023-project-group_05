@@ -7,7 +7,7 @@ const LoginPage = () => {
 };
 
 function renderLoginForm() {
-  const main = document.querySelector('main');
+  const mainLogin = document.querySelector('main');
   const form = document.createElement('form');
   form.className = 'p-5';
   const username = document.createElement('input');
@@ -29,7 +29,7 @@ function renderLoginForm() {
   form.appendChild(username);
   form.appendChild(password);
   form.appendChild(submit);
-  main.appendChild(form);
+  mainLogin.appendChild(form);
 }
 
 export default LoginPage;

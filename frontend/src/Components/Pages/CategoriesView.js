@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/named, no-unused-vars
-import { readAllCategories } from '../../model/categories';
+import readAllCategories from '../../model/categories';
 
 const categoriesView = async () => {
     const viewCategorie = `<div id="categorieWrapper"></div>`;

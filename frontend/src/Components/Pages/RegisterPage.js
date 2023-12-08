@@ -41,7 +41,7 @@ function eventListenerCheckPasswords() {
 }
 
 function renderRegisterForm() {
-  const main = document.querySelector('main');
+  const mainRegister = document.querySelector('main');
   const form = document.createElement('form');
   form.className = 'form p-5';
   const name = document.createElement('input');
@@ -94,8 +94,8 @@ function renderRegisterForm() {
   form.appendChild(password);
   form.appendChild(passwordConfirmation);
   form.appendChild(submit);
-  main.appendChild(form);
-  main.appendChild(span);
+  mainRegister.appendChild(form);
+  mainRegister.appendChild(span);
 }
 
 export default RegisterPage;

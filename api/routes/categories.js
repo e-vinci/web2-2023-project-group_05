@@ -1,8 +1,7 @@
 const express = require('express');
 
 const {
-  // eslint-disable-next-line no-unused-vars
-  readAllCategories, createCategory, deleteCategory, isTitleAlreadyExists,
+  createCategory, deleteCategory, isTitleAlreadyExists,
 // eslint-disable-next-line import/no-unresolved, import/extensions
 } = require('../models/Categories');
 const { getAllCategories } = require('../models/Categories');
