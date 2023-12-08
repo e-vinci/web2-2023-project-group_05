@@ -41,8 +41,8 @@ const TopicAdd = () => {
 </form>  
     `;
 
-  const main = document.querySelector('main');
-  main.innerHTML = addTopic;
+  const mainTopicAdd = document.querySelector('main');
+  mainTopicAdd.innerHTML = addTopic;
 
   const myForm = document.querySelector('.px-5');
 

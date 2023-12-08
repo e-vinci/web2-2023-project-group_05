@@ -1,17 +1,19 @@
 const express = require('express');
 
 const {
-  readAllCategories, createCategory, deleteCategory, isTitleAlreadyExists,
-// eslint-disable-next-line import/no-unresolved
-} = require('../models/categories');
+  createCategory, deleteCategory, isTitleAlreadyExists,
+// eslint-disable-next-line import/no-unresolved, import/extensions
+} = require('../models/Categories');
+const { getAllCategories } = require('../models/Categories');
 
 const router = express.Router();
 
 // read all categories
 router.get('/', (req, res) => {
-  const allCategoriesPotentiallyOrdered = readAllCategories(req?.query?.order);
+  // const allCategoriesPotentiallyOrdered = readAllCategories(req?.query?.order);
+  const getcategorie = getAllCategories();
 
-  return res.json(allCategoriesPotentiallyOrdered);
+  return res.json(getcategorie);
 });
 
 // create topic

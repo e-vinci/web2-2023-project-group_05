@@ -7,7 +7,7 @@ const ResultsPage = () => {
     renderResults();
 };
 
-const main = document.querySelector('main');
+const mainResults = document.querySelector('main');
 const p = document.createElement('p');
 const p2 = document.createElement('p');
 
@@ -40,8 +40,8 @@ function displayCategories(categories) {
         p.appendChild(lineBreak);
         p.appendChild(span);
     });
-    main.appendChild(p2);
-    main.appendChild(p);
+    mainResults.appendChild(p2);
+    mainResults.appendChild(p);
 }
 
 function filterCategories(searchCategory, categories) {

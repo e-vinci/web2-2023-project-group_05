@@ -27,7 +27,7 @@ POST {{baseUrl}}/categories
 Content-Type: application/json
 
 {
-    "title":"Br"
+    "title":"Brrrrrrr"
 }
 
 ### Delete a category
