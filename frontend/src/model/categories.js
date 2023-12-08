@@ -9,5 +9,6 @@ const readAllCategories = async () => {
     }
 };
 
-export default readAllCategories;
+// eslint-disable-next-line import/prefer-default-export
+export { readAllCategories };
 

@@ -1,11 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 
+
+
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
 import TopicView from '../Pages/TopicView';
+import categoriesView from '../Pages/CategoriesView';
+
 
 import logo from '../../img/IMAGE.png';
 
@@ -22,8 +26,13 @@ const Navbar = () => {
   onNavBarClick();
 };
 
+
+
 function renderNavbar() {
+  const viewcettemerde = categoriesView();
   const navbar = document.querySelector('#navbarWrapper');
+
+
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -58,10 +67,12 @@ function renderNavbar() {
             </li>
 
     <!--The beginning of the 'menu déroulant on categories' -->
-    
+
       <ul class="nav-item">
         <li class="categorie">
           <a class="nav-link" href="" data-uri="/categories">Categories</a>
+          <a>${viewcettemerde}</a>
+          
           <ul class="sub-menu">
             <li class="nav-link"><a href="#">Jeux-Vidéo</a></li>
             <li class="nav-link"><a href="#">Films</a></li>
@@ -77,7 +88,7 @@ function renderNavbar() {
               </ul>
             </li>
             <li class="nav-link"><a href="#">Animé</a></li>
-          </ul>
+          </ul>x
         </li>
       </ul>
     
