@@ -25,15 +25,10 @@ const categoriesTable = [
 
 ];
 
-function getAllCategories() {
-  const categories = parse(jsonDbPath, categoriesTable);
-  return categories;
-}
-
 function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
-  const categories = parse(jsonDbPath);
+  const categories = parse(jsonDbPath, categoriesTable);
   // eslint-disable-next-line max-len
   if (orderByTitle) orderedCategoriesTable = [...categories].sort((a, b) => a.title.localeCompare(b.title));
   if (orderByTitle === '-title') orderedCategoriesTable = orderedCategoriesTable.reverse();
@@ -94,7 +89,6 @@ function isTitleAlreadyExists(title) {
 }
 
 module.exports = {
-  getAllCategories,
   createCategory,
   readAllCategories,
   deleteCategory,
