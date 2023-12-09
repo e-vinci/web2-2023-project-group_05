@@ -1,6 +1,6 @@
 const readAllTopics = async () => {
     try {
-      const res = await fetch('/api/topic/view');
+      const res = await fetch('/api/topics');
       const TopicView = await res.json();
       return TopicView;
     } catch (err) {
@@ -19,11 +19,12 @@ const readAllTopics = async () => {
         },
       };
   
-      const response = await fetch('/api/topic/add', options);
-  
+      const response = await fetch(`/api/topics`, options);
+
       const createdTopic = await response.json();
-  
+      
       return createdTopic;
+
     } catch (err) {
       console.error('addOneTopic::error: ', err);
       throw err;
@@ -36,7 +37,7 @@ const readAllTopics = async () => {
         method: 'DELETE',
       };
   
-      const response = await fetch(`/api/topic/${id}`, options);
+      const response = await fetch(`/api/topics/${id}`, options);
   
       const deletedTopic = await response.json();
   
@@ -57,7 +58,7 @@ const readAllTopics = async () => {
         },
       };
   
-      const response = await fetch(`/api/topic/${id}`, options);
+      const response = await fetch(`/api/topics/${id}`, options);
   
       const updatedTopic = await response.json();
   
