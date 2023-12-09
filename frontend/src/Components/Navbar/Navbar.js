@@ -66,7 +66,7 @@ function renderNavbar() {
 
       <ul class="nav-item">
         <li class="categorie">
-          <a class="nav-link" href="" data-uri="/categories">Categories</a>
+          <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
           <a>${viewcettemerde}</a>
           
           <ul class="sub-menu">
