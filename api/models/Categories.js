@@ -3,8 +3,6 @@ const { serialize, parse } = require('../utils/json');
 
 const jsonDbPath = path.join(__dirname, '/../data/categories.json');
 
-// const categoriesTable = [];
-
 function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
