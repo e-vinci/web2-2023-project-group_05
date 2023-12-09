@@ -1,6 +1,4 @@
-### Read all topics
 @baseUrl = http://localhost:3000
-GET {{baseUrl}}/categories
 
 ### Read all topics sorted by title (ascending)
 GET {{baseUrl}}/categories/?order=+title
