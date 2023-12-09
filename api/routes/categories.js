@@ -1,10 +1,10 @@
 const express = require('express');
 
 const {
-  createCategory, deleteCategory, isTitleAlreadyExists,
+  createCategory, deleteCategory, isTitleAlreadyExists, getAllCategories,
 // eslint-disable-next-line import/no-unresolved, import/extensions
-} = require('../models/categories');
-const { getAllCategories } = require('../models/categories');
+} = require('../models/Categories');
+// eslint-disable-next-line import/no-unresolved
 
 const router = express.Router();
 

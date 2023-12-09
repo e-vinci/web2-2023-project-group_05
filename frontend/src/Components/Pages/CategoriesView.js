@@ -1,4 +1,6 @@
-import readAllCategories from '../../model/categories';
+
+import { getAllCategories } from '../../model/categories';
+
 
 const categoriesView = async () => {
     const viewCategorie = `<div id="categorieWrapper"></div>`;
@@ -8,7 +10,7 @@ const categoriesView = async () => {
   
     const categorieWrapper = document.querySelector('#categorieWrapper');
   
-    const categorie = await readAllCategories();
+    const categorie = await getAllCategories();
   
     const categorieAsHtmlTable = getHtmlCategorieTableAsString(categorie);
   

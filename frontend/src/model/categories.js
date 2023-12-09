@@ -1,14 +1,15 @@
-const readAllCategories = async () => {
+const getAllCategories = async () => {
     try {
         const response = await fetch('/api/categories');
         const categories = await response.json();
         return categories;
     } catch (err) {
-        console.error('readAllCategories::error', err);
+        console.error('getAllCategories::error', err);
         throw err;
     }
 };
 
 
-export default readAllCategories;
+// eslint-disable-next-line import/prefer-default-export
+export { getAllCategories } ;
 

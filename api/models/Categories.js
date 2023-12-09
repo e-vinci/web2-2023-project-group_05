@@ -22,6 +22,9 @@ const categoriesTable = [
   {
     title: 'tien tienn',
   },
+  {
+    title: 'tien tienn',
+  },
 
 ];
 

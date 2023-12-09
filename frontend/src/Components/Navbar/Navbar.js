@@ -4,7 +4,6 @@ import { Navbar as BootstrapNavbar } from 'bootstrap';
 
 
 
-import categoriesView from '../Pages/CategoriesView';
 
 
 
@@ -25,7 +24,7 @@ const Navbar = () => {
 
 
 function renderNavbar() {
-  const viewcettemerde = categoriesView();
+
   const navbar = document.querySelector('#navbarWrapper');
 
 
@@ -64,29 +63,14 @@ function renderNavbar() {
 
     <!--The beginning of the 'menu déroulant on categories' -->
 
-      <ul class="nav-item">
-        <li class="categorie">
+     
+        <li class="nav-item">
+
           <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
-          <a>${viewcettemerde}</a>
-          
-          <ul class="sub-menu">
-            <li class="nav-link"><a href="#">Jeux-Vidéo</a></li>
-            <li class="nav-link"><a href="#">Films</a></li>
-            <li class="nav-link"><a href="#">Séries</a></li>
-            
-            <li class="nav-link" id="livres">
-              <a href="#">Livres</a>
-              <ul class="sous-sub">
-                <li class="nav-link"><a href="#">Rejoindre sujet deja existant</a></li>
-                
-                
-                
-              </ul>
-            </li>
-            <li class="nav-link"><a href="#">Animé</a></li>
-          </ul>x
+
         </li>
-      </ul>
+      
+      
     
     <!-- the end of the 'menu deroulant' for categories  -->
 
