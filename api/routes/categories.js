@@ -3,8 +3,8 @@ const express = require('express');
 const {
   createCategory, deleteCategory, isTitleAlreadyExists,
 // eslint-disable-next-line import/no-unresolved, import/extensions
-} = require('../models/Categories');
-const { getAllCategories } = require('../models/Categories');
+} = require('../models/categories');
+const { getAllCategories } = require('../models/categories');
 
 const router = express.Router();
 
