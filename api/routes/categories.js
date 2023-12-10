@@ -4,14 +4,14 @@ const {
   createCategory, deleteCategory, isTitleAlreadyExists,
 // eslint-disable-next-line import/no-unresolved, import/extensions
 } = require('../models/Categories');
-const { getAllCategories } = require('../models/Categories');
+const { readAllCategories } = require('../models/Categories');
 
 const router = express.Router();
 
 // read all categories
 router.get('/', (req, res) => {
   // const allCategoriesPotentiallyOrdered = readAllCategories(req?.query?.order);
-  const getcategorie = getAllCategories();
+  const getcategorie = readAllCategories();
 
   return res.json(getcategorie);
 });
