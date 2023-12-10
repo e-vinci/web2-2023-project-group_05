@@ -123,3 +123,33 @@ h1, #title{
   width: 100%;
   /* Ajoutez d'autres styles nécessaires */
 }
+
+
+
+/* Ajoutez ces styles dans votre fichier CSS ou dans une balise <style> dans le document */
+.dialog-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  margin-left: 10%;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.dialog-button:hover {
+  background-color:#703d79;
+}
+
+/* Ajoutez ces styles dans votre fichier CSS ou dans une balise <style> dans le document */
+.dialog-content {
+ margin-left: 10%;
+ font-weight: bold;
+
+ 
+}
+
+
