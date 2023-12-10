@@ -9,7 +9,7 @@ const TopicAdd = () => {
   </div>
   <form class="px-5" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="nameTopic">Enter le nom pour le sujet</label>
+      <label for="nameTopic">Enter le nom pour le sujet.</label>
       <input
         class="form-control"
         type="text"
