@@ -1,5 +1,6 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 import readAllCategories from '../../model/categories';
+import Navigate from '../Router/Navigate';
 
 const ResultsPage = () => {
     clearPage();
@@ -17,10 +18,10 @@ async function renderResults() {
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        Navigate('/results');
 
         p.innerHTML = '';
         p2.innerHTML = '';
-
 
         const categories = await readAllCategories();
 
@@ -34,10 +35,7 @@ function displayCategories(categories) {
 
     categories.forEach((category) => {
         const span = document.createElement('span');
-        const lineBreak = document.createElement('span');
-        span.innerHTML = category.title;
-        lineBreak.innerHTML = '<br>';
-        p.appendChild(lineBreak);
+        span.innerHTML = `${category.title}<br>`;
         p.appendChild(span);
     });
     mainResults.appendChild(p2);
