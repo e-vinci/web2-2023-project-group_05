@@ -3,6 +3,8 @@ import { addOneTopic } from '../../model/topic';
 
 const TopicAdd = () => {
   const addTopic = `
+  <section class="hero">
+      <div class="hero-text">
     <h3>Reglement :</h3>
   <button class="buttonForRule">Cliquer ici pour afficher le réglement</button>
   <div class="rule">
@@ -39,6 +41,8 @@ const TopicAdd = () => {
     </div>
     <input type="submit" class="btn btn-primary" value="Add Topic" />
 </form>  
+</div>
+</section>
     `;
 
   const mainTopicAdd = document.querySelector('main');
