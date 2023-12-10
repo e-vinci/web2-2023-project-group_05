@@ -3,11 +3,11 @@ import { clearPage, renderPageTitle } from '../../utils/render';
 const LoginPage = () => {
   clearPage();
   renderPageTitle('Login');
-  renderRegisterForm();
+  renderLoginForm();
 };
 
-function renderRegisterForm() {
-  const main = document.querySelector('main');
+function renderLoginForm() {
+  const mainLogin = document.querySelector('main');
   const form = document.createElement('form');
   form.className = 'p-5';
   const username = document.createElement('input');
@@ -29,7 +29,7 @@ function renderRegisterForm() {
   form.appendChild(username);
   form.appendChild(password);
   form.appendChild(submit);
-  main.appendChild(form);
+  mainLogin.appendChild(form);
 }
 
 export default LoginPage;

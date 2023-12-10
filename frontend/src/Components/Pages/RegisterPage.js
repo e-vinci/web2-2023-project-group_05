@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import validator from 'validator';
 import { clearPage, renderPageTitle } from '../../utils/render';
+import addOneUser from '../../model/users';
 import Navigate from '../Router/Navigate';
 
 const RegisterPage = () => {
@@ -12,37 +11,37 @@ const RegisterPage = () => {
 
 function eventListenerCheckPasswords() {
   const form = document.querySelector('.form');
+  const username = document.querySelector('#username');
   const password = document.querySelector('.password');
   const passwordConfirmation = document.querySelector('.passwordConfirmation');
   const span = document.querySelector('.error');
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
     let isOk = true;
 
     if(password.value !== passwordConfirmation.value) {
-      e.preventDefault();
       span.innerHTML = "Passwords don't match";
       span.className = 'alert alert-danger m-5';
       span.role = 'alert';
       isOk = false;
       Navigate('/register');
     }
-    if(!validator.isStrongPassword(password.value)) {
-      e.preventDefault();
-      span.innerHTML = "The password is not strong enough";
-      span.className = 'alert alert-danger m-5';
-      span.role = 'alert';
-      isOk = false;
-      Navigate('/register');
-    }
+    
     if(isOk) {
+      const createUser = {
+        username: username.value,
+        password: password.value,
+      };
+      await addOneUser(createUser);
+
       Navigate('/login');
     }
   });
 }
 
 function renderRegisterForm() {
-  const main = document.querySelector('main');
+  const mainRegister = document.querySelector('main');
   const form = document.createElement('form');
   form.className = 'form p-5';
   const name = document.createElement('input');
@@ -95,8 +94,8 @@ function renderRegisterForm() {
   form.appendChild(password);
   form.appendChild(passwordConfirmation);
   form.appendChild(submit);
-  main.appendChild(form);
-  main.appendChild(span);
+  mainRegister.appendChild(form);
+  mainRegister.appendChild(span);
 }
 
 export default RegisterPage;
