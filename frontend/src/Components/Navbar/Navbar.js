@@ -1,14 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
-
-
-
-
-
-
-
 import logo from '../../img/IMAGE.png';
-
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -21,12 +13,9 @@ const Navbar = () => {
   renderNavbar();
 };
 
-
-
 function renderNavbar() {
 
   const navbar = document.querySelector('#navbarWrapper');
-
 
   navbar.innerHTML = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -97,8 +86,6 @@ function renderNavbar() {
        <img class= "logo" src="${logo}" data-uri="/">
       </a>
         <a class="navbar-brand" href="/">La grande critique</a>
-        
-        
         <button
           class="navbar-toggler"
           type="button"
@@ -131,11 +118,12 @@ function renderNavbar() {
           <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
 
         </li>
-      
-      
-    
-    <!-- the end of the 'menu deroulant' for categories  -->
 
+        <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#" data-uri="/chat">Chat</a>
+            </li>
+
+    <!-- the end of the 'menu deroulant' for categories  -->
 
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>
