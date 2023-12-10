@@ -1,6 +1,7 @@
 
 import { getAllCategories } from '../../model/categories';
 
+let existingDialog = null;
 
 const categoriesView = async () => {
     const viewCategorie = `<div id="categorieWrapper"></div>`;
@@ -19,34 +20,54 @@ const categoriesView = async () => {
     const categorieElements = document.querySelectorAll('.categorie');
 
     categorieElements.forEach((categorieElement) => {
-      categorieElement.addEventListener('click', () => {
-          const title = categorieElement.getAttribute('data-title');
-  
-          const dialog = document.createElement('div');
-          dialog.innerHTML = `
-              <p class="dialog-content">Tu as choisi ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
-              <button id="rejoindreBtn" class="dialog-button">Rejoindre</button>
-              <button id="creerBtn" class="dialog-button">Créer</button>
-          `;
-  
-          // Ajoute la boîte de dialogue à la page
-          document.body.appendChild(dialog);
-  
-          // Ajoute des gestionnaires d'événements pour les boutons
-          document.getElementById('rejoindreBtn').addEventListener('click', () => {
-              // Redirige vers la page de rejoindre un sujet déjà existant
-              window.location.href = '/topic/view';
-              document.body.removeChild(dialog); // Supprime la boîte de dialogue
-          });
-  
-          document.getElementById('creerBtn').addEventListener('click', () => {
-              // Redirige vers la page de création d'un nouveau sujet
-              window.location.href = '/topic/add';
-              document.body.removeChild(dialog); // Supprime la boîte de dialogue
-          });
-      });
-  });
-}; 
+        categorieElement.addEventListener('click', () => {
+            const title = categorieElement.getAttribute('data-title');
+
+            // Vérifie si le dialogue existe déjà
+            if (!existingDialog) {
+                existingDialog = document.createElement('div');
+                existingDialog.innerHTML = `
+                    <p class="dialog-content">Tu as choisi ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
+                    <button id="rejoindreBtn" class="dialog-button">Rejoindre</button>
+                    <button id="creerBtn" class="dialog-button">Créer</button>
+                `;
+
+                // Ajoute la boîte de dialogue à la page
+                document.body.appendChild(existingDialog);
+
+                // Ajoute des gestionnaires d'événements pour les boutons
+                document.getElementById('rejoindreBtn').addEventListener('click', () => {
+                    // Redirige vers la page de rejoindre un sujet déjà existant
+                    window.location.href = '/topic/view';
+                    document.body.removeChild(existingDialog); // Supprime la boîte de dialogue
+                    existingDialog = null; // Réinitialise le dialogue
+                });
+
+                document.getElementById('creerBtn').addEventListener('click', () => {
+                    // Redirige vers la page de création d'un nouveau sujet
+                    window.location.href = '/topic/add';
+                    document.body.removeChild(existingDialog); // Supprime la boîte de dialogue
+                    existingDialog = null; // Réinitialise le dialogue
+                });
+            } else {
+                // Met à jour le contenu du dialogue existant
+                existingDialog.querySelector('.dialog-content').innerHTML = `Tu as choisi ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!`;
+            }
+        });
+    });
+
+    // Gestionnaire d'événements pour les liens de changem  ent de page
+    const pageLinks = document.querySelectorAll('a'); // Modifiez le sélecteur selon votre structure HTML
+    pageLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            // Supprime le dialogue existant avant de quitter la page
+            if (existingDialog) {
+                document.body.removeChild(existingDialog);
+                existingDialog = null;
+            }
+        });
+    });
+};
   
 
   function getHtmlCategorieTableAsString(categorie){
