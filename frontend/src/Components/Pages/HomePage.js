@@ -25,8 +25,8 @@ const HomePage = () => {
         </span>
   </div>
 </section>
-  
   `;
+  
 };
 
 export default HomePage;
