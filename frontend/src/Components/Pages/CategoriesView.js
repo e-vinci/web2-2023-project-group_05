@@ -1,4 +1,6 @@
-import readAllCategories from '../../model/categories';
+
+import { getAllCategories } from '../../model/categories';
+
 
 const categoriesView = async () => {
     const viewCategorie = `<div id="categorieWrapper"></div>`;
@@ -8,14 +10,44 @@ const categoriesView = async () => {
   
     const categorieWrapper = document.querySelector('#categorieWrapper');
   
-    const categorie = await readAllCategories();
+    const categorie = await getAllCategories();
   
     const categorieAsHtmlTable = getHtmlCategorieTableAsString(categorie);
   
     categorieWrapper.innerHTML = categorieAsHtmlTable;
+
+    const categorieElements = document.querySelectorAll('.categorie');
+
+    categorieElements.forEach((categorieElement) => {
+      categorieElement.addEventListener('click', () => {
+          const title = categorieElement.getAttribute('data-title');
   
-    
-  };
+          const dialog = document.createElement('div');
+          dialog.innerHTML = `
+              <p class="dialog-content">Tu as choisi ${title}. Tu as le choix entre rejoindre un déjà existant ou en créer un !</p>
+              <button id="rejoindreBtn" class="dialog-button">Rejoindre</button>
+              <button id="creerBtn" class="dialog-button">Créer</button>
+          `;
+  
+          // Ajoute la boîte de dialogue à la page
+          document.body.appendChild(dialog);
+  
+          // Ajoute des gestionnaires d'événements pour les boutons
+          document.getElementById('rejoindreBtn').addEventListener('click', () => {
+              // Redirige vers la page de rejoindre un sujet déjà existant
+              window.location.href = '/topic/view';
+              document.body.removeChild(dialog); // Supprime la boîte de dialogue
+          });
+  
+          document.getElementById('creerBtn').addEventListener('click', () => {
+              // Redirige vers la page de création d'un nouveau sujet
+              window.location.href = '/topic/add';
+              document.body.removeChild(dialog); // Supprime la boîte de dialogue
+          });
+      });
+  });
+}; 
+  
 
   function getHtmlCategorieTableAsString(categorie){
     if(categorie?.length === undefined || categorie.length === 0){
@@ -33,7 +65,7 @@ const categoriesView = async () => {
         .map(
           (element) => `
           <tr>
-            <td class="fw-bold text-info" contenteditable="true">${element.title}</td>
+           <td class="categorie" data-title="${element.title}"> <a href = "#">${element.title} </a></td>
             
           </tr>
           `,
@@ -43,6 +75,11 @@ const categoriesView = async () => {
       
       return htmlCategorieTable;
   }
+
+  
+
+  // cree un addevent listener pour quand je clique sur element.title il renvoie un pop up.
+  // Dans ce pop up il y'aura 2 choix soit rejoindre soit cree qui renverront des hfref et data uri qui renverrotn bref comprend
   
   
 

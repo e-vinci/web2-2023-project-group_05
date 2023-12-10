@@ -1,15 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
-
-
-
-
-import categoriesView from '../Pages/CategoriesView';
-
-
-
 import logo from '../../img/IMAGE.png';
-
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -22,12 +13,9 @@ const Navbar = () => {
   renderNavbar();
 };
 
-
-
 function renderNavbar() {
-  const viewcettemerde = categoriesView();
-  const navbar = document.querySelector('#navbarWrapper');
 
+  const navbar = document.querySelector('#navbarWrapper');
 
   navbar.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,8 +24,6 @@ function renderNavbar() {
        <img class= "logo" src="${logo}" data-uri="/">
       </a>
         <a class="navbar-brand" href="/">La grande critique</a>
-        
-        
         <button
           class="navbar-toggler"
           type="button"
@@ -64,32 +50,18 @@ function renderNavbar() {
 
     <!--The beginning of the 'menu déroulant on categories' -->
 
-      <ul class="nav-item">
-        <li class="categorie">
-          <a class="nav-link" href="" data-uri="/categories">Categories</a>
-          <a>${viewcettemerde}</a>
-          
-          <ul class="sub-menu">
-            <li class="nav-link"><a href="#">Jeux-Vidéo</a></li>
-            <li class="nav-link"><a href="#">Films</a></li>
-            <li class="nav-link"><a href="#">Séries</a></li>
-            
-            <li class="nav-link" id="livres">
-              <a href="#">Livres</a>
-              <ul class="sous-sub">
-                <li class="nav-link"><a href="#">Rejoindre sujet deja existant</a></li>
-                
-                
-                
-              </ul>
-            </li>
-            <li class="nav-link"><a href="#">Animé</a></li>
-          </ul>x
-        </li>
-      </ul>
-    
-    <!-- the end of the 'menu deroulant' for categories  -->
+     
+        <li class="nav-item">
 
+          <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+
+        </li>
+
+        <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#" data-uri="/chat">Chat</a>
+            </li>
+
+    <!-- the end of the 'menu deroulant' for categories  -->
 
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>

@@ -5,8 +5,8 @@ import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
 import TopicView from '../Pages/TopicView'
 import ResultsPage from '../Pages/ResultsPage';
-import LoginAdminPage from '../Pages/LoginAdminPage';
-
+import CategoriesView from '../Pages/CategoriesView';
+import Chat from '../Pages/Chat'; 
 
 const routes = {
   '/': HomePage,
@@ -16,7 +16,8 @@ const routes = {
   '/topic/add': TopicAdd,
   '/topic/view': TopicView,
   '/results': ResultsPage, 
-  '/login/admin': LoginAdminPage,
+  '/categories/view': CategoriesView,
+  '/chat': Chat,
 };
 
 export default routes;
