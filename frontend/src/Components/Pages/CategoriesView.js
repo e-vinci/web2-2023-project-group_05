@@ -24,7 +24,7 @@ const categoriesView = async () => {
   
           const dialog = document.createElement('div');
           dialog.innerHTML = `
-              <p class="dialog-content">Tu as choisi ${title}. Tu as le choix entre rejoindre un déjà existant ou en créer un !</p>
+              <p class="dialog-content">Tu as choisi ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
               <button id="rejoindreBtn" class="dialog-button">Rejoindre</button>
               <button id="creerBtn" class="dialog-button">Créer</button>
           `;
@@ -78,8 +78,7 @@ const categoriesView = async () => {
 
   
 
-  // cree un addevent listener pour quand je clique sur element.title il renvoie un pop up.
-  // Dans ce pop up il y'aura 2 choix soit rejoindre soit cree qui renverront des hfref et data uri qui renverrotn bref comprend
+  
   
   
 
