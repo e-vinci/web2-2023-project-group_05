@@ -25,6 +25,68 @@ const Navbar = () => {
 function renderNavbar() {
   const navbar = document.querySelector('#navbarWrapper');
   navbar.innerHTML = `
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+  <a class="nav-link" href="#" data-uri="/">        
+   <img class= "logo" src="${logo}" data-uri="/">
+  </a>
+    <a class="navbar-brand" href="/">La grande critique</a>
+
+    <ul>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="" data-uri="/">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#" data-uri="/topic/add">Crée un sujet</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#" data-uri="/topic/view">Voir un sujet</a>
+        </li>
+
+<!--The beginning of the 'menu déroulant on categories' -->
+
+  <ul class="nav-item">
+    <li class="categorie">
+      <a class="nav-link" href="" data-uri="/categories">Categories</a>
+      <ul class="sub-menu">
+        <li class="nav-link"><a href="#">Jeux-Vidéo</a></li>
+        <li class="nav-link"><a href="#">Films</a></li>
+        <li class="nav-link"><a href="#">Séries</a></li>
+        
+        <li class="nav-link" id="livres">
+          <a href="#">Livres</a>
+          <ul class="sous-sub">
+            <li class="nav-link"><a href="#">Rejoindre sujet deja existant</a></li>
+          </ul>
+        </li>
+        <li class="nav-link"><a href="#">Animé</a></li>
+      </ul>
+    </li>
+  </ul>
+
+<!-- the end of the 'menu deroulant' for categories  -->
+
+
+        <li id="loginItem" class="nav-item">
+          <a class="nav-link" href="#" data-uri="/login">Connexion</a>
+        </li>
+        <li id="registerItem" class="nav-item">
+          <a class="nav-link" href="#" data-uri="/register">Inscription</a>
+        </li>
+      </ul>
+      <form action="/results" id="searchForm">
+        <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
+        <input type="submit" name="submit" id="submit" value"Search" />
+      </form>
+    </div>
+  </div>
+</nav>
+
+  `;
+
+    /*
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
       <a class="nav-link" href="#" data-uri="/">        
@@ -98,7 +160,7 @@ function renderNavbar() {
         </div>
       </div>
     </nav>
-  `;
+    */
 }
 
 function onNavBarClick() {
