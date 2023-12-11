@@ -1,4 +1,4 @@
-const getAllCategories = async () => {
+const readAllCategories = async () => {
     try {
         const response = await fetch('/api/categories');
         const categories = await response.json();
@@ -11,5 +11,5 @@ const getAllCategories = async () => {
 
 
 // eslint-disable-next-line import/prefer-default-export
-export { getAllCategories } ;
+export { readAllCategories } ;
 

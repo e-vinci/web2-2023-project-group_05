@@ -1,5 +1,6 @@
 
-import { getAllCategories } from '../../model/categories';
+import { readAllCategories } from '../../model/categories';
+
 
 let existingDialog = null;
 
@@ -11,7 +12,7 @@ const categoriesView = async () => {
   
     const categorieWrapper = document.querySelector('#categorieWrapper');
   
-    const categorie = await getAllCategories();
+    const categorie = await readAllCategories('title');
   
     const categorieAsHtmlTable = getHtmlCategorieTableAsString(categorie);
   

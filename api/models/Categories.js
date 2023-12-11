@@ -30,6 +30,7 @@ const categoriesTable = [
 
 function getAllCategories() {
   const categories = parse(jsonDbPath, categoriesTable);
+
   return categories;
 }
 
