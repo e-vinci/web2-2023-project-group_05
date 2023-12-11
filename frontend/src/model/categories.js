@@ -1,6 +1,6 @@
 const readAllCategories = async () => {
     try {
-        const response = await fetch('/api/categories');
+        const response = await fetch('/api/categories/?order=title');
         const categories = await response.json();
         return categories;
     } catch (err) {
@@ -10,6 +10,18 @@ const readAllCategories = async () => {
 };
 
 
+
+const deleteCategory = async () => {
+    try {
+        const response = await fetch('/api/categories/?id=?');
+        const categories = await response.json();
+        return categories;
+    } catch (err) {
+        console.error('deleteCategory::error', err);
+        throw err;
+    }
+};
+
 // eslint-disable-next-line import/prefer-default-export
-export { readAllCategories } ;
+export { readAllCategories, deleteCategory } ;
 

@@ -1,5 +1,4 @@
-
-import { readAllCategories } from '../../model/categories';
+import { readAllCategories, deleteCategory } from '../../model/categories';
 
 
 let existingDialog = null;
@@ -17,6 +16,24 @@ const categoriesView = async () => {
     const categorieAsHtmlTable = getHtmlCategorieTableAsString(categorie);
   
     categorieWrapper.innerHTML = categorieAsHtmlTable;
+
+    const buttonDelete = document.querySelector('#BtnDelete');
+    buttonDelete.forEach(async (button) => {
+    button.addEventListener('click', async () => {
+        // Récupérer le titre de la catégorie associée à ce bouton
+        const categoryTitle = button.parentNode.previousElementSibling.querySelector('.categorie').dataset.title;
+
+        // Appeler la fonction deleteCategory
+        try {
+            await deleteCategory(categoryTitle);
+            // Rafraîchir la vue des catégories après la suppression
+            await categoriesView();
+        } catch (error) {
+            console.error('Erreur lors de la suppression de la catégorie :', error);
+        }
+    });
+});
+
 
     const categorieElements = document.querySelectorAll('.categorie');
 
@@ -69,7 +86,7 @@ const categoriesView = async () => {
         });
     });
 };
-  
+
 
   function getHtmlCategorieTableAsString(categorie){
     if(categorie?.length === undefined || categorie.length === 0){
@@ -88,12 +105,14 @@ const categoriesView = async () => {
           (element) => `
           <tr>
            <td class="categorie" data-title="${element.title}"> <a href = "#">${element.title} </a></td>
+           <td style ="text-align: right"><button id="BtnDelete">delete </button/></td>
             
           </tr>
           `,
         )
         .join('')}
         </tbody></table>`;
+
       
       return htmlCategorieTable;
   }
