@@ -27,7 +27,6 @@ function getHtmlTopicTableAsString(topics){
   <tr>
   <th scope = "col">Title</th>
   <th scope = "col">Description</th>
-  <th scope = "col">Image </th>
   </tr>
   </thead>
   <tbody>
@@ -37,7 +36,6 @@ function getHtmlTopicTableAsString(topics){
         <tr>
           <td class="fw-bold text-info" contenteditable="true">${element.title}</td>
           <td class="text-info" contenteditable="true">${element.description}</td>
-          <td class="text-info" contenteditable="true">${element.image}</td>
           <td>
             <button type="button" class="btn btn-info delete" data-element-id="${element.id}">Delete</button>
           </td>
@@ -69,12 +67,10 @@ function attachEventListeners() {
       const { elementId } = e.target.dataset;
 
       const topicRow = e.target.parentElement.parentElement;
-      const fileInput = topicRow.querySelector('.file-input');
 
       const newTopicData = {
         title: topicRow.children[0].innerText,
         description: topicRow.children[1].innerText,
-        image: fileInput.files[0],
       };
       await updateOneTopic(elementId, newTopicData);
       TopicView();

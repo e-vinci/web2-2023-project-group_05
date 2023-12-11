@@ -27,16 +27,6 @@ const TopicAdd = () => {
             required
         ></textarea>
     </div>
-    <div class="mb-3">
-      <label for="imageTopic">ajouter une image representant le sujet</label>
-      <input
-        class="form-control"
-        type="file"
-        name="image"
-        id="image"
-        required
-      />
-    </div>
     <input type="submit" class="btn btn-primary" value="Add Topic" />
 </form>  
     `;
@@ -48,7 +38,6 @@ const TopicAdd = () => {
 
   const title = document.querySelector('#title');
   const description = document.querySelector('#description');
-  const image = document.querySelector('#image');
 
   const buttonRule = document.querySelector('.buttonForRule');
 
@@ -98,7 +87,6 @@ const TopicAdd = () => {
     const topicToBeCreated = {
       title: title.value,
       description: description.value,
-      image: image.value,
     };
     
     addOneTopic(topicToBeCreated);

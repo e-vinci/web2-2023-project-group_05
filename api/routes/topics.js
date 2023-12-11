@@ -33,14 +33,13 @@ router.post('/', (req, res) => {
   const title = req?.body?.title?.trim()?.length !== 0 ? req.body.title : undefined;
   // eslint-disable-next-line max-len
   const description = req?.body?.description?.trim()?.length !== 0 ? req.body.description : undefined;
-  const image = req?.body?.image?.trim()?.length !== 0 ? req.body.image : undefined;
 
-  if (!title || !description || !image) {
+  if (!title || !description) {
     console.log('Validation failed. Sending 400 error.');
     return res.sendStatus(400);
   }
 
-  const createdTopic = createOneTopic(title, description, image);
+  const createdTopic = createOneTopic(title, description);
   return res.json(createdTopic);
 });
 
@@ -57,13 +56,11 @@ router.delete('/:id', (req, res) => {
 router.patch('/:id', (req, res) => {
   const title = req?.body?.title;
   const description = req?.body?.description;
-  const image = req?.body?.image;
 
   if (
     !req.body
     || (title !== undefined && !title.trim())
     || (description !== undefined && !description.trim())
-    || image !== undefined
   ) return res.sendStatus(400);
 
   const updatedFilm = updatePartiallyOneTopic(req?.params?.id, req?.body);
@@ -78,7 +75,6 @@ router.patch('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   const title = req?.body?.title;
   const link = req?.body?.link;
-  const image = req?.body?.image;
 
   if (
     !req.body
@@ -86,7 +82,6 @@ router.put('/:id', (req, res) => {
     || !title.trim()
     || !link
     || !link.trim()
-    || image !== undefined
   ) return res.sendStatus(400);
 
   const updatedFilmOrNewFilm = updateFullyOneTopicOrCreateOneTopic(req?.params?.id, req?.body);
