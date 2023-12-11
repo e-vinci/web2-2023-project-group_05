@@ -36,7 +36,7 @@ function getAllCategories() {
 function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
-  const categories = parse(jsonDbPath, categoriesTable);
+  const categories = parse(jsonDbPath);
   // eslint-disable-next-line max-len
   if (orderByTitle) orderedCategoriesTable = [...categories].sort((a, b) => a.title.localeCompare(b.title));
   if (orderByTitle === '-title') orderedCategoriesTable = orderedCategoriesTable.reverse();
@@ -47,8 +47,6 @@ function readAllCategories(orderBy) {
 
 function createCategory(title) {
   const categories = parse(jsonDbPath);
-
-  console.log('TOPICS', categories);
 
   const newCategory = {
     id: getNextId(),
@@ -80,10 +78,10 @@ function getDateNow() {
   const date = new Date();
   return `Ajouté le ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} à  ${date.getHours()}:${date.getMinutes()} `;
 }
-function deleteCategory(id) {
-  const idAsNumber = Number(id);
+function deleteCategory(title) {
   const categories = parse(jsonDbPath);
-  const foundIndex = categories.findIndex((category) => category.id === idAsNumber);
+  const theTitle = title;
+  const foundIndex = categories.findIndex((category) => category.title === theTitle);
   if (foundIndex < 0) return undefined;
   const deletedCategories = categories.splice(foundIndex, 1);
   const deletedCategorie = deletedCategories[0];
