@@ -36,7 +36,7 @@ function getAllCategories() {
 function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
-  const categories = parse(jsonDbPath, categoriesTable);
+  const categories = parse(jsonDbPath);
   // eslint-disable-next-line max-len
   if (orderByTitle) orderedCategoriesTable = [...categories].sort((a, b) => a.title.localeCompare(b.title));
   if (orderByTitle === '-title') orderedCategoriesTable = orderedCategoriesTable.reverse();
@@ -47,8 +47,6 @@ function readAllCategories(orderBy) {
 
 function createCategory(title) {
   const categories = parse(jsonDbPath);
-
-  console.log('TOPICS', categories);
 
   const newCategory = {
     id: getNextId(),
