@@ -1,3 +1,5 @@
+import { getAuthenticatedUser } from '../utils/auths';
+
 const readAllTopics = async () => {
     try {
       const res = await fetch('/api/topics');
@@ -11,11 +13,13 @@ const readAllTopics = async () => {
 
   const addOneTopic = async (topic) => {
     try {
+      const authenticatedUser = getAuthenticatedUser();
       const options = {
         method: 'POST',
         body: JSON.stringify(topic),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authenticatedUser.token,
         },
       };
   
@@ -33,8 +37,13 @@ const readAllTopics = async () => {
 
   const deleteOneTopic = async (id) => {
     try {
+      const authenticatedUser = getAuthenticatedUser();
       const options = {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: authenticatedUser.token,
+        },
       };
   
       const response = await fetch(`/api/topics/${id}`, options);

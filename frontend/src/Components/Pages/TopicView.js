@@ -49,6 +49,8 @@ function getHtmlTopicTableAsString(topics){
             <button type="button" class="btn btn-info update" data-element-id="${element.id}">Save</button>
           </td>
         </tr>
+        <span class="error"></span>
+
         `,
       )
       .join('')}
@@ -59,12 +61,21 @@ function getHtmlTopicTableAsString(topics){
 
 function attachEventListeners() {
   const topicWrapper = document.querySelector('#topicWrapper');
+  const span = document.querySelector('.error');
 
   topicWrapper.querySelectorAll('.delete').forEach((button) => {
     button.addEventListener('click', async (e) => {
       const { elementId } = e.target.dataset;
+      
+      try {
       await deleteOneTopic(elementId);
       TopicView();
+    } catch (error) {
+      console.error(error);
+      
+      span.innerHTML = "error.message"; 
+    }
+
     });
   });
 

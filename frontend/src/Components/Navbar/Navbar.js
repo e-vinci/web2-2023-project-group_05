@@ -12,6 +12,7 @@ const Navbar = () => {
 function renderNavbar() {
 
   const authenticatedUserName = getAuthenticatedUser();
+  const isAdmin = authenticatedUserName && authenticatedUserName.isAdmin;
 
   const unauthenticatedUser = `
 <div class="logo-container">
@@ -178,11 +179,10 @@ function renderNavbar() {
   const navbar = document.querySelector('#navbarWrapper');
 
   if (isAuthenticated()) {
-    const isAdmin = authenticatedUserAsAdmin === authenticatedUser;
     navbar.innerHTML = isAdmin ? authenticatedUserAsAdmin : authenticatedUser;
   } else {
     navbar.innerHTML = unauthenticatedUser;
-  }  
+  }
 }
 
 
