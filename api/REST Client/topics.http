@@ -20,7 +20,7 @@ POST {{baseUrl}}/topics/
 Content-Type: application/json
 
 {
-    "title":"Star Wars: The Phantom Menace (Episode I)",
+    "title":"Star Wars: The Phantom Menace (Episode II)",
     "description": "lala",
     "image": "IMAGE.png"
 }
@@ -103,5 +103,63 @@ Content-Type: application/json
 {
     "title":"Attack of the beast",
     "description": "lalalu",
+    "image": "IMAGE.png"
+}
+
+
+### Create a categorie with user token
+#### First, Login as a user 
+##### Login the user and get the response in a request variable named 'user'
+# @name user
+
+POST {{baseUrl}}/auths/login
+Content-type: application/json
+
+{
+    "username": "Alic",
+    "password": "alice123"
+}
+
+### Add category as a user without rights
+POST {{baseUrl}}/topics
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"Test1",
+    "description": "lalalu",
+    "image": "IMAGE.png"
+}
+
+
+##### Login the user and get the response in a request variable named 'user'
+# @name admin
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username": "admin", 
+    "password": "admin"
+}
+
+### Add category as an admin
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+{
+      "title":"Test2",
+    "description": "lalalu",
+    "image": "IMAGE.png"
+}
+
+### Try to create a topic connected user or admin 
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+{
+    "title":"Star Wars: The Phantom Menace (Episode II)",
+    "description": "lala",
     "image": "IMAGE.png"
 }

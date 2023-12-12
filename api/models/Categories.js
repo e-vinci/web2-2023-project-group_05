@@ -3,36 +3,6 @@ const { serialize, parse } = require('../utils/json');
 
 const jsonDbPath = path.join(__dirname, '/../data/categories.json');
 
-const categoriesTable = [
-  {
-    title: 'Jeux-vidéo',
-  },
-  {
-    title: 'Films',
-  },
-  {
-    title: 'Séries',
-  },
-  {
-    title: 'Livres',
-  },
-  {
-    title: 'Animé',
-  },
-  {
-    title: 'tien tienn',
-  },
-  {
-    title: 'tien tienn',
-  },
-
-];
-
-function getAllCategories() {
-  const categories = parse(jsonDbPath, categoriesTable);
-  return categories;
-}
-
 function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
@@ -95,7 +65,6 @@ function isTitleAlreadyExists(title) {
 }
 
 module.exports = {
-  getAllCategories,
   createCategory,
   readAllCategories,
   deleteCategory,

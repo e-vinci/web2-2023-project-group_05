@@ -1,4 +1,5 @@
 const express = require('express');
+const { authorize } = require('../utils/auths');
 const {
   readAllTopics,
   readOneTopic,
@@ -29,7 +30,7 @@ router.get('/:id', (req, res) => {
 });
 
 // Create a topic
-router.post('/', (req, res) => {
+router.post('/', authorize, (req, res) => {
   const title = req?.body?.title?.trim()?.length !== 0 ? req.body.title : undefined;
   // eslint-disable-next-line max-len
   const description = req?.body?.description?.trim()?.length !== 0 ? req.body.description : undefined;
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
 });
 
 // Delete a topic
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authorize, (req, res) => {
   const deletedTopic = deleteOneTopic(req?.params?.id);
 
   if (!deletedTopic) return res.sendStatus(404);
@@ -53,7 +54,7 @@ router.delete('/:id', (req, res) => {
 });
 
 // Update one or more properties of a topic identified by its id
-router.patch('/:id', (req, res) => {
+router.patch('/:id', authorize, (req, res) => {
   const title = req?.body?.title;
   const description = req?.body?.description;
 
@@ -72,7 +73,7 @@ router.patch('/:id', (req, res) => {
 
 // eslint-disable-next-line max-len
 // Update a topic only if all properties are given or create it if it does not exist and the id is not existant
-router.put('/:id', (req, res) => {
+router.put('/:id', authorize, (req, res) => {
   const title = req?.body?.title;
   const link = req?.body?.link;
 
