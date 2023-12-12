@@ -1,54 +1,78 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
+import { getRememberMe, setRememberMe } from '../../utils/auths';
 
 
 import { loginUser } from '../../model/users';
-
-// import Navigate from '../Router/Navigate';
+import Navigate from '../Router/Navigate';
 
 const LoginPage = () => {
   clearPage();
   renderPageTitle('Login');
   renderLoginForm();
+  checkUser();
 };
+
+function checkUser(){
+  const form = document.querySelector('#loginForm');
+  const username = document.querySelector('#username');
+  const password = document.querySelector('#password');
+  const span = document.querySelector('.error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    try {
+      await loginUser(username.value, password.value)
+      Navigate('/');
+    } catch (error) {
+
+      console.error(error);
+      
+      span.innerHTML = error.message; 
+    }
+  })
+}
 
 function renderLoginForm() {
   const main = document.querySelector('main');
-  const form = document.createElement('form');
-  form.className = 'p-5';
-  const username = document.createElement('input');
-  username.type = 'text';
-  username.id = 'username';
-  username.placeholder = 'username';
-  username.required = true;
-  username.className = 'form-control mb-3';
-  const password = document.createElement('input');
-  password.type = 'password';
-  password.id = 'password';
-  password.required = true;
-  password.placeholder = 'password';
-  password.className = 'form-control mb-3';
-  const submit = document.createElement('input');
-  submit.value = 'Login';
-  submit.type = 'submit';
-  submit.className = 'btn btn-danger';
-  const span = document.createElement('span');
-  span.className = 'error';
-  form.appendChild(username);
-  form.appendChild(password);
-  form.appendChild(submit);
-  main.appendChild(form);
-  main.appendChild(span);
-  form.addEventListener('submit', loginUser);
+
   main.innerHTML = `
   <section class="hero">
-    <form class="p-5">
+    <form id="loginForm" class="p-5">
       <input type="text" id="username" placeholder="username" required class="form-control mb-3">
       <input type="password" id="password" placeholder="password" required class="form-control mb-3">
       <input type="submit" value="Login" class="btn btn-danger">
     </form>
     <span class="error"></span>
   </section>
-  `;
+  `; 
+  
+  const formCheckWrapper = document.createElement('div');
+  formCheckWrapper.className = 'mb-3 form-check';
+
+  const rememberme = document.createElement('input');
+  rememberme.type = 'checkbox';
+  rememberme.className = 'form-check-input';
+  rememberme.id = 'rememberme';
+  const remembered = getRememberMe();
+  rememberme.checked = remembered;
+  rememberme.addEventListener('click', onCheckboxClicked);
+
+  const checkLabel = document.createElement('label');
+  checkLabel.htmlFor = 'rememberme';
+  checkLabel.className = 'form-check-label';
+  checkLabel.textContent = 'Remember me';
+
+  const form = document.querySelector('#loginForm');
+  
+  formCheckWrapper.appendChild(rememberme);
+  formCheckWrapper.appendChild(checkLabel);
+
+  form.appendChild(formCheckWrapper);
+  
+}
+function onCheckboxClicked(e) {
+  setRememberMe(e.target.checked);
 }
 
 export default LoginPage;
