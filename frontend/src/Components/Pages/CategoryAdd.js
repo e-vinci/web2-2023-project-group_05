@@ -3,6 +3,7 @@ import { createCategory } from '../../model/categories';
 
 const CategoriesAdd = () => {
   const addCategorie = `
+  <section class="hero">
   <form class="px-5" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="nameCategorie">Enter le nom pour la categorie.</label>
@@ -16,6 +17,7 @@ const CategoriesAdd = () => {
     </div>
     <input type="submit" class="btn btn-primary" value="Add Categorie" />
 </form>  
+</section>
     `;
 
   const mainCategorieAdd = document.querySelector('main');

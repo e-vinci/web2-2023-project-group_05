@@ -13,7 +13,7 @@ const LoginPage = () => {
 };
 
 function eventListenerCheckPasswords() {
-  const form = document.querySelector('.form');
+  const form = document.querySelector('form');
   const username = document.querySelector('#username');
   const password = document.querySelector('.password');
   const span = document.querySelector('.error');
@@ -61,6 +61,16 @@ function renderLoginForm() {
   main.appendChild(form);
   main.appendChild(span);
   form.addEventListener('submit', loginUser);
+  main.innerHTML = `
+  <section class="hero">
+    <form class="p-5">
+      <input type="text" id="username" placeholder="username" required class="form-control mb-3">
+      <input type="password" id="password" placeholder="password" required class="form-control mb-3">
+      <input type="submit" value="Login" class="btn btn-danger">
+    </form>
+    <span class="error"></span>
+  </section>
+  `;
 }
 
 export default LoginPage;

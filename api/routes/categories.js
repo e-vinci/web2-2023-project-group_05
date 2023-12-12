@@ -1,23 +1,24 @@
 const express = require('express');
-const { isAdmin, authorize } = require('../utils/auths');
 
 const {
   createCategory, deleteCategory, isTitleAlreadyExists, readAllCategories,
-// eslint-disable-next-line import/no-unresolved, import/extensions
 } = require('../models/Categories');
-// eslint-disable-next-line import/no-unresolved
 
 const router = express.Router();
 
+// read all categories
 router.get('/', (req, res) => {
-  const categorie = readAllCategories(req?.query?.order);
+  // const allCategoriesPotentiallyOrdered = readAllCategories(req?.query?.order);
+  const getcategorie = readAllCategories();
 
-  return res.json(categorie);
+  return res.json(getcategorie);
 });
 
-// create category
-router.post('/', authorize, isAdmin, (req, res) => {
+// create topic
+router.post('/', (req, res) => {
   const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
+
+  console.log('TITLE', title);
 
   if (!title) return res.sendStatus(404);
 
@@ -28,8 +29,8 @@ router.post('/', authorize, isAdmin, (req, res) => {
   return res.json(categoryCreated);
 });
 
-router.delete('/:title', (req, res) => {
-  const deletedCategory = deleteCategory(req.params.title);
+router.delete('/:id', (req, res) => {
+  const deletedCategory = deleteCategory(req.params.id);
 
   if (!deletedCategory) return res.sendStatus(404);
 

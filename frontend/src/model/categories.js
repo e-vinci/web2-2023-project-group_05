@@ -23,8 +23,6 @@ const deleteCategory = async () => {
     }
 };
 
-
-
 const createCategory = async (title) => {
     try {
       const options = {
@@ -47,6 +45,5 @@ const createCategory = async (title) => {
     }
   };
 
-// eslint-disable-next-line import/prefer-default-export
 export { readAllCategories, deleteCategory, createCategory } ;
 
