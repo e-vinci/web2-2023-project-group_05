@@ -48,7 +48,7 @@ async function loginUser(e) {
     },
   };
 
-  const response = await fetch('/api/auths/login', options);
+  const response = await fetch(`${process.env.API_BASE_URL}/auths/login`, options);
 
   if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
 
@@ -57,6 +57,7 @@ async function loginUser(e) {
   console.log('Authenticated user : ', authenticatedUser);
 
   setAuthenticatedUser(authenticatedUser);
+  
   console.log("SETAUTHENTICATED",setAuthenticatedUser(authenticatedUser));
 
   Navbar();

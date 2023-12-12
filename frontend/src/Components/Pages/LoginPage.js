@@ -3,35 +3,13 @@ import { clearPage, renderPageTitle } from '../../utils/render';
 
 import { loginUser } from '../../model/users';
 
-import Navigate from '../Router/Navigate';
+// import Navigate from '../Router/Navigate';
 
 const LoginPage = () => {
   clearPage();
   renderPageTitle('Login');
   renderLoginForm();
-  eventListenerCheckPasswords();
 };
-
-function eventListenerCheckPasswords() {
-  const form = document.querySelector('form');
-  const username = document.querySelector('#username');
-  const password = document.querySelector('.password');
-  const span = document.querySelector('.error');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const login = {
-      username: username.value,
-      password: password.value,
-    };
-
-    if (await loginUser(login)) {
-      Navigate('/');
-    }
-    span.innerHTML = 'Login Failed';
-  });
-}
 
 function renderLoginForm() {
   const main = document.querySelector('main');
