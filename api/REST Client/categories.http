@@ -50,10 +50,6 @@ Content-type: application/json
     "password": "alice123"
 }
 
-
-
-
-
 ### Add category as a user without rights
 POST {{baseUrl}}/categories
 Content-Type: application/json

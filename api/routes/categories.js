@@ -9,9 +9,7 @@ const {
 
 const router = express.Router();
 
-// read all categories
 router.get('/', (req, res) => {
-  // const allCategoriesPotentiallyOrdered = readAllCategories(req?.query?.order);
   const categorie = readAllCategories(req?.query?.order);
 
   return res.json(categorie);

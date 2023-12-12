@@ -17,14 +17,13 @@ function readOneTopic(id) {
   return topics[indexOfTopicFound];
 }
 
-function createOneTopic(title, description, image) {
+function createOneTopic(title, description) {
   const topics = parse(jsonDbPath);
 
   const createdTopic = {
     id: getNextId(),
     title,
     description,
-    image,
   };
 
   topics.push(createdTopic);
