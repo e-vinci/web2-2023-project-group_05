@@ -1,6 +1,6 @@
 const getAllCategories = async () => {
     try {
-        const response = await fetch('/api/categories');
+        const response = await fetch('/api/categories/?order=title');
         const categories = await response.json();
         return categories;
     } catch (err) {

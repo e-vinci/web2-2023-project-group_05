@@ -1,26 +1,26 @@
 @baseUrl = http://localhost:3000
 
-### Read all topics sorted by title (ascending)
+### Read all categories sorted by title (ascending)
 GET {{baseUrl}}/categories/?order=+title
 
-### Read all topics sorted by title (descending)
+### Read all categories sorted by title (descending)
 GET {{baseUrl}}/categories/?order=-title
 
-### Create topic without the admin right
+### Create category without the admin right
 POST {{baseUrl}}/categories
 Content-Type: application/json
 
 {
     "title":"Test1"
 }
-### Create topic without the admin right
+### Create category without the admin right
 POST {{baseUrl}}/categories
 Content-Type: application/json
 
 {
     "title":"Zab"
 }
-### Create topic without the admin right
+### Create category without the admin right
 POST {{baseUrl}}/categories
 Content-Type: application/json
 
@@ -28,10 +28,55 @@ Content-Type: application/json
     "title":"Brrrrrrr"
 }
 
-### Delete a category
-DELETE {{baseUrl}}/categories/2
+### Delete a category by title
+DELETE {{baseUrl}}/categories/Br
 Content-Type: application/json
 
 ### Delete First catagory
 DELETE {{baseUrl}}/categories/
 Content-Type: application/json
+
+
+### Create a categorie with user token
+#### First, Login as a user 
+##### Login the user and get the response in a request variable named 'user'
+# @name user
+
+POST {{baseUrl}}/auths/login
+Content-type: application/json
+
+{
+    "username": "Alic",
+    "password": "alice123"
+}
+
+### Add category as a user without rights
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title": "Par User = Erreur"
+}
+
+
+##### Login the user and get the response in a request variable named 'user'
+# @name admin
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username": "admin", 
+    "password": "admin"
+}
+
+### Add category as an admin
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+{
+    "title": "Par Admin"
+}
+
+### next

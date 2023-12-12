@@ -60,7 +60,7 @@ async function register(username, password) {
 }
 
 function readAllUsers() {
-  const users = parse(jsonDbPath, defaultUsers);
+  const users = parse(jsonDbPath);
   return users;
 }
 
