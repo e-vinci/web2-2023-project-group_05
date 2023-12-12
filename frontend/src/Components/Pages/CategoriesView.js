@@ -23,24 +23,24 @@ const categoriesView = async () => {
   
     categorieWrapper.innerHTML = categorieAsHtmlTable;
 
-    /* const buttonDelete = document.querySelectorAll('#BtnDelete');
+    const buttonsDelete = document.querySelectorAll('.deleteButton');
 
-buttonDelete.forEach(async (button) => {
-    button.addEventListepner('click', async () => {
-        // Récupérer le titre de la catégorie associée à ce bouton
-        const categoryTitle = categorie.title;// REPRENDRE LE TITRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        // Appeler la fonction deleteCategory
-        try {
-            await deleteCategory(categoryTitle);
-            // Rafraîchir la vue des catégories après la suppression
-            await categoriesView();
-        } catch (error) {
-            console.error('Erreur lors de la suppression de la catégorie :', error);
-        }
-    });
-}); */
-
+    buttonsDelete.forEach(async (button) => {
+        button.addEventListener('click', async () => {
+            // Récupérer le titre de la catégorie associée à ce bouton
+            const categoryTitle = button.closest('tr').querySelector('.categorie').dataset.title;
+    
+            // Appeler la fonction deleteCategory
+            try {
+                await deleteCategory(categoryTitle);
+                // Rafraîchir la vue des catégories après la suppression
+                await categoriesView();
+            } catch (error) {
+                console.error('Erreur lors de la suppression de la catégorie :', error);
+            }
+        });
+    }); 
+// query seector (td).dataset.title
 
     const categorieElements = document.querySelectorAll('.categorie');
 
@@ -113,8 +113,8 @@ buttonDelete.forEach(async (button) => {
           (element) => `
           <tr>
            <td class="categorie" data-title="${element.title}"> <a href = "#">${element.title} </a></td>
-           <td style ="text-align: right"><button id="BtnDelete">delete </button/></td>
-            
+           <td style="text-align: right"><button class="deleteButton">delete</button></td>
+
           </tr>
           `,
         )
