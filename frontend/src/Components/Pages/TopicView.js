@@ -1,7 +1,13 @@
 import { readAllTopics, deleteOneTopic, updateOneTopic } from '../../model/topic';
 
 const TopicView = async () => {
-  const viewTopic = `<div id="topicWrapper"></div>`;
+  const viewTopic = `
+  <section class="hero">
+  <div class="hero-text">
+  <div id="topicWrapper"></div>
+  </div>
+  </section>
+  `;
 
   const main = document.querySelector('main');
   main.innerHTML = viewTopic;
@@ -70,7 +76,7 @@ function attachEventListeners() {
 
       const newTopicData = {
         title: topicRow.children[0].innerText,
-        description: topicRow.children[1].innerText,
+        description: topicRow.children[1].innerText
       };
       await updateOneTopic(elementId, newTopicData);
       TopicView();
