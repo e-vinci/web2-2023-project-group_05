@@ -32,17 +32,17 @@ function renderNavbar() {
 </li>
 
 <li>
-  <a class="nav-link" href="#" data-uri="/topic/add">Crée un sujet</a>
+  <a class="nav-link" href="#" data-uri="/topic/add">Crée ton sujet</a>
 </li>
 
 <li>
-  <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+  <a class="nav-link" href="#" data-uri="/topic/view">Sujets</a>
 </li>
 
 <!--The beginning of the 'menu déroulant on categories' -->
 
 <li>
-<a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+<a class="nav-link" href="#" data-uri="/categories/view">Catégories</a>
 </li>
 
 <li>
@@ -53,13 +53,13 @@ function renderNavbar() {
 
     <!-- the end of the 'menu deroulant' for categories  -->
     <li id="loginItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/category/add">Add category</a>
+    <a class="nav-link" href="#" data-uri="/category/add">Crée ta catégorie</a>
   </li>
             <li id="loginItem" class="nav-item">
-              <a class="nav-link" href="#" data-uri="/login">Login</a>
+              <a class="nav-link" href="#" data-uri="/login">Connexion</a>
             </li>
             <li id="registerItem" class="nav-item">
-              <a class="nav-link" href="#" data-uri="/register">Register</a>
+              <a class="nav-link" href="#" data-uri="/register">Inscription</a>
             </li>
           </ul>
           <form action="/results" data-uri="/results" id="searchForm">
