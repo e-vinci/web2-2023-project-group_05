@@ -10,6 +10,9 @@ const readAllCategories = async () => {
 };
 
 
+<<<<<<< HEAD
+export default getAllCategories ;
+=======
 
 const deleteCategory = async () => {
     try {
@@ -49,4 +52,5 @@ const createCategory = async (title) => {
 
 // eslint-disable-next-line import/prefer-default-export
 export { readAllCategories, deleteCategory, createCategory } ;
+>>>>>>> 0c74616d82d154aa251e78d14330ecf2208713fd
 
