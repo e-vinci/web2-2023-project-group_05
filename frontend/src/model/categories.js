@@ -10,6 +10,5 @@ const getAllCategories = async () => {
 };
 
 
-// eslint-disable-next-line import/prefer-default-export
-export { getAllCategories } ;
+export default getAllCategories ;
 

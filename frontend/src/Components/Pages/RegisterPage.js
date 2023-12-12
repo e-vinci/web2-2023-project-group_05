@@ -1,6 +1,6 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
-import addOneUser from '../../model/users';
 import Navigate from '../Router/Navigate';
+import { addOneUser } from '../../model/users';
 
 const RegisterPage = () => {
   clearPage();
@@ -37,6 +37,8 @@ function eventListenerCheckPasswords() {
 
       Navigate('/login');
     }
+
+    console.log(addOneUser);
   });
 }
 
@@ -96,6 +98,9 @@ function renderRegisterForm() {
   form.appendChild(submit);
   mainRegister.appendChild(form);
   mainRegister.appendChild(span);
+  form.addEventListener('submit', addOneUser);
 }
+
+
 
 export default RegisterPage;

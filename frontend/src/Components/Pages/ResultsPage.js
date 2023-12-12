@@ -1,5 +1,5 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
-import readAllCategories from '../../model/categories';
+import getAllCategories from '../../model/categories';
 import Navigate from '../Router/Navigate';
 
 const ResultsPage = () => {
@@ -23,7 +23,8 @@ async function renderResults() {
         p.innerHTML = '';
         p2.innerHTML = '';
 
-        const categories = await readAllCategories();
+        const categories = await getAllCategories();
+        console.log(categories);
 
         const filteredCategories = filterCategories(search.value,categories);
         displayCategories(filteredCategories);
@@ -31,7 +32,12 @@ async function renderResults() {
 };
 
 function displayCategories(categories) {
-    p2.innerHTML = `Nombre de résultat(s) : ${categories.length}`;
+    if(categories.length === 0) {
+        p2.innerHTML = `Pas de résultats pour <em>${categories}</em>`;
+        console.log(categories);
+    } else {
+        p2.innerHTML = `Nombre de résultat(s) : ${categories.length}`;
+    }
 
     categories.forEach((category) => {
         const span = document.createElement('span');
