@@ -2,6 +2,7 @@
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logo from '../../img/IMAGE.png';
 
+
 /**
  * Render the Navbar which is styled by using Bootstrap
  * Each item in the Navbar is tightly coupled with the Router configuration :
@@ -11,6 +12,7 @@ import logo from '../../img/IMAGE.png';
 
 const Navbar = () => {
   renderNavbar();
+
 };
 
 function renderNavbar() {

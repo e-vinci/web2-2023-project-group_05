@@ -1,9 +1,11 @@
 import logo from '../../img/IMAGE.png';
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 
 const HomePage = () => {
-  const main = document.querySelector('main');
-  main.innerHTML = `
+  const homePage =  `
   <section class="HomePage">
+  <div id="privacyPolicyWrapper"></div>
+
     <div class="section-container">
     <span>
           <div class="container">
@@ -26,7 +28,11 @@ const HomePage = () => {
   </div>
 </section>
   `;
+  const main = document.querySelector('main');
+  main.innerHTML = homePage;
   
+  PrivacyPolicy();
+
 };
 
 export default HomePage;

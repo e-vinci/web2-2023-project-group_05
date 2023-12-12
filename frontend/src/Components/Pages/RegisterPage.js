@@ -1,5 +1,5 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
-import addOneUser from '../../model/users';
+import { addOneUser } from '../../model/users';
 import Navigate from '../Router/Navigate';
 
 const RegisterPage = () => {
