@@ -1,6 +1,7 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 
-import loginUser from '../../model/users';
+
+import { loginUser } from '../../model/users';
 
 import Navigate from '../Router/Navigate';
 

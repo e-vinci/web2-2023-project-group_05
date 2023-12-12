@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import logo from '../../img/IMAGE.png';
+// eslint-disable-next-line no-unused-vars
 import searchIcon from '../../img/rechercher.png';
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -50,22 +51,24 @@ function renderNavbar() {
 
 <!-- the end of the 'menu deroulant' for categories  -->
 
-<li>
-  <a class="nav-link" href="#" data-uri="/login">Login</a>
-</li>
-<li>
-  <a class="nav-link" href="#" data-uri="/register">Register</a>
-</li>
-  </ul>
-
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <button> <img src="${searchIcon}"></button>
-    
-    <!-- <input type="submit" name="submit" id="submit" value="Search" /> --> 
-  </form>
-</div>
-
+    <!-- the end of the 'menu deroulant' for categories  -->
+    <li id="loginItem" class="nav-item">
+    <a class="nav-link" href="#" data-uri="/category/add">addCAtegory</a>
+  </li>
+            <li id="loginItem" class="nav-item">
+              <a class="nav-link" href="#" data-uri="/login">Login</a>
+            </li>
+            <li id="registerItem" class="nav-item">
+              <a class="nav-link" href="#" data-uri="/register">Register</a>
+            </li>
+          </ul>
+          <form action="/results" data-uri="/results" id="searchForm">
+            <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
+            <input type="submit" name="submit" id="submit" value"Search" />
+          </form>
+        </div>
+      </div>
+    </nav>
   `;
 }
 
