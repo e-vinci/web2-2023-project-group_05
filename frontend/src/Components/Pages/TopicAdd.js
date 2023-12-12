@@ -3,13 +3,15 @@ import { addOneTopic } from '../../model/topic';
 
 const TopicAdd = () => {
   const addTopic = `
+  <section class="hero">
+  <div id="rules">
     <h3>Reglement :</h3>
   <button class="buttonForRule">Cliquer ici pour afficher le réglement</button>
   <div class="rule">
   </div>
   <form class="px-5" enctype="multipart/form-data">
     <div class="mb-3">
-      <label for="nameTopic">Enter le nom pour le sujet.</label>
+      <label for="nameTopic">Enter le nom pour le sujet</label>
       <input
         class="form-control"
         type="text"
@@ -27,18 +29,10 @@ const TopicAdd = () => {
             required
         ></textarea>
     </div>
-    <div class="mb-3">
-      <label for="imageTopic">ajouter une image representant le sujet</label>
-      <input
-        class="form-control"
-        type="file"
-        name="image"
-        id="image"
-        required
-      />
-    </div>
     <input type="submit" class="btn btn-primary" value="Add Topic" />
 </form>  
+</div>
+</section>
     `;
 
   const mainTopicAdd = document.querySelector('main');
@@ -48,39 +42,46 @@ const TopicAdd = () => {
 
   const title = document.querySelector('#title');
   const description = document.querySelector('#description');
-  const image = document.querySelector('#image');
 
   const buttonRule = document.querySelector('.buttonForRule');
 
   let messageIsVisible = false;
   const messageRule = document.querySelector('.rule');
-  const message = `Réglement pour la création d'un sujet : 
+  const message = `
+  <section>
+  <div class="navlist-container">
+  <div class="hero-text">
 
-      Règlement de Création de Sujets
+  <h2>    Règlement de Création de Sujets </h2> 
 
-        Nom du Sujet :
-        Veuillez attribuer un titre approprié, clair et pertinent au sujet. Évitez les titres trompeurs ou sensationnalistes. Ils doivent être en rapport avec le contenu du sujet et respecter les normes de décence et de courtoisie.
+    <p>    Nom du Sujet :
+        Veuillez attribuer un titre approprié, clair et pertinent au sujet. Évitez les titres trompeurs ou sensationnalistes. Ils doivent être en rapport avec le contenu du sujet et respecter les normes de décence et de courtoisie. </p>
 
-        Contenu Inapproprié :
-        Tout sujet, commentaire ou contenu associé ne doit pas promouvoir la haine, le racisme, la discrimination, la violence, ou enfreindre de quelque manière que ce soit les lois en vigueur. Le contenu offensant ou inapproprié sera supprimé.
+    <p>   Contenu Inapproprié :
+        Tout sujet, commentaire ou contenu associé ne doit pas promouvoir la haine, le racisme, la discrimination, la violence, ou enfreindre de quelque manière que ce soit les lois en vigueur. Le contenu offensant ou inapproprié sera supprimé. </p>
 
-        Respect de la Communauté :
-        Respectez les autres membres de la communauté. Les discussions animées et les opinions divergentes sont autorisées, mais elles doivent rester respectueuses et constructives.
+    <p>    Respect de la Communauté :
+        Respectez les autres membres de la communauté. Les discussions animées et les opinions divergentes sont autorisées, mais elles doivent rester respectueuses et constructives. </p>
 
-        Droits d'Auteur :
-        Veillez à respecter les droits d'auteur. Ne publiez pas de contenu sans l'autorisation nécessaire ou sans mentionner la source si requis.
+    <p>    Droits d'Auteur :
+        Veillez à respecter les droits d'auteur. Ne publiez pas de contenu sans l'autorisation nécessaire ou sans mentionner la source si requis.</p>
 
-        Publicité et Spam :
-        Évitez toute forme de spam ou de publicité non sollicitée. La promotion excessive de produits, services ou liens externes est interdite.
+    <p>    Publicité et Spam :
+        Évitez toute forme de spam ou de publicité non sollicitée. La promotion excessive de produits, services ou liens externes est interdite.</p>
 
-        Sujets Répétitifs :
-        Avant de créer un nouveau sujet, assurez-vous qu'un sujet similaire n'existe pas déjà. Évitez de créer des sujets redondants ou dupliqués.
+    <p>    Sujets Répétitifs :
+        Avant de créer un nouveau sujet, assurez-vous qu'un sujet similaire n'existe pas déjà. Évitez de créer des sujets redondants ou dupliqués.</p>
 
-        Titres et Contenu Sensationnalistes :
-        Les titres et le contenu ne doivent pas être exagérés ou utilisés à des fins sensationnalistes. Restez fidèle au sujet et évitez les informations fausses ou trompeuses.
+    <p>    Titres et Contenu Sensationnalistes :
+        Les titres et le contenu ne doivent pas être exagérés ou utilisés à des fins sensationnalistes. Restez fidèle au sujet et évitez les informations fausses ou trompeuses.</p>
 
-        Modération et Respect des Règles :
-        Tout sujet ne respectant pas ces règles peut être édité, déplacé ou supprimé par l'équipe de modération. En cas de non-respect répété, des mesures disciplinaires pourront être prises`;
+    <p>    Modération et Respect des Règles :
+        Tout sujet ne respectant pas ces règles peut être édité, déplacé ou supprimé par l'équipe de modération. En cas de non-respect répété, des mesures disciplinaires pourront être prises</p>
+        </div>
+        </div>
+
+        </section>
+        `;
 
   buttonRule.addEventListener('click', () => {
     if (messageIsVisible) {
@@ -97,8 +98,7 @@ const TopicAdd = () => {
   
     const topicToBeCreated = {
       title: title.value,
-      description: description.value,
-      image: image.value,
+      description: description.value
     };
     
     addOneTopic(topicToBeCreated);
