@@ -17,11 +17,12 @@ const categoriesView = async () => {
   
     categorieWrapper.innerHTML = categorieAsHtmlTable;
 
-    const buttonDelete = document.querySelector('#BtnDelete');
-    buttonDelete.forEach(async (button) => {
+    const buttonDelete = document.querySelectorAll('#BtnDelete');
+
+buttonDelete.forEach(async (button) => {
     button.addEventListener('click', async () => {
         // Récupérer le titre de la catégorie associée à ce bouton
-        const categoryTitle = button.parentNode.previousElementSibling.querySelector('.categorie').dataset.title;
+        const categoryTitle = categorie.title;// REPRENDRE LE TITRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         // Appeler la fonction deleteCategory
         try {

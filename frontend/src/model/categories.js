@@ -13,7 +13,8 @@ const readAllCategories = async () => {
 
 const deleteCategory = async () => {
     try {
-        const response = await fetch('/api/categories/?id=?');
+        // eslint-disable-next-line no-undef
+        const response = await fetch(`/api/categories/?id=${req.body.title}`);
         const categories = await response.json();
         return categories;
     } catch (err) {

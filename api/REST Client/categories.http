@@ -28,8 +28,8 @@ Content-Type: application/json
     "title":"Brrrrrrr"
 }
 
-### Delete a category
-DELETE {{baseUrl}}/categories/2
+### Delete a category by title
+DELETE {{baseUrl}}/categories/Br
 Content-Type: application/json
 
 ### Delete First catagory
@@ -37,11 +37,10 @@ DELETE {{baseUrl}}/categories/
 Content-Type: application/json
 
 
-### Create a categorie with guest token
+### Create a categorie with user token
 #### First, Login as a user 
 ##### Login the user and get the response in a request variable named 'user'
 # @name user
-
 
 POST {{baseUrl}}/auths/login
 Content-type: application/json
@@ -51,9 +50,22 @@ Content-type: application/json
     "password": "alice123"
 }
 
-##### Login the admin and get the response in a request variable named "admin"
-# @name admin 
 
+
+
+
+### Add category as a user without rights
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title": "Par User = Erreur"
+}
+
+
+##### Login the user and get the response in a request variable named 'user'
+# @name admin
 POST {{baseUrl}}/auths/login
 Content-Type: application/json
 

@@ -48,10 +48,10 @@ function getDateNow() {
   const date = new Date();
   return `Ajouté le ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} à  ${date.getHours()}:${date.getMinutes()} `;
 }
-function deleteCategory(id) {
-  const idAsNumber = Number(id);
+function deleteCategory(title) {
   const categories = parse(jsonDbPath);
-  const foundIndex = categories.findIndex((category) => category.id === idAsNumber);
+  const theTitle = title;
+  const foundIndex = categories.findIndex((category) => category.title === theTitle);
   if (foundIndex < 0) return undefined;
   const deletedCategories = categories.splice(foundIndex, 1);
   const deletedCategorie = deletedCategories[0];
