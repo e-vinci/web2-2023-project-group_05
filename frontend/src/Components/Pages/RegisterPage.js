@@ -10,10 +10,10 @@ const RegisterPage = () => {
 };
 
 function eventListenerCheckPasswords() {
-  const form = document.querySelector('form');
+  const form = document.querySelector('#registerForm');
   const username = document.querySelector('#username');
-  const password = document.querySelector('.password');
-  const passwordConfirmation = document.querySelector('.passwordConfirmation');
+  const password = document.querySelector('#password');
+  const passwordConfirmation = document.querySelector('#passwordConfirmation');
   const span = document.querySelector('.error');
 
   form.addEventListener('submit', async (e) => {
@@ -45,7 +45,7 @@ function renderRegisterForm() {
 
   mainRegister.innerHTML = `
   <section class="hero">
-    <form class="form p-5">
+    <form id="registerForm" class="form p-5">
       <input type="text" id="name" placeholder="name" required class="form-control mb-3">
       <input type="text" id="firstname" placeholder="firstname" required class="form-control mb-3">
       <input type="email" id="email" placeholder="email" required class="form-control mb-3">
