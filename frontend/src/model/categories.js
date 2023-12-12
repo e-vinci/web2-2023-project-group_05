@@ -45,6 +45,5 @@ const createCategory = async (title) => {
     }
   };
 
-// eslint-disable-next-line import/prefer-default-export
 export { readAllCategories, deleteCategory, createCategory } ;
 

@@ -1,5 +1,5 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
-import getAllCategories from '../../model/categories';
+import { readAllTopics } from '../../model/topic';
 import Navigate from '../Router/Navigate';
 
 const ResultsPage = () => {
@@ -9,6 +9,8 @@ const ResultsPage = () => {
 };
 
 const mainResults = document.querySelector('main');
+const sectionResults = document.createElement('section');
+sectionResults.className = "hero";
 const p = document.createElement('p');
 const p2 = document.createElement('p');
 
@@ -23,33 +25,35 @@ async function renderResults() {
         p.innerHTML = '';
         p2.innerHTML = '';
 
-        const categories = await getAllCategories();
-        console.log(categories);
+        const topics = await readAllTopics();
 
-        const filteredCategories = filterCategories(search.value,categories);
-        displayCategories(filteredCategories);
+        const filteredTopics = filterTopics(search.value,topics);
+        displayTopics(filteredTopics);
     });
 };
 
-function displayCategories(categories) {
-    if(categories.length === 0) {
-        p2.innerHTML = `Pas de résultats pour <em>${categories}</em>`;
-        console.log(categories);
+function displayTopics(topics) {
+    const search = document.querySelector('#mySearch');
+
+    if(topics.length === 0) {
+        p2.innerHTML = `Pas de résultats pour <b>${search.value}</b>`;
+        console.log(topics);
     } else {
-        p2.innerHTML = `Nombre de résultat(s) : ${categories.length}`;
+        p2.innerHTML = `Nombre de résultat(s) : ${topics.length}`;
     }
 
-    categories.forEach((category) => {
+    topics.forEach((topic) => {
         const span = document.createElement('span');
-        span.innerHTML = `${category.title}<br>`;
+        span.innerHTML = `${topic.title}<br>`;
         p.appendChild(span);
     });
-    mainResults.appendChild(p2);
-    mainResults.appendChild(p);
+    mainResults.appendChild(sectionResults);
+    sectionResults.appendChild(p2);
+    sectionResults.appendChild(p);
 }
 
-function filterCategories(searchCategory, categories) {
-    return categories.filter((category) => category.title.toLowerCase().startsWith(searchCategory.toLowerCase()));
+function filterTopics(searchTopic, topics) {
+    return topics.filter((topic) => topic.title.toLowerCase().startsWith(searchTopic.toLowerCase()));
 }
   
 export default ResultsPage;
