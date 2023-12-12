@@ -52,7 +52,7 @@ function renderNavbar() {
 
     <!-- the end of the 'menu deroulant' for categories  -->
     <li id="loginItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/category/add">addCAtegory</a>
+    <a class="nav-link" href="#" data-uri="/category/add">Add category</a>
   </li>
             <li id="loginItem" class="nav-item">
               <a class="nav-link" href="#" data-uri="/login">Login</a>
