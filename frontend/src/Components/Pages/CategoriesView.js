@@ -1,10 +1,16 @@
+// eslint-disable-next-line no-unused-vars
 import { readAllCategories, deleteCategory } from '../../model/categories';
 
 
 let existingDialog = null;
 
 const categoriesView = async () => {
-    const viewCategorie = `<div id="categorieWrapper"></div>`;
+    const viewCategorie = `
+    <section class="hero">
+    <div class="hero-text">
+    <div id="categorieWrapper"></div>
+    </div>
+    </section>`;
   
     const main = document.querySelector('main');
     main.innerHTML = viewCategorie;
@@ -17,7 +23,7 @@ const categoriesView = async () => {
   
     categorieWrapper.innerHTML = categorieAsHtmlTable;
 
-    const buttonDelete = document.querySelectorAll('#BtnDelete');
+    /* const buttonDelete = document.querySelectorAll('#BtnDelete');
 
 buttonDelete.forEach(async (button) => {
     button.addEventListepner('click', async () => {
@@ -33,7 +39,7 @@ buttonDelete.forEach(async (button) => {
             console.error('Erreur lors de la suppression de la catégorie :', error);
         }
     });
-});
+}); */
 
 
     const categorieElements = document.querySelectorAll('.categorie');
@@ -93,7 +99,8 @@ buttonDelete.forEach(async (button) => {
     if(categorie?.length === undefined || categorie.length === 0){
       return '<p class=p-5> No categorie yet : (</p>';
     }
-    const htmlCategorieTable = `<div class="table-responsive p-5">
+    const htmlCategorieTable = `
+    <div class="table-responsive p-5">
     <table class="table">
     <thead>
     <tr>
