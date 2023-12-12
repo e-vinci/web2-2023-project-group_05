@@ -1,6 +1,7 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 import { addOneUser } from '../../model/users';
 import Navigate from '../Router/Navigate';
+import { getRememberMe, setRememberMe } from '../../utils/auths';
 
 const RegisterPage = () => {
   clearPage();
@@ -57,6 +58,34 @@ function renderRegisterForm() {
     <span class="error"></span>
   </section>
   `;
+
+  const formCheckWrapper = document.createElement('div');
+  formCheckWrapper.className = 'mb-3 form-check';
+
+  const rememberme = document.createElement('input');
+  rememberme.type = 'checkbox';
+  rememberme.className = 'form-check-input';
+  rememberme.id = 'rememberme';
+  const remembered = getRememberMe();
+  rememberme.checked = remembered;
+  rememberme.addEventListener('click', onCheckboxClicked);
+
+  const checkLabel = document.createElement('label');
+  checkLabel.htmlFor = 'rememberme';
+  checkLabel.className = 'form-check-label';
+  checkLabel.textContent = 'Remember me';
+
+  const form = document.querySelector('#registerForm');
+  
+  formCheckWrapper.appendChild(rememberme);
+  formCheckWrapper.appendChild(checkLabel);
+
+  form.appendChild(formCheckWrapper);
+  
+}
+
+function onCheckboxClicked(e) {
+  setRememberMe(e.target.checked);
 }
 
 export default RegisterPage;

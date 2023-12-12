@@ -21,6 +21,9 @@ const addOneUser = async (user) => {
 
     const createdUser = await response.json();
 
+    setAuthenticatedUser(createdUser);
+
+
     return createdUser;
   } catch (err) {
     console.error('addOneUser::error: ', err);
@@ -54,6 +57,7 @@ async function loginUser(e) {
   console.log('Authenticated user : ', authenticatedUser);
 
   setAuthenticatedUser(authenticatedUser);
+  console.log("SETAUTHENTICATED",setAuthenticatedUser(authenticatedUser));
 
   Navbar();
 
