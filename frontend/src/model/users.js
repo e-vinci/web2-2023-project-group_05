@@ -21,6 +21,9 @@ const addOneUser = async (user) => {
 
     const createdUser = await response.json();
 
+    setAuthenticatedUser(createdUser);
+
+
     return createdUser;
   } catch (err) {
     console.error('addOneUser::error: ', err);
@@ -28,11 +31,7 @@ const addOneUser = async (user) => {
   }
 };
 
-async function loginUser(e) {
-  e.preventDefault();
-
-  const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;
+async function loginUser(username, password) {
 
   const options = {
     method: 'POST',
@@ -45,15 +44,17 @@ async function loginUser(e) {
     },
   };
 
-  const response = await fetch('/api/auths/login', options);
+  const response = await fetch(`${process.env.API_BASE_URL}/auths/login`, options);
 
-  if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
-
+  if (!response.ok) throw new Error('Invalid username or password');
+  
   const authenticatedUser = await response.json();
 
   console.log('Authenticated user : ', authenticatedUser);
 
   setAuthenticatedUser(authenticatedUser);
+
+  console.log("SETAUTHENTICATED",setAuthenticatedUser(authenticatedUser));
 
   Navbar();
 
