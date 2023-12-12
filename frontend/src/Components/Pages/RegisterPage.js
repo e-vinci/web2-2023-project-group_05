@@ -45,11 +45,7 @@ function renderRegisterForm() {
 
   mainRegister.innerHTML = `
   <section class="hero">
-<<<<<<< HEAD
     <form id="registerForm" class="form p-5">
-=======
-  <form id="registerForm" class="form p-5">
->>>>>>> fa2f74663bc854acc9d2cbc3a141d9d4db50ffe7
       <input type="text" id="name" placeholder="name" required class="form-control mb-3">
       <input type="text" id="firstname" placeholder="firstname" required class="form-control mb-3">
       <input type="email" id="email" placeholder="email" required class="form-control mb-3">
