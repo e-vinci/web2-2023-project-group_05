@@ -1,8 +1,6 @@
 // eslint-disable-next-line no-unused-vars
-import { Navbar as BootstrapNavbar } from 'bootstrap';
 import logo from '../../img/IMAGE.png';
-
-
+import searchIcon from '../../img/rechercher.png';
 /**
  * Render the Navbar which is styled by using Bootstrap
  * Each item in the Navbar is tightly coupled with the Router configuration :
@@ -20,66 +18,58 @@ function renderNavbar() {
   const navbar = document.querySelector('#navbarWrapper');
 
   navbar.innerHTML = `
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-      <a class="nav-link" href="#" data-uri="/">        
-       <img class= "logo" src="${logo}" data-uri="/">
-      </a>
-        <a class="navbar-brand" href="/">La grande critique</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="" data-uri="/">Accueil</a>
-            </li>
+  <div class="logo-container">
+  <a class="nav-link" href="#" data-uri="/">
+    <img class="logo" src="${logo}" data-uri="/">
+  </a>
+</div>
 
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#" data-uri="/topic/add">Crée un sujet</a>
-            </li>
+<div class="navlist-container">
+  <ul class="navlist">
+  <li>
+  <a class="nav-link" href="#" data-uri="/">Accueil</a>
+</li>
 
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#" data-uri="/topic/view">Voir un sujet</a>
-            </li>
+<li>
+  <a class="nav-link" href="#" data-uri="/topic/add">Crée un sujet</a>
+</li>
 
-    <!--The beginning of the 'menu déroulant on categories' -->
+<li>
+  <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+</li>
 
-     
-        <li class="nav-item">
+<!--The beginning of the 'menu déroulant on categories' -->
 
-          <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+<li>
+<a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+</li>
 
-        </li>
+<li>
+  <a class="nav-link" href="#" data-uri="/chat">Chat</a>
+</li>
 
-        <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#" data-uri="/chat">Chat</a>
-            </li>
+<!-- the end of the 'menu deroulant' for categories  -->
 
-    <!-- the end of the 'menu deroulant' for categories  -->
+<li>
+  <a class="nav-link" href="#" data-uri="/login">Login</a>
+</li>
+<li>
+  <a class="nav-link" href="#" data-uri="/register">Register</a>
+</li>
+  </ul>
 
-            <li id="loginItem" class="nav-item">
-              <a class="nav-link" href="#" data-uri="/login">Login</a>
-            </li>
-            <li id="registerItem" class="nav-item">
-              <a class="nav-link" href="#" data-uri="/register">Register</a>
-            </li>
-          </ul>
-          <form action="/results" data-uri="/results" id="searchForm">
-            <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-            <input type="submit" name="submit" id="submit" value"Search" />
-          </form>
-        </div>
-      </div>
-    </nav>
+  <form action="/results" data-uri="/results" id="searchForm">
+    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
+    <button> <img src="${searchIcon}"></button>
+    
+    <!-- <input type="submit" name="submit" id="submit" value="Search" /> --> 
+  </form>
+</div>
+
   `;
 }
+
+
+
 
 export default Navbar;

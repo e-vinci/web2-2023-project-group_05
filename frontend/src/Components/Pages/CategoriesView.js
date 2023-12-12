@@ -4,7 +4,12 @@ import { getAllCategories } from '../../model/categories';
 let existingDialog = null;
 
 const categoriesView = async () => {
-    const viewCategorie = `<div id="categorieWrapper"></div>`;
+    const viewCategorie = `
+    <section class="hero">
+    <div class="hero-text">
+    <div id="categorieWrapper"></div>
+    </div>
+    </section>`;
   
     const main = document.querySelector('main');
     main.innerHTML = viewCategorie;
@@ -74,7 +79,8 @@ const categoriesView = async () => {
     if(categorie?.length === undefined || categorie.length === 0){
       return '<p class=p-5> No categorie yet : (</p>';
     }
-    const htmlCategorieTable = `<div class="table-responsive p-5">
+    const htmlCategorieTable = `
+    <div class="table-responsive p-5">
     <table class="table">
     <thead>
     <tr>
@@ -87,7 +93,6 @@ const categoriesView = async () => {
           (element) => `
           <tr>
            <td class="categorie" data-title="${element.title}"> <a href = "#">${element.title} </a></td>
-            
           </tr>
           `,
         )
