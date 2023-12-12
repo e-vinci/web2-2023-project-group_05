@@ -1,4 +1,5 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
+// eslint-disable-next-line import/no-named-as-default
 import addOneUser from '../../model/users';
 import Navigate from '../Router/Navigate';
 

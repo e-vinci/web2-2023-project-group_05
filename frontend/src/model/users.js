@@ -19,12 +19,8 @@ const addOneUser = async (user) => {
   }
 };
 
-<<<<<<< HEAD
 
 
-
-export default addOneUser;
-=======
 const loginUser = async (user) => {
   try {
     const options = {
@@ -45,4 +41,3 @@ const loginUser = async (user) => {
 };
 
 export { addOneUser, loginUser };
->>>>>>> 73f171ec032c24940a762f7d04b2e7f2fd2e0cb1

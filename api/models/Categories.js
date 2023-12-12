@@ -48,16 +48,16 @@ function getDateNow() {
   const date = new Date();
   return `Ajouté le ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} à  ${date.getHours()}:${date.getMinutes()} `;
 }
-function deleteCategory(title) {
-  const categories = parse(jsonDbPath);
-  const theTitle = title;
-  const foundIndex = categories.findIndex((category) => category.title === theTitle);
+function deleteCategory(id) {
+  const idAsNumber = Number(id);
+  const topics = parse(jsonDbPath);
+  const foundIndex = topics.findIndex((topic) => topic.id === idAsNumber);
   if (foundIndex < 0) return undefined;
-  const deletedCategories = categories.splice(foundIndex, 1);
-  const deletedCategorie = deletedCategories[0];
-  serialize(jsonDbPath, categories);
+  const deletedTopics = topics.splice(foundIndex, 1);
+  const deletedTopic = deletedTopics[0];
+  serialize(jsonDbPath, topics);
 
-  return deletedCategorie;
+  return deletedTopic;
 }
 function isTitleAlreadyExists(title) {
   const categories = parse(jsonDbPath);

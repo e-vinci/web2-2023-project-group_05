@@ -20,7 +20,7 @@ const categoriesView = async () => {
     const buttonDelete = document.querySelectorAll('#BtnDelete');
 
 buttonDelete.forEach(async (button) => {
-    button.addEventListener('click', async () => {
+    button.addEventListepner('click', async () => {
         // Récupérer le titre de la catégorie associée à ce bouton
         const categoryTitle = categorie.title;// REPRENDRE LE TITRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

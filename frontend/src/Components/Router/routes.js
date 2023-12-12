@@ -7,6 +7,7 @@ import TopicView from '../Pages/TopicView'
 import ResultsPage from '../Pages/ResultsPage';
 import CategoriesView from '../Pages/CategoriesView';
 import Chat from '../Pages/Chat'; 
+import CategoryAdd from '../Pages/CategoryAdd';
 
 const routes = {
   '/': HomePage,
@@ -18,6 +19,8 @@ const routes = {
   '/results': ResultsPage, 
   '/categories/view': CategoriesView,
   '/chat': Chat,
+  '/category/add': CategoryAdd,
+
 };
 
 export default routes;
