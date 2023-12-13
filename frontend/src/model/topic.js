@@ -59,11 +59,13 @@ const readAllTopics = async () => {
 
   const updateOneTopic = async (id, newTopicData) => {
     try {
+      const authenticatedUser = getAuthenticatedUser();
       const options = {
         method: 'PATCH',
         body: JSON.stringify(newTopicData),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authenticatedUser.token,
         },
       };
   
