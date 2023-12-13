@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ### Delete a category by title
-DELETE {{baseUrl}}/categories/Br
+DELETE {{baseUrl}}/categories/6
 Content-Type: application/json
 
 ### Delete First catagory

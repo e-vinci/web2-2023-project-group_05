@@ -38,6 +38,7 @@ function renderNavbar() {
   <li>
     <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
   </li>
+  
 
   <li id="loginItem" class="nav-item">
     <a class="nav-link" href="#" data-uri="/login">Login</a>
@@ -96,9 +97,15 @@ function renderNavbar() {
     <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
   </li>
 
+  <li>
+    <a class="nav-link" href="#" data-uri="/category/add">Categories add</a>
+  </li>
+
   <li class="nav-item">
     <a class="nav-link" href="#" data-uri="/logout">Logout</a>
   </li>  
+
+
 
   <li class="nav-item">
     <a class="nav-link disabled" href="#">${authenticatedUserName?.username}</a>
@@ -131,6 +138,7 @@ function renderNavbar() {
   <li>
     <a class="nav-link" href="#" data-uri="/">Accueil</a>
   </li>
+  
 
   <li>
     <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
