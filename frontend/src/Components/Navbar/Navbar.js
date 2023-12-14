@@ -18,7 +18,7 @@ function renderNavbar() {
   <a href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
-  <a id="title" href="#" data-uri="/">La grande critique</a>
+  <a id="lgc" href="#" data-uri="/">La grande critique</a>
 
 </div>
 
@@ -62,7 +62,7 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
-  <a id="title" href="#" data-uri="/">La grande critique</a>
+  <a id="lgc" href="#" data-uri="/">La grande critique</a>
 
   </div>
 
@@ -116,7 +116,7 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
-  <a id="title" href="#" data-uri="/">La grande critique</a>
+  <a id="lgc" href="#" data-uri="/">La grande critique</a>
 
 </div>
 
