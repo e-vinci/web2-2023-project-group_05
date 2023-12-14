@@ -1,6 +1,8 @@
 import Navigate from '../Router/Navigate';
 import { createCategory } from '../../model/categories';
 
+
+
 const CategoriesAdd = () => {
   const addCategorie = `
   <section class="hero">
@@ -27,9 +29,6 @@ const CategoriesAdd = () => {
 
   const title = document.querySelector('#title');
   
-
-
-
 
 
   myForm.addEventListener('submit', (e) => {

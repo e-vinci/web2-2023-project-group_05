@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { readAllCategories, deleteCategory } from '../../model/categories';
+import { isAuthenticated } from '../../utils/auths';
 
 
 let existingDialog = null;
@@ -23,23 +24,37 @@ const categoriesView = async () => {
   
     categorieWrapper.innerHTML = categorieAsHtmlTable;
 
-    /* const buttonDelete = document.querySelectorAll('#BtnDelete');
+    const buttonsDelete = document.querySelectorAll('.deleteButton');
 
-buttonDelete.forEach(async (button) => {
-    button.addEventListepner('click', async () => {
-        // Récupérer le titre de la catégorie associée à ce bouton
-        const categoryTitle = categorie.title;// REPRENDRE LE TITRE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-        // Appeler la fonction deleteCategory
-        try {
-            await deleteCategory(categoryTitle);
-            // Rafraîchir la vue des catégories après la suppression
-            await categoriesView();
-        } catch (error) {
-            console.error('Erreur lors de la suppression de la catégorie :', error);
+    buttonsDelete.forEach(async (button) => {
+        if (isAuthenticated()) {
+            // eslint-disable-next-line no-param-reassign
+            button.style.display = 'block'; // Rendre visible le bouton de suppression
+            button.addEventListener('click', async () => {
+               
+                // eslint-disable-next-line prefer-destructuring
+                const elementId = button.closest('td').dataset.elementId;
+    
+                
+                // eslint-disable-next-line no-restricted-globals
+                const userConfirmed = confirm('Voulez-vous vraiment supprimer cette catégorie?');
+    
+                if (userConfirmed) {
+                   
+                    try {
+                        await deleteCategory(elementId);
+                        await categoriesView();
+                    } catch (error) {
+                        console.error('Erreur lors de la suppression de la catégorie :', error);
+                    }
+                }
+            });
+        } else {
+            // Si l'utilisateur n'est pas connecté
+            // eslint-disable-next-line no-param-reassign
+            button.style.display = 'none';
         }
     });
-}); */
 
 
     const categorieElements = document.querySelectorAll('.categorie');
@@ -52,10 +67,18 @@ buttonDelete.forEach(async (button) => {
             if (!existingDialog) {
                 existingDialog = document.createElement('div');
                 existingDialog.innerHTML = `
-                    <p class="dialog-content">Tu as choisi ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
+                    <p class="dialog-content">Tu as choisi <strong>${title}</strong>. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
                     <button id="rejoindreBtn" class="dialog-button">Rejoindre</button>
                     <button id="creerBtn" class="dialog-button">Créer</button>
                 `;
+                // affichage du dialog juste a coter de la categorie selectionner
+                const rect = categorieElement.getBoundingClientRect();
+                existingDialog.style.position = 'absolute';
+                existingDialog.style.top = `${rect.top + window.scrollY}px`;
+                existingDialog.style.left = `${rect.right + window.scrollX + 100}px`;
+                existingDialog.style.color = `yellow`
+
+
 
                 // Ajoute la boîte de dialogue à la page
                 document.body.appendChild(existingDialog);
@@ -113,8 +136,9 @@ buttonDelete.forEach(async (button) => {
           (element) => `
           <tr>
            <td class="categorie" data-title="${element.title}"> <a href = "#">${element.title} </a></td>
-           <td style ="text-align: right"><button id="BtnDelete">delete </button/></td>
-            
+           <td style="text-align: right" data-element-id="${element.id}"><button class="deleteButton">delete</button></td>
+
+
           </tr>
           `,
         )

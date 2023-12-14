@@ -11,16 +11,22 @@ const readAllCategories = async () => {
 
 
 
-const deleteCategory = async () => {
-    try {
-        // eslint-disable-next-line no-undef
-        const response = await fetch(`/api/categories/?title=${req.body.title}`);
-        const categories = await response.json();
-        return categories;
-    } catch (err) {
-        console.error('deleteCategory::error', err);
-        throw err;
-    }
+const deleteCategory = async (id) => {
+  try {
+      const response = await fetch(`/api/categories/${id}`, {
+          method: 'DELETE',
+      });
+
+      if (!response.ok) {
+          throw new Error(`Error deleting category: ${response.statusText}`);
+      }
+
+      const deletedCategory = await response.json();
+      return deletedCategory;
+  } catch (err) {
+      console.error('deleteCategory::error', err);
+      throw err;
+  }
 };
 
 const createCategory = async (title) => {
