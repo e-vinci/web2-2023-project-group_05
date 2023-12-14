@@ -26,7 +26,7 @@ header {
 }
 
 .logo {
-  border-radius: 20px;
+  border-radius: 40px;
   font-size: 40px;
   font-weight: 700;
   color: rgb(64, 19, 96);
@@ -41,7 +41,7 @@ header {
 
 .navlist {
   display: flex;
-  margin-left: 400px;
+  margin-left: 500px;
 }
 
 .navlist a {
@@ -422,4 +422,15 @@ body.dark-mode button {
   font-style: italic;
   width: 150px;
   position: relative;
+}
+
+#title{
+  margin-top: 40px;
+  margin-left: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: rgb(249, 249, 249);
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
 }

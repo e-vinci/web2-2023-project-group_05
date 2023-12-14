@@ -120,7 +120,7 @@ const categoriesView = async () => {
 
   function getHtmlCategorieTableAsString(categorie){
     if(categorie?.length === undefined || categorie.length === 0){
-      return "<p class=p-5> Pas de catégories pour l'instant: (</p>";
+      return "<p class=p-5> Pas de catégories pour l'instant :( </p>";
     }
     const htmlCategorieTable = `
     <div class="table-responsive p-5">

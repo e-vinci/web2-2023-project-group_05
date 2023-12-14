@@ -15,9 +15,11 @@ function renderNavbar() {
 
   const unauthenticatedUser = `
 <div class="logo-container">
-  <a class="nav-link" href="#" data-uri="/">
+  <a href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
+  <a id="title" href="#" data-uri="/">La grande critique</a>
+
 </div>
 
 
@@ -60,7 +62,9 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
-</div>
+  <a id="title" href="#" data-uri="/">La grande critique</a>
+
+  </div>
 
 
 <div class="navlist-container">
@@ -112,6 +116,7 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
+  <a id="title" href="#" data-uri="/">La grande critique</a>
 
 </div>
 
