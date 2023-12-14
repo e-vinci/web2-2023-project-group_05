@@ -120,7 +120,9 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
+
 </div>
+
 
 
 <div class="navlist-container">
