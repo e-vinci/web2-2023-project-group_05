@@ -95,8 +95,8 @@ function renderNavbar() {
     <a class="nav-link" href="#" data-uri="/logout">Se déconnecter</a>
   </li>  
 
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">${authenticatedUserName?.username}</a>
+  <li class="nav-item" >
+    <a id="usernameConnected" class="nav-link disabled" href="#">Bonjour ${authenticatedUserName?.username} !</a>
   </li>  
 
   </ul>
