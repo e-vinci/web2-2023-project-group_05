@@ -25,13 +25,20 @@ const TopicView = async () => {
 
 function getHtmlTopicTableAsString(topics){
   if(topics?.length === undefined || topics.length === 0){
-    return '<p class=p-5> No topics yet : (</p>';
+    return "<p class=p-5> Pas de sujets pour l'instant : (</p>";
   }
-  const htmlTopicTable = `<div class="table-responsive p-5">
+  const htmlTopicTable = `
+  <div id="searchForm">
+  <form action="/results" data-uri="/results">
+    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
+    <input type="submit" name="submit" id="submit" value"Search" />
+  </form>
+</div>
+<div class="table-responsive p-5">
   <table class="table">
   <thead>
   <tr>
-  <th scope = "col">Title</th>
+  <th scope = "col">Titre</th>
   <th scope = "col">Description</th>
   </tr>
   </thead>
@@ -39,14 +46,16 @@ function getHtmlTopicTableAsString(topics){
     ${topics
       .map(
         (element) => `
+
         <tr>
+
           <td class="fw-bold text-info" contenteditable="true">${element.title}</td>
           <td class="text-info" contenteditable="true">${element.description}</td>
           <td>
-            <button type="button" class="btn btn-info delete" data-element-id="${element.id}">Delete</button>
+            <button type="button" class="btn btn-info delete" data-element-id="${element.id}">Supprimer</button>
           </td>
           <td>
-            <button type="button" class="btn btn-info update" data-element-id="${element.id}">Save</button>
+            <button type="button" class="btn btn-info update" data-element-id="${element.id}">Sauvegarder</button>
           </td>
         </tr>
         <span class="error"></span>

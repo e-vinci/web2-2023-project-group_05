@@ -67,7 +67,7 @@ const categoriesView = async () => {
             if (!existingDialog) {
                 existingDialog = document.createElement('div');
                 existingDialog.innerHTML = `
-                    <p class="dialog-content">Tu as choisi <strong>${title}</strong>. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
+                    <p class="dialog-content">Tu as choisis <strong>${title}</strong>. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!</p>
                     <button id="rejoindreBtn" class="dialog-button">Rejoindre</button>
                     <button id="creerBtn" class="dialog-button">Créer</button>
                 `;
@@ -99,7 +99,7 @@ const categoriesView = async () => {
                 });
             } else {
                 // Met à jour le contenu du dialogue existant
-                existingDialog.querySelector('.dialog-content').innerHTML = `Tu as choisi ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!`;
+                existingDialog.querySelector('.dialog-content').innerHTML = `Tu as choisis ${title}. Tu as le choix entre rejoindre un sujet déjà existant ou d'en créer un!`;
             }
         });
     });
@@ -120,7 +120,7 @@ const categoriesView = async () => {
 
   function getHtmlCategorieTableAsString(categorie){
     if(categorie?.length === undefined || categorie.length === 0){
-      return '<p class=p-5> No categorie yet : (</p>';
+      return "<p class=p-5> Pas de catégories pour l'instant: (</p>";
     }
     const htmlCategorieTable = `
     <div class="table-responsive p-5">
@@ -136,7 +136,7 @@ const categoriesView = async () => {
           (element) => `
           <tr>
            <td class="categorie" data-title="${element.title}"> <a href = "#">${element.title} </a></td>
-           <td style="text-align: right" data-element-id="${element.id}"><button class="deleteButton">delete</button></td>
+           <td style="text-align: right" data-element-id="${element.id}"><button class="deleteButton">Supprimer</button></td>
 
 
           </tr>

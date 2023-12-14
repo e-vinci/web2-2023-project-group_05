@@ -12,7 +12,6 @@ const Navbar = () => {
 function renderNavbar() {
 
   const authenticatedUserName = getAuthenticatedUser();
-  const isAdmin = authenticatedUserName && authenticatedUserName.isAdmin;
 
   const unauthenticatedUser = `
 <div class="logo-container">
@@ -36,24 +35,19 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+    <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
   </li>
-  
 
   <li id="loginItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/login">Login</a>
+    <a class="nav-link" href="#" data-uri="/login">Connexion</a>
   </li>
 
   <li id="registerItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/register">Register</a>
+    <a class="nav-link" href="#" data-uri="/register">Inscription</a>
     </li>
 
   </ul>
 
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <input type="submit" name="submit" id="submit" value"Search" />
-  </form>
       </div>
   </div>
 </nav>
@@ -94,18 +88,12 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
-  </li>
-
-  <li>
-    <a class="nav-link" href="#" data-uri="/category/add">Categories add</a>
+    <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#" data-uri="/logout">Logout</a>
+    <a class="nav-link" href="#" data-uri="/logout">Se déconnecter</a>
   </li>  
-
-
 
   <li class="nav-item">
     <a class="nav-link disabled" href="#">${authenticatedUserName?.username}</a>
@@ -113,10 +101,6 @@ function renderNavbar() {
 
   </ul>
 
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <input type="submit" name="submit" id="submit" value"Search" />
-  </form>
       </div>
   </div>
 </nav>
@@ -140,7 +124,6 @@ function renderNavbar() {
   <li>
     <a class="nav-link" href="#" data-uri="/">Accueil</a>
   </li>
-  
 
   <li>
     <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
@@ -159,15 +142,15 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+    <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
   </li>
 
   <li id="loginItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/category/add">Add category</a>
+    <a class="nav-link" href="#" data-uri="/category/add">Crée une catégorie</a>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#" data-uri="/logout">Logout</a>
+    <a class="nav-link" href="#" data-uri="/logout">Se déconnecter</a>
   </li>  
 
   
@@ -177,10 +160,6 @@ function renderNavbar() {
   
   </ul>
 
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <input type="submit" name="submit" id="submit" value"Search" />
-  </form>
       </div>
   </div>
 </nav>
@@ -189,10 +168,11 @@ function renderNavbar() {
   const navbar = document.querySelector('#navbarWrapper');
 
   if (isAuthenticated()) {
+    const isAdmin = authenticatedUserAsAdmin === authenticatedUser;
     navbar.innerHTML = isAdmin ? authenticatedUserAsAdmin : authenticatedUser;
   } else {
     navbar.innerHTML = unauthenticatedUser;
-  }
+  }  
 }
 
 
