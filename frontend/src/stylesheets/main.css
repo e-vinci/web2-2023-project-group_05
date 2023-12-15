@@ -26,7 +26,7 @@ header {
 }
 
 .logo {
-  border-radius: 20px;
+  border-radius: 40px;
   font-size: 40px;
   font-weight: 700;
   color: rgb(64, 19, 96);
@@ -41,7 +41,7 @@ header {
 
 .navlist {
   display: flex;
-  margin-left: 400px;
+  margin-left: 500px;
 }
 
 .navlist a {
@@ -58,8 +58,8 @@ header {
 }
 
 #searchForm{
-  border-radius: 50px;
-  margin-left: 20px;
+  left: 500px;
+  position: relative;
 }
 
 #searchForm button img{
@@ -86,12 +86,7 @@ section{
   padding: 0 19%;
 }
 
-.hero-text h5{
-  font-size: 14px;
-  font-weight: 400;
-  color: white;
-  margin-bottom: 40px;
-}
+
 .hero-text h1{
   font-family: 'Permanent Marker', cursive;
   font-size: 90px;
@@ -156,6 +151,9 @@ a {
   text-decoration: none;
 }
 
+button{
+  color: #553870;
+}
 
 /*
 .nav-item {
@@ -386,4 +384,56 @@ body button {
 body.dark-mode button {
   background-color: white;
   color: black;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+#login-button{
+  background-color: #61b1da;
+  border-radius: 30px;
+  border: 2px solid #553870;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  width: 170px;
+
+}
+
+#loginImage{
+  width: 400px;
+  height: 400px;
+  margin-top: 100px;
+  margin-left: 90px;
+  border-radius: 30px;
+}
+
+#loginForm p{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+  color: #412857;
+}
+
+#loginPage{
+  margin-top: 500px;
+}
+
+
+#usernameConnected{
+  margin-top: 50px;
+  color: #9cc9df;
+  font-size: 15px;
+  font-style: italic;
+  width: 150px;
+  position: relative;
+}
+
+#lgc{
+  margin-top: 40px;
+  margin-left: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: rgb(249, 249, 249);
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
 }

@@ -1,11 +1,12 @@
+import anime from 'animejs/lib/anime.es';
 import debate from '../../img/debate.jpg';
+
 
 const HomePage = () => {
   const main = document.querySelector('main');
   main.innerHTML = `
   <section class="hero">
   <div class="hero-text">
-    <h5>#2 Trending</h5>
     <h4>Bienvenue dans La Grande Critique</h4>
     <h4>Un des meilleurs !</h4>
     <h1>DEBATE</h1>
@@ -23,6 +24,29 @@ const HomePage = () => {
 </section>
 
 `;
+
+// Ajoute une classe à la balise body pour appliquer le style de masquage de défilement
+document.body.classList.add('no-scroll');
+
+anime({
+  targets: ['.hero-img'],
+  opacity: [0, 1],
+  translateX: [window.innerWidth, 0],
+  scale: 1,
+  duration: 1500,
+  easing: 'easeInOutQuad',
+});
+
+const groot = document.querySelector('.hero-img');
+groot.addEventListener('click', () => {
+  anime({
+    targets: groot,
+    translateX: [-window.innerWidth, 0], // Commence à l'extérieur de l'écran à droite
+    duration: 1000,
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+  });
+});
   
 };
 

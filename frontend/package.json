@@ -1,7 +1,7 @@
 {
-  "name": "js-phaser-boilerplate",
+  "name": "LaGrandeCritique",
   "version": "1.0.0",
-  "description": "myJScourse's modern frontend boilerplate to build a phaser game",
+  "description": "endroit ou l'on peux debatre sur plusieur catégorie dont chaque catégorie a son lot de sujet",
   "scripts": {
     "deploy": "npm run build && gh-pages -d dist",
     "dev": "webpack --mode development --config webpack.config.base.js && cp dist/index.html dist/404.html",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
+    "animejs": "^3.2.2",
     "better-sqlite3": "^9.1.1",
     "bootstrap": "^5.0.1",
     "clean-webpack-plugin": "^4.0.0",

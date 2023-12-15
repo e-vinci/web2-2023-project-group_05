@@ -4,6 +4,7 @@ import { getRememberMe, setRememberMe } from '../../utils/auths';
 
 import { loginUser } from '../../model/users';
 import Navigate from '../Router/Navigate';
+import image from '../../img/login-image.png';
 
 const LoginPage = () => {
   clearPage();
@@ -37,12 +38,16 @@ function renderLoginForm() {
   const main = document.querySelector('main');
 
   main.innerHTML = `
-  <section class="hero">
-    <form id="loginForm" class="p-5">
+  <section class="hero" >
+  <div id="loginForm">
+    <form>
+    <p>Tu souhaites lancer ou rejoindre un débat ? Connecte-toi !</p>
       <input type="text" id="username" placeholder="username" required class="form-control mb-3">
       <input type="password" id="password" placeholder="password" required class="form-control mb-3">
-      <input type="submit" value="Login" class="btn btn-danger">
-    </form>
+      <input id="login-button" type="submit" value="Se connecter" class="btn btn-danger">
+      </form>
+  </div>
+  <div id="login"><img id="loginImage" src="${image}" data-uri="#"></div>
     <span class="error"></span>
   </section>
   `; 

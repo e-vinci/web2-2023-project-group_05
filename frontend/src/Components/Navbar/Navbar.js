@@ -15,9 +15,11 @@ function renderNavbar() {
 
   const unauthenticatedUser = `
 <div class="logo-container">
-  <a class="nav-link" href="#" data-uri="/">
+  <a href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
+  <a id="lgc" href="#" data-uri="/">La grande critique</a>
+
 </div>
 
 
@@ -35,24 +37,19 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+    <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
   </li>
-  
 
   <li id="loginItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/login">Login</a>
+    <a class="nav-link" href="#" data-uri="/login">Connexion</a>
   </li>
 
   <li id="registerItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/register">Register</a>
+    <a class="nav-link" href="#" data-uri="/register">Inscription</a>
     </li>
 
   </ul>
 
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <input type="submit" name="submit" id="submit" value"Search" />
-  </form>
       </div>
   </div>
 </nav>
@@ -65,7 +62,9 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
-</div>
+  <a id="lgc" href="#" data-uri="/">La grande critique</a>
+
+  </div>
 
 
 <div class="navlist-container">
@@ -93,25 +92,23 @@ function renderNavbar() {
   </li>
 
   <li>
+<<<<<<< HEAD
+    <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
+=======
     <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+>>>>>>> 4422277daae8aecf0bdbebf93b8e03a9bfcd932a
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#" data-uri="/logout">Logout</a>
+    <a class="nav-link" href="#" data-uri="/logout">Se déconnecter</a>
   </li>  
 
-
-
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">${authenticatedUserName?.username}</a>
+  <li class="nav-item" >
+    <a id="usernameConnected" class="nav-link disabled" href="#">Bonjour ${authenticatedUserName?.username} !</a>
   </li>  
 
   </ul>
 
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <input type="submit" name="submit" id="submit" value"Search" />
-  </form>
       </div>
   </div>
 </nav>
@@ -123,7 +120,10 @@ function renderNavbar() {
   <a class="nav-link" href="#" data-uri="/">
     <img class="logo" src="${logo}" data-uri="/">
   </a>
+  <a id="lgc" href="#" data-uri="/">La grande critique</a>
+
 </div>
+
 
 
 <div class="navlist-container">
@@ -133,7 +133,6 @@ function renderNavbar() {
   <li>
     <a class="nav-link" href="#" data-uri="/">Accueil</a>
   </li>
-  
 
   <li>
     <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
@@ -152,15 +151,15 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+    <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
   </li>
 
   <li id="loginItem" class="nav-item">
-    <a class="nav-link" href="#" data-uri="/category/add">Add category</a>
+    <a class="nav-link" href="#" data-uri="/category/add">Crée une catégorie</a>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#" data-uri="/logout">Logout</a>
+    <a class="nav-link" href="#" data-uri="/logout">Se déconnecter</a>
   </li>  
 
   
@@ -170,10 +169,6 @@ function renderNavbar() {
   
   </ul>
 
-  <form action="/results" data-uri="/results" id="searchForm">
-    <input type="text" id="mySearch" name="search" placeholder="search for a category/subject" required />
-    <input type="submit" name="submit" id="submit" value"Search" />
-  </form>
       </div>
   </div>
 </nav>
