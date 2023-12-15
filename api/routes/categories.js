@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
   return res.json(getcategorie);
 });
 
-// create topic
+// create category
 router.post('/', (req, res) => {
   const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
 
