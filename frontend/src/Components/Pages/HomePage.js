@@ -38,15 +38,34 @@ anime({
   easing: 'easeInOutQuad',
 });
 
-const groot = document.querySelector('.hero-img');
+anime({
+  targets: ['.hero-text'],
+  opacity: [0, 1],
+  translateX: [-window.innerWidth, 0], // Commence à l'extérieur de l'écran à gauche
+  scale: 1,
+  duration: 1500,
+  easing: 'easeInOutQuad',
+});
 
-groot.addEventListener('click', () => {
+const heroImg = document.querySelector('.hero-img');
+
+// Animation de rotation lorsqu'on passe la souris
+heroImg.addEventListener('mouseenter', () => {
   anime({
-    targets: groot,
-    translateX: [-window.innerWidth, 0], // Commence à l'extérieur de l'écran à droite
-    duration: 1000,
+    targets: heroImg,
+    rotate: '+=5deg', // Rotation de 5 degrés
+    duration: 300,
     easing: 'easeInOutQuad',
-    direction: 'alternate',
+  });
+});
+
+// Animation pour revenir à la position d'origine quand la souris quitte
+heroImg.addEventListener('mouseleave', () => {
+  anime({
+    targets: heroImg,
+    rotate: 0, // Rotation de 0 degré (position d'origine)
+    duration: 300,
+    easing: 'easeInOutQuad',
   });
 });
 };
