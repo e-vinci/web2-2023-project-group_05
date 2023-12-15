@@ -1,4 +1,6 @@
+import anime from 'animejs/lib/anime.es';
 import debate from '../../img/debate.jpg';
+
 
 const HomePage = () => {
   const main = document.querySelector('main');
@@ -23,6 +25,29 @@ const HomePage = () => {
 </section>
 
 `;
+
+// Ajoute une classe à la balise body pour appliquer le style de masquage de défilement
+document.body.classList.add('no-scroll');
+
+anime({
+  targets: ['.hero-img'],
+  opacity: [0, 1],
+  translateX: [window.innerWidth, 0],
+  scale: 1,
+  duration: 1500,
+  easing: 'easeInOutQuad',
+});
+
+const groot = document.querySelector('.hero-img');
+groot.addEventListener('click', () => {
+  anime({
+    targets: groot,
+    translateX: [-window.innerWidth, 0], // Commence à l'extérieur de l'écran à droite
+    duration: 1000,
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+  });
+});
   
 };
 
