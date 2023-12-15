@@ -357,10 +357,6 @@ h1, #title{
   cursor: pointer;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 /* Dark Theme */
 body.dark-mode {
   background-color: #333;

@@ -47,7 +47,7 @@ function getHtmlTopicTableAsString(topics, categories) {
     return '<p class=p-5> No topics yet : (</p>';
   }
 
-  if(getAuthenticatedUser() === undefined) return '<p>tes pas co</p>'
+  if(getAuthenticatedUser() === undefined) return '<p>tu est pas connecter</p>'
 
   const categoryOptions = categories.map(category => category.title);
 

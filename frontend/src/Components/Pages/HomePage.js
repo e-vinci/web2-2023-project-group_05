@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import anime from 'animejs/lib/anime.es';
 import debate from '../../img/debate.jpg';
 
@@ -26,7 +27,6 @@ const HomePage = () => {
 `;
 
 // Ajoute une classe à la balise body pour appliquer le style de masquage de défilement
-document.body.classList.add('no-scroll');
 
 anime({
   targets: ['.hero-img'],
@@ -38,6 +38,7 @@ anime({
 });
 
 const groot = document.querySelector('.hero-img');
+
 groot.addEventListener('click', () => {
   anime({
     targets: groot,
