@@ -6,7 +6,26 @@
   list-style: none;
   text-decoration: none;
 }
+#theme-toggle {
+  position: relative;
+  top: -40px; /* Ajustez cette valeur pour déplacer le bouton */
+}
+body.dark-mode {
+  background-color: #3f352d;
+  color: #f0f0f0;
+}
 
+/* Styles pour .hero en mode sombre */
+body.dark-mode .hero {
+  background: linear-gradient(245.59deg, #583355 0%, #3e2b50 28.53%, rgb(58, 79, 85) 75.52%);
+  /* ... Autres styles de .hero en mode sombre ... */
+}
+
+/* Styles pour footer en mode sombre */
+body.dark-mode footer {
+  color: #e91b1b;
+  /* ... Autres styles du footer en mode sombre ... */
+}
 header {
   position: fixed;
   right: 0;
@@ -347,7 +366,7 @@ h1, #title{
 /* Large devices (desktops, 992px and up) */
 
 .responsive-background-color {
-  background-color: lightblue;
+  background: linear-gradient(245.59deg, #954d8e 0%, #553870 28.53%, rgb(128, 186, 203) 75.52%);
   @media (min-width: 992px) {
     background-color: white;
   }
@@ -359,26 +378,27 @@ h1, #title{
 
 /* Dark Theme */
 body.dark-mode {
-  background-color: #333;
+  background: linear-gradient(245.59deg, #583355 0%, #3e2b50 28.53%, rgb(58, 79, 85) 75.52%);
   color: #f0f0f0;
 }
 
 body.dark-mode .modal{
-  color:black;
+  color:rgb(241, 18, 18);
 }
 
 header.dark-mode{
-  background-color: #222;
+  background: linear-gradient(245.59deg, #583355 0%, #3e2b50 28.53%, rgb(58, 79, 85) 75.52%);
 }
 
-/* button within a body that has the class dark-mode */ 
+/* button within a body that has the class dark-mode 
+ICI*/ 
 body button {
-  background-color: black;
-  color: white;
+  background: linear-gradient(245.59deg, #ad7ca9 0%, #7b6391 28.53%, rgb(99, 127, 134) 75.52%);
+  color: rgb(90, 58, 87);
 }
 
 body.dark-mode button {
-  background-color: white;
+  background: linear-gradient(245.59deg, #583355 0%, #3e2b50 28.53%, rgb(58, 79, 85) 75.52%);
   color: black;
 }
 

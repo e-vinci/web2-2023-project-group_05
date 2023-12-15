@@ -48,7 +48,6 @@ groot.addEventListener('click', () => {
     direction: 'alternate',
   });
 });
-  
 };
 
 export default HomePage;

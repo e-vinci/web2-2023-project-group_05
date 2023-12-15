@@ -33,7 +33,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+    <a class="nav-link" href="#" data-uri="/topic/view">Voir tous les sujets</a>
   </li>
 
   <li>
@@ -76,7 +76,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+    <a class="nav-link" href="#" data-uri="/topic/view">Voir tous les sujets</a>
   </li>
 
   <li>
@@ -131,7 +131,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+    <a class="nav-link" href="#" data-uri="/topic/view">Voir tous les sujets</a>
   </li>
 
   <li>
