@@ -1,4 +1,5 @@
 const express = require('express');
+const { authorize, isAdmin } = require('../utils/auths');
 
 const {
   createCategory, deleteCategory, isTitleAlreadyExists, readAllCategories,
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
 });
 
 // create topic
-router.post('/', (req, res) => {
+router.post('/', authorize, isAdmin, (req, res) => {
   const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
 
   console.log('TITLE', title);
@@ -29,7 +30,7 @@ router.post('/', (req, res) => {
   return res.json(categoryCreated);
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authorize, isAdmin, (req, res) => {
   const deletedCategory = deleteCategory(req.params.id);
 
   if (!deletedCategory) return res.sendStatus(404);

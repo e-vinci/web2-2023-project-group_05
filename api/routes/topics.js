@@ -34,13 +34,20 @@ router.post('/', authorize, (req, res) => {
   const title = req?.body?.title?.trim()?.length !== 0 ? req.body.title : undefined;
   // eslint-disable-next-line max-len
   const description = req?.body?.description?.trim()?.length !== 0 ? req.body.description : undefined;
+  const category = req?.body?.categorie.trim()?.length !== 0 ? req.body.categorie : undefined;
+  // eslint-disable-next-line no-unused-vars
+  const user = req?.body?.user.trim()?.length !== 0 ? req.body.user : undefined;
 
-  if (!title || !description) {
+  console.log(title);
+  console.log(description);
+  console.log(category);
+  console.log(user);
+
+  if (!title || !description || !category || !user) {
     console.log('Validation failed. Sending 400 error.');
     return res.sendStatus(400);
   }
-
-  const createdTopic = createOneTopic(title, description);
+  const createdTopic = createOneTopic(title, description, category, user);
   return res.json(createdTopic);
 });
 
@@ -57,11 +64,13 @@ router.delete('/:id', authorize, (req, res) => {
 router.patch('/:id', authorize, (req, res) => {
   const title = req?.body?.title;
   const description = req?.body?.description;
+  const category = req?.body?.categorie;
 
   if (
     !req.body
     || (title !== undefined && !title.trim())
     || (description !== undefined && !description.trim())
+    || (category !== undefined && !category.trim())
   ) return res.sendStatus(400);
 
   const updatedFilm = updatePartiallyOneTopic(req?.params?.id, req?.body);
@@ -76,6 +85,7 @@ router.patch('/:id', authorize, (req, res) => {
 router.put('/:id', authorize, (req, res) => {
   const title = req?.body?.title;
   const link = req?.body?.link;
+  const category = req?.body?.category;
 
   if (
     !req.body
@@ -83,6 +93,8 @@ router.put('/:id', authorize, (req, res) => {
     || !title.trim()
     || !link
     || !link.trim()
+    || !category
+    || !category.trim()
   ) return res.sendStatus(400);
 
   const updatedFilmOrNewFilm = updateFullyOneTopicOrCreateOneTopic(req?.params?.id, req?.body);

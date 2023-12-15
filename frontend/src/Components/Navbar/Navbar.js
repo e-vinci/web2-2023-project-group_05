@@ -2,7 +2,7 @@ import logo from '../../img/IMAGE.png';
 // eslint-disable-next-line no-unused-vars
 import searchIcon from '../../img/rechercher.png';
 
-import { getAuthenticatedUser, isAuthenticated } from '../../utils/auths';
+import { getAuthenticatedUser, isAuthenticated, getAuthenticatedUserAdmin } from '../../utils/auths';
 
 
 const Navbar = () => {
@@ -92,7 +92,11 @@ function renderNavbar() {
   </li>
 
   <li>
+<<<<<<< HEAD
     <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
+=======
+    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
+>>>>>>> 4422277daae8aecf0bdbebf93b8e03a9bfcd932a
   </li>
 
   <li class="nav-item">
@@ -139,7 +143,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/myViews">Mes sujets</a>
+    <a class="nav-link" href="#" data-uri="/topicMyViews">Mes sujets</a>
   </li>
 
   <li>
@@ -172,20 +176,18 @@ function renderNavbar() {
 
   const navbar = document.querySelector('#navbarWrapper');
 
-  if (isAuthenticated()) {
-    const isAdmin = authenticatedUserAsAdmin === authenticatedUser;
-    navbar.innerHTML = isAdmin ? authenticatedUserAsAdmin : authenticatedUser;
-  } else {
-    navbar.innerHTML = unauthenticatedUser;
+  if (getAuthenticatedUserAdmin()) {
+    navbar.innerHTML = authenticatedUserAsAdmin;
   }  
+
+  else if (isAuthenticated() && !getAuthenticatedUserAdmin()) {
+    navbar.innerHTML = authenticatedUser;
+  } 
+
+  else if (!isAuthenticated()) {
+    navbar.innerHTML = unauthenticatedUser;
+  } 
+
 }
-
-
-
-
-
-
-
-
 
 export default Navbar;

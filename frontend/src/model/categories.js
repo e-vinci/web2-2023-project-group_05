@@ -1,3 +1,5 @@
+import { getAuthenticatedUser } from "../utils/auths";
+
 const readAllCategories = async () => {
     try {
         const response = await fetch('/api/categories/?order=title');
@@ -13,8 +15,12 @@ const readAllCategories = async () => {
 
 const deleteCategory = async (id) => {
   try {
+    const authenticatedUser = getAuthenticatedUser();
       const response = await fetch(`/api/categories/${id}`, {
           method: 'DELETE',
+          headers: {
+            Authorization: authenticatedUser.token,
+          },
       });
 
       if (!response.ok) {
@@ -31,15 +37,18 @@ const deleteCategory = async (id) => {
 
 const createCategory = async (title) => {
     try {
+      const authenticatedUser = getAuthenticatedUser();
       const options = {
         method: 'POST',
         body: JSON.stringify(title),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authenticatedUser.token,
+
         },
       };
   
-      const response = await fetch(`/api/Categories`, options);
+      const response = await fetch(`/api/categories`, options);
 
       const createdCategories = await response.json();
       
