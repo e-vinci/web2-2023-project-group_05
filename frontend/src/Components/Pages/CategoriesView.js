@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { readAllCategories, deleteCategory } from '../../model/categories';
-import { isAuthenticated } from '../../utils/auths';
-
+import { getAuthenticatedUserAdmin } from '../../utils/auths';
 
 let existingDialog = null;
 
@@ -27,7 +26,7 @@ const categoriesView = async () => {
     const buttonsDelete = document.querySelectorAll('.deleteButton');
 
     buttonsDelete.forEach(async (button) => {
-        if (isAuthenticated()) {
+        if (getAuthenticatedUserAdmin()) {
             // eslint-disable-next-line no-param-reassign
             button.style.display = 'block'; // Rendre visible le bouton de suppression
             button.addEventListener('click', async () => {
@@ -77,8 +76,6 @@ const categoriesView = async () => {
                 existingDialog.style.top = `${rect.top + window.scrollY}px`;
                 existingDialog.style.left = `${rect.right + window.scrollX + 100}px`;
                 existingDialog.style.color = `yellow`
-
-
 
                 // Ajoute la boîte de dialogue à la page
                 document.body.appendChild(existingDialog);
@@ -148,12 +145,5 @@ const categoriesView = async () => {
       
       return htmlCategorieTable;
   }
-
-  
-
-  
-  
-  
-
 
 export default categoriesView;

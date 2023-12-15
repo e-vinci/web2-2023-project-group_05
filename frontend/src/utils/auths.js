@@ -28,7 +28,7 @@ const setAuthenticatedUser = (authenticatedUser) => {
 
 const isAuthenticated = () => currentUser !== undefined;
 
-const clearAuthenticatedUser = () => {
+const clearAuthenticatedUser = () => {    
   localStorage.clear();
   sessionStorage.clear();
   currentUser = undefined;
@@ -45,7 +45,17 @@ function setRememberMe(remembered) {
   localStorage.setItem(REMEMBER_ME, rememberedSerialized);
 }
 
+const getAuthenticatedUserAdmin = () => {
+  const x = getAuthenticatedUser();
+  if (x !==undefined){
+    if(x.username === 'admin') return true;
+    return false;
+  }
+  return false; 
+};
+
 export {
+  getAuthenticatedUserAdmin,
   getAuthenticatedUser,
   setAuthenticatedUser,
   isAuthenticated,
