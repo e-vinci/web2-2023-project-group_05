@@ -459,3 +459,12 @@ body.dark-mode button {
 #divForRule{
   padding : 100px;
 }
+
+:root::-webkit-scrollbar{
+  display: none;
+}
+
+:root {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
