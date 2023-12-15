@@ -376,10 +376,6 @@ h1, #title{
   cursor: pointer;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 /* Dark Theme */
 body.dark-mode {
   background: linear-gradient(245.59deg, #583355 0%, #3e2b50 28.53%, rgb(58, 79, 85) 75.52%);

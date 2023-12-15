@@ -38,6 +38,7 @@ anime({
 });
 
 const groot = document.querySelector('.hero-img');
+
 groot.addEventListener('click', () => {
   anime({
     targets: groot,

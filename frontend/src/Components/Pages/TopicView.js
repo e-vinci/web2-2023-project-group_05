@@ -1,6 +1,6 @@
 import { getAllCategories, readAllTopics } from '../../model/topic';
 // eslint-disable-next-line no-unused-vars
-import { getAuthenticatedUser } from '../../utils/auths';
+import { getAuthenticatedUser, getAuthenticatedUserAdmin } from '../../utils/auths';
 
 const TopicView = async () => {
   
@@ -25,7 +25,7 @@ const TopicView = async () => {
 
 };
 
-function getHtmlTopicTableAsString(topics) {
+function getHtmlTopicTableAsString(topics, categories) {
   
   // if(getAuthenticatedUser() === undefined) return '<p>tes pas co</p>'
 
@@ -60,6 +60,55 @@ function getHtmlTopicTableAsString(topics) {
         </tbody>
       </table>
     </div>`;
+
+    const categoryOptions = categories.map(category => category.title);
+
+    const htmlTopicTableForAdmin = `
+    <div class="table-responsive p-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${topics
+            .map(
+              (element) => `
+                <tr>
+                  <td class="fw-bold text-info" contenteditable="true">${element.title}</td>
+                  <td class="text-info" contenteditable="true">${element.description}</td>
+                  <td class="text-info" contenteditable="true">
+                    <select class="category-dropdown" data-element-id="${element.category}">
+                      ${categoryOptions
+                        .map(
+                          (categoryOption) => `
+                            <option value='${categoryOption}' ${element.category === categoryOption ? "selected" : " "}>${categoryOption}</option>
+                          `
+                        )
+                        .join('')}
+                    </select>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-info delete" data-element-id="${element.id}">Delete</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-info update" data-element-id="${element.id}">Save</button>
+                  </td>
+                </tr>
+                <span class="error"></span>
+              `,
+            )
+            .join('')}
+        </tbody>
+      </table>
+    </div>`; 
+
+    if (getAuthenticatedUserAdmin()) {
+      return htmlTopicTableForAdmin;
+    }
 
   return htmlTopicTable;
 }
