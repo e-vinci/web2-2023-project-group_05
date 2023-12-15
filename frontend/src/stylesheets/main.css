@@ -8,7 +8,7 @@
 }
 #theme-toggle {
   position: relative;
-  top: -40px; /* Ajustez cette valeur pour déplacer le bouton */
+  top: -50px; /* Ajustez cette valeur pour déplacer le bouton */
 }
 body.dark-mode {
   background-color: #3f352d;
