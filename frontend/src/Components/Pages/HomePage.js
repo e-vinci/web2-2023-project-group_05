@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import anime from 'animejs/lib/anime.es';
 import debate from '../../img/debate.jpg';
 
