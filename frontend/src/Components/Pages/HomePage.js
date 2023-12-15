@@ -7,7 +7,6 @@ const HomePage = () => {
   main.innerHTML = `
   <section class="hero">
   <div class="hero-text">
-    <h5>#2 Trending</h5>
     <h4>Bienvenue dans La Grande Critique</h4>
     <h4>Un des meilleurs !</h4>
     <h1>DEBATE</h1>

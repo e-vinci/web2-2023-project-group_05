@@ -47,12 +47,12 @@ function renderRegisterForm() {
   mainRegister.innerHTML = `
   <section class="hero">
     <form id="registerForm" class="form p-5">
-      <input type="text" id="name" placeholder="name" required class="form-control mb-3">
-      <input type="text" id="firstname" placeholder="firstname" required class="form-control mb-3">
+      <input type="text" id="name" placeholder="Nom" required class="form-control mb-3">
+      <input type="text" id="firstname" placeholder="Prénom" required class="form-control mb-3">
       <input type="email" id="email" placeholder="email" required class="form-control mb-3">
-      <input type="text" id="username" placeholder="username" required class="form-control mb-3">
-      <input type="password" id="password" placeholder="password" required class="password form-control mb-3">
-      <input type="password" id="passwordConfirmation" placeholder="password confirmation" required class="passwordConfirmation form-control mb-3">
+      <input type="text" id="username" placeholder="Nom d'utilisateur" required class="form-control mb-3">
+      <input type="password" id="password" placeholder="Mot de passe" required class="password form-control mb-3">
+      <input type="password" id="passwordConfirmation" placeholder="Confirmation de mot de passe" required class="passwordConfirmation form-control mb-3">
       <input type="submit" value="Register" class="btn btn-danger">
     </form>
     <span class="error"></span>
