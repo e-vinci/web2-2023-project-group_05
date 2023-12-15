@@ -33,7 +33,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+    <a class="nav-link" href="#" data-uri="/topic/view">Voir tous les sujets</a>
   </li>
 
   <li>
@@ -76,7 +76,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+    <a class="nav-link" href="#" data-uri="/topic/view">Voir tous les sujets</a>
   </li>
 
   <li>
@@ -92,11 +92,7 @@ function renderNavbar() {
   </li>
 
   <li>
-<<<<<<< HEAD
     <a class="nav-link" href="#" data-uri="/categories/view">Voir les catégories</a>
-=======
-    <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
->>>>>>> 4422277daae8aecf0bdbebf93b8e03a9bfcd932a
   </li>
 
   <li class="nav-item">
@@ -135,7 +131,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
+    <a class="nav-link" href="#" data-uri="/topic/view">Voir tous les sujets</a>
   </li>
 
   <li>
