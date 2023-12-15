@@ -2,7 +2,7 @@ import logo from '../../img/IMAGE.png';
 // eslint-disable-next-line no-unused-vars
 import searchIcon from '../../img/rechercher.png';
 
-import { getAuthenticatedUser, isAuthenticated } from '../../utils/auths';
+import { getAuthenticatedUser, isAuthenticated, getAuthenticatedUserAdmin } from '../../utils/auths';
 
 
 const Navbar = () => {
@@ -12,7 +12,6 @@ const Navbar = () => {
 function renderNavbar() {
 
   const authenticatedUserName = getAuthenticatedUser();
-  const isAdmin = authenticatedUserName && authenticatedUserName.isAdmin;
 
   const unauthenticatedUser = `
 <div class="logo-container">
@@ -38,6 +37,7 @@ function renderNavbar() {
   <li>
     <a class="nav-link" href="#" data-uri="/categories/view">Categories</a>
   </li>
+  
 
   <li id="loginItem" class="nav-item">
     <a class="nav-link" href="#" data-uri="/login">Login</a>
@@ -100,6 +100,8 @@ function renderNavbar() {
     <a class="nav-link" href="#" data-uri="/logout">Logout</a>
   </li>  
 
+
+
   <li class="nav-item">
     <a class="nav-link disabled" href="#">${authenticatedUserName?.username}</a>
   </li>  
@@ -131,6 +133,7 @@ function renderNavbar() {
   <li>
     <a class="nav-link" href="#" data-uri="/">Accueil</a>
   </li>
+  
 
   <li>
     <a class="nav-link" href="#" data-uri="/topic/view">Voir un sujet</a>
@@ -141,7 +144,7 @@ function renderNavbar() {
   </li>
 
   <li>
-    <a class="nav-link" href="#" data-uri="/topic/myViews">Mes sujets</a>
+    <a class="nav-link" href="#" data-uri="/topicMyViews">Mes sujets</a>
   </li>
 
   <li>
@@ -178,19 +181,18 @@ function renderNavbar() {
 
   const navbar = document.querySelector('#navbarWrapper');
 
-  if (isAuthenticated()) {
-    navbar.innerHTML = isAdmin ? authenticatedUserAsAdmin : authenticatedUser;
-  } else {
+  if (getAuthenticatedUserAdmin()) {
+    navbar.innerHTML = authenticatedUserAsAdmin;
+  }  
+
+  else if (isAuthenticated() && !getAuthenticatedUserAdmin()) {
+    navbar.innerHTML = authenticatedUser;
+  } 
+
+  else if (!isAuthenticated()) {
     navbar.innerHTML = unauthenticatedUser;
-  }
+  } 
+
 }
-
-
-
-
-
-
-
-
 
 export default Navbar;

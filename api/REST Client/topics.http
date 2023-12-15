@@ -22,7 +22,8 @@ Content-Type: application/json
 {
     "title":"Star Wars: The Phantom Menace (Episode II)",
     "description": "lala",
-    "image": "IMAGE.png"
+    "category": "sss",
+    "user" : "admin"
 }
 
 ### Try to create a topic with a parameter missing or empty string or string with whitespaces only
@@ -52,7 +53,7 @@ Content-Type: application/json
 {
     "title":"Star Wars: Episode 6666664",
     "description": "lalasSSS",
-    "image": "IMAGE.png"
+    "category": "MMM"
 }
 
 ### Delete the topic with ID == 2
@@ -116,7 +117,7 @@ POST {{baseUrl}}/auths/login
 Content-type: application/json
 
 {
-    "username": "Alic",
+    "username": "Marwan",
     "password": "alice123"
 }
 
@@ -126,9 +127,9 @@ Content-Type: application/json
 Authorization: {{user.response.body.token}}
 
 {
-    "title":"Test1",
+    "title":"Test333",
     "description": "lalalu",
-    "image": "IMAGE.png"
+    "category": "MMM"
 }
 
 

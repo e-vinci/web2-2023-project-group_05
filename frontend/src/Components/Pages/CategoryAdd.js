@@ -2,6 +2,7 @@ import Navigate from '../Router/Navigate';
 import { createCategory } from '../../model/categories';
 
 
+
 const CategoriesAdd = () => {
   const addCategorie = `
   <section class="hero">

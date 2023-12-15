@@ -1,3 +1,5 @@
+import { getAuthenticatedUser } from "../utils/auths";
+
 const readAllCategories = async () => {
     try {
         const response = await fetch('/api/categories/?order=title');
@@ -11,29 +13,42 @@ const readAllCategories = async () => {
 
 
 
-const deleteCategory = async () => {
-    try {
-        // eslint-disable-next-line no-undef
-        const response = await fetch(`/api/categories/?title=${req.body.title}`);
-        const categories = await response.json();
-        return categories;
-    } catch (err) {
-        console.error('deleteCategory::error', err);
-        throw err;
-    }
+const deleteCategory = async (id) => {
+  try {
+    const authenticatedUser = getAuthenticatedUser();
+      const response = await fetch(`/api/categories/${id}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: authenticatedUser.token,
+          },
+      });
+
+      if (!response.ok) {
+          throw new Error(`Error deleting category: ${response.statusText}`);
+      }
+
+      const deletedCategory = await response.json();
+      return deletedCategory;
+  } catch (err) {
+      console.error('deleteCategory::error', err);
+      throw err;
+  }
 };
 
 const createCategory = async (title) => {
     try {
+      const authenticatedUser = getAuthenticatedUser();
       const options = {
         method: 'POST',
         body: JSON.stringify(title),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authenticatedUser.token,
+
         },
       };
   
-      const response = await fetch(`/api/Categories`, options);
+      const response = await fetch(`/api/categories`, options);
 
       const createdCategories = await response.json();
       

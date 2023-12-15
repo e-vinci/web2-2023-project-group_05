@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ### Delete a category by title
-DELETE {{baseUrl}}/categories/Br
+DELETE {{baseUrl}}/categories/6
 Content-Type: application/json
 
 ### Delete First catagory
@@ -46,17 +46,17 @@ POST {{baseUrl}}/auths/login
 Content-type: application/json
 
 {
-    "username": "Alic",
+    "username": "Marwan",
     "password": "alice123"
 }
 
 ### Add category as a user without rights
 POST {{baseUrl}}/categories
 Content-Type: application/json
-Authorization: {{admin.response.body.token}}
+Authorization: {{user.response.body.token}}
 
 {
-    "title": "Jeuxvideooo"
+    "title": "JeuxvideoooA"
 }
 
 

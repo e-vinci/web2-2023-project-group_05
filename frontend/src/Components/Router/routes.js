@@ -9,6 +9,7 @@ import CategoriesView from '../Pages/CategoriesView';
 import Chat from '../Pages/Chat';
 import CategoryAdd from '../Pages/CategoryAdd';
 import Logout from '../Logout/Logout';
+import MyTopics from '../Pages/MyTopics';
 
 const routes = {
   '/': HomePage,
@@ -22,6 +23,7 @@ const routes = {
   '/chat': Chat,
   '/category/add': CategoryAdd,
   '/logout': Logout,
+  '/topicMyViews': MyTopics,
 };
 
 export default routes;

@@ -22,6 +22,7 @@ const readAllTopics = async () => {
           Authorization: authenticatedUser.token,
         },
       };
+      console.log(`after${JSON.stringify(topic)}`)
   
       const response = await fetch(`/api/topics`, options);
 
@@ -59,11 +60,13 @@ const readAllTopics = async () => {
 
   const updateOneTopic = async (id, newTopicData) => {
     try {
+      const authenticatedUser = getAuthenticatedUser();
       const options = {
         method: 'PATCH',
         body: JSON.stringify(newTopicData),
         headers: {
           'Content-Type': 'application/json',
+          Authorization: authenticatedUser.token,
         },
       };
   
@@ -77,6 +80,17 @@ const readAllTopics = async () => {
       throw err;
     }
   };
+
+  const getAllCategories = async () => {
+    try {
+        const response = await fetch('/api/categories/?order=title');
+        const getCategoryForTopic = await response.json();
+        return getCategoryForTopic;
+    } catch (err) {
+        console.error('getAllCategories::error', err);
+        throw err;
+    }
+};
     
 
-  export { readAllTopics, addOneTopic, deleteOneTopic, updateOneTopic };
+  export { readAllTopics, addOneTopic, deleteOneTopic, updateOneTopic, getAllCategories };

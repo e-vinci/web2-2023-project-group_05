@@ -1,7 +1,14 @@
 import Navigate from '../Router/Navigate';
-import { addOneTopic } from '../../model/topic';
+import { addOneTopic, getAllCategories } from '../../model/topic';
+import { getAuthenticatedUser } from '../../utils/auths';
 
 const TopicAdd = () => {
+  if (getAuthenticatedUser() === undefined) {
+    
+    Navigate('/login');
+    return;
+  }
+
   const addTopic = `
   <section class="hero">
   <div id="rules">
@@ -29,6 +36,13 @@ const TopicAdd = () => {
             required
         ></textarea>
     </div>
+    <div class="mb-3">
+  <label for="categorie">Choisissez une catégorie :</label>
+  <select class="form-control" name="categorie" id="categorie" required>
+    <!-- Options de catégories seront ajoutées dynamiquement ici par JavaScript -->
+  </select>
+</div>
+
     <input type="submit" class="btn btn-primary" value="Add Topic" />
 </form>  
 </div>
@@ -42,6 +56,8 @@ const TopicAdd = () => {
 
   const title = document.querySelector('#title');
   const description = document.querySelector('#description');
+  // eslint-disable-next-line no-unused-vars
+  const categorie = document.querySelector('#categorie');
 
   const buttonRule = document.querySelector('.buttonForRule');
 
@@ -93,19 +109,49 @@ const TopicAdd = () => {
     }
   });
 
-  myForm.addEventListener('submit', (e) => {
+  const updateCategoryDropdown = async () => {
+    // Récupérer la liste des catégories depuis votre API ou base de données
+    const categories = await getAllCategories(); // Assurez-vous d'implémenter cette fonction dans votre modèle
+
+    // Sélectionner l'élément de la liste déroulante
+    const categoryDropdown = document.getElementById('categorie');
+
+    // Effacer les options existantes
+    categoryDropdown.innerHTML = '';
+
+    // Ajouter les nouvelles options basées sur les catégories récupérées
+    categories.forEach((category) => {
+      const option = document.createElement('option');
+
+      // Vérifier si la catégorie est une chaîne de caractères
+      const categoryTitle = category.title;
+
+      option.value = categoryTitle;
+      option.textContent = categoryTitle;
+      categoryDropdown.appendChild(option);
+    });
+  };
+
+  myForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-  
+    const caca = document.querySelector('#categorie');
+    const x = getAuthenticatedUser().username;
+
     const topicToBeCreated = {
       title: title.value,
-      description: description.value
+      description: description.value,
+      categorie: caca.value,
+      user: x,
     };
-    
+
+    console.log(`befor : ${x}`);
 
     addOneTopic(topicToBeCreated);
 
     Navigate('/topic/view');
   });
+
+  updateCategoryDropdown();
 };
 
 export default TopicAdd;
