@@ -1,4 +1,5 @@
 import logo from '../../img/IMAGE.png';
+import LogoJS from '../../img/LogoJS.png'
 // eslint-disable-next-line no-unused-vars
 import searchIcon from '../../img/rechercher.png';
 
@@ -16,7 +17,7 @@ function renderNavbar() {
   const unauthenticatedUser = `
 <div class="logo-container">
   <a href="#" data-uri="/">
-    <img class="logo" src="${logo}" data-uri="/">
+    <img class="logo" src="${LogoJS}" data-uri="/">
   </a>
   <a id="lgc" href="#" data-uri="/">La grande critique</a>
 

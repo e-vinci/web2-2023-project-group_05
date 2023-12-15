@@ -22,6 +22,7 @@ const HomePage = () => {
   <div class="hero-img">
   <img src="${debate}" data-uri="#">
   </div>
+  
 </section>
 
 `;
