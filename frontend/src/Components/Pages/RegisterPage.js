@@ -53,7 +53,7 @@ function renderRegisterForm() {
       <input type="text" id="username" placeholder="Nom d'utilisateur" required class="form-control mb-3">
       <input type="password" id="password" placeholder="Mot de passe" required class="password form-control mb-3">
       <input type="password" id="passwordConfirmation" placeholder="Confirmation de mot de passe" required class="passwordConfirmation form-control mb-3">
-      <input type="submit" value="Register" class="btn btn-danger">
+      <input type="submit" value="S'enregistrer" class="btn btn-danger">
     </form>
     <span class="error"></span>
   </section>

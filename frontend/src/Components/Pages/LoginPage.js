@@ -42,8 +42,8 @@ function renderLoginForm() {
   <div id="loginForm">
     <form>
     <p>Tu souhaites lancer ou rejoindre un débat ? Connecte-toi !</p>
-      <input type="text" id="username" placeholder="username" required class="form-control mb-3">
-      <input type="password" id="password" placeholder="password" required class="form-control mb-3">
+      <input type="text" id="username" placeholder="Nom d'utilisateur" required class="form-control mb-3">
+      <input type="password" id="password" placeholder="Mot de passe" required class="form-control mb-3">
       <input id="login-button" type="submit" value="Se connecter" class="btn btn-danger">
       </form>
   </div>
