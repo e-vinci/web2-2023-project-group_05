@@ -3,58 +3,56 @@
 ### Read all topic
 GET {{baseUrl}}/topics
 
-### Read all topics with minimum-duration of 140min
-GET {{baseUrl}}/topics/
-
-### Try to read topics with wrong minimum-duration
-GET {{baseUrl}}/topics/
-
 ### Read topic with ID == 1
-GET {{baseUrl}}/topics/1
+GET {{baseUrl}}/topics/2
 
 ### Read topic which does not exist
 GET {{baseUrl}}/topics/500
 
-### Try to create an existing topic
+### Try to create a topic without Authorization
 POST {{baseUrl}}/topics/
 Content-Type: application/json
 
 {
     "title":"Star Wars: The Phantom Menace (Episode II)",
-    "description": "lala",
-    "category": "sss",
-    "user" : "admin"
+    "description": "Star Wars",
+    "category": "Musique",
+    "user" : "Marwan"
+}
+### Create a topic with user token
+#### First, Login as a user 
+##### Login the user and get the response in a request variable named 'user'
+# @name user
+POST {{baseUrl}}/auths/login
+Content-type: application/json
+
+{
+    "username": "Marwan",
+    "password": "alice123"
 }
 
-### Try to create a topic with a parameter missing or empty string or string with whitespaces only
+### Create a topic with Authorization of the user token
 POST {{baseUrl}}/topics/
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"Star Wars: Next Chapiter",
+    "description": "First description",
+    "category": "Musique", 
+    "user": "Marwan"
+}
+
+##### Login the user and get the response in a request variable named 'user'
+# @name admin
+POST {{baseUrl}}/auths/login
 Content-Type: application/json
 
 {
-    "title":" ",
-    "description": "lalak",
-    "image": "IMAGE.png"
+    "username": "admin", 
+    "password": "admin"
 }
 
-### Try to create a topic with a wrong budget
-POST {{baseUrl}}/topics/
-Content-Type: application/json
-
-{
-    "title":"Star Wars: The Phantom Menace (Episode I)",
-    "description": "lalan",
-    "image": "IMAGE.png"
-}
-
-### Create a topic
-POST {{baseUrl}}/topics/
-Content-Type: application/json
-
-{
-    "title":"Star Wars: Episode 6666664",
-    "description": "lalasSSS",
-    "category": "MMM"
-}
 
 ### Delete the topic with ID == 2
 DELETE {{baseUrl}}/topics/5
@@ -104,63 +102,5 @@ Content-Type: application/json
 {
     "title":"Attack of the beast",
     "description": "lalalu",
-    "image": "IMAGE.png"
-}
-
-
-### Create a categorie with user token
-#### First, Login as a user 
-##### Login the user and get the response in a request variable named 'user'
-# @name user
-
-POST {{baseUrl}}/auths/login
-Content-type: application/json
-
-{
-    "username": "Marwan",
-    "password": "alice123"
-}
-
-### Add category as a user without rights
-POST {{baseUrl}}/topics
-Content-Type: application/json
-Authorization: {{user.response.body.token}}
-
-{
-    "title":"Test333",
-    "description": "lalalu",
-    "category": "MMM"
-}
-
-
-##### Login the user and get the response in a request variable named 'user'
-# @name admin
-POST {{baseUrl}}/auths/login
-Content-Type: application/json
-
-{
-    "username": "admin", 
-    "password": "admin"
-}
-
-### Add category as an admin
-POST {{baseUrl}}/categories
-Content-Type: application/json
-Authorization: {{admin.response.body.token}}
-
-{
-      "title":"Test2",
-    "description": "lalalu",
-    "image": "IMAGE.png"
-}
-
-### Try to create a topic connected user or admin 
-POST {{baseUrl}}/topics/
-Content-Type: application/json
-Authorization: {{admin.response.body.token}}
-
-{
-    "title":"Star Wars: The Phantom Menace (Episode II)",
-    "description": "lala",
     "image": "IMAGE.png"
 }

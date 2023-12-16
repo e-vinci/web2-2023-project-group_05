@@ -3,40 +3,6 @@
 ### Read all categories sorted by title (ascending)
 GET {{baseUrl}}/categories/?order=+title
 
-### Read all categories sorted by title (descending)
-GET {{baseUrl}}/categories/?order=-title
-
-### Create category without the admin right
-POST {{baseUrl}}/categories
-Content-Type: application/json
-
-{
-    "title":"Test1"
-}
-### Create category without the admin right
-POST {{baseUrl}}/categories
-Content-Type: application/json
-
-{
-    "title":"Zab"
-}
-### Create category without the admin right
-POST {{baseUrl}}/categories
-Content-Type: application/json
-
-{
-    "title":"Brrrrrrr"
-}
-
-### Delete a category by title
-DELETE {{baseUrl}}/categories/6
-Content-Type: application/json
-
-### Delete First catagory
-DELETE {{baseUrl}}/categories/
-Content-Type: application/json
-
-
 ### Create a categorie with user token
 #### First, Login as a user 
 ##### Login the user and get the response in a request variable named 'user'
@@ -50,13 +16,20 @@ Content-type: application/json
     "password": "alice123"
 }
 
+### Add category as a user without authorization
+POST {{baseUrl}}/categories
+Content-Type: application/json
+
+{
+    "title": "Jeux vidéos"
+}
 ### Add category as a user without rights
 POST {{baseUrl}}/categories
 Content-Type: application/json
 Authorization: {{user.response.body.token}}
 
 {
-    "title": "JeuxvideoooA"
+    "title": "Jeux vidéos"
 }
 
 
@@ -65,11 +38,47 @@ Authorization: {{user.response.body.token}}
 POST {{baseUrl}}/auths/login
 Content-Type: application/json
 
-
 {
     "username": "admin", 
     "password": "admin"
 }
+
+### Create category without the admin right
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+{
+    "title":"Sports"
+}
+
+### Create another category without the admin right
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+{
+    "title":"Musique"
+}
+### Create another category without the admin right
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+{
+    "title":"Loisir"
+}
+
+### Delete a category by id
+DELETE {{baseUrl}}/categories/7
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
+### Delete a category by id unexistant
+DELETE {{baseUrl}}/categories/666
+Content-Type: application/json
+Authorization: {{admin.response.body.token}}
+
 
 
 

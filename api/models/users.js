@@ -99,12 +99,12 @@ function getNextId() {
   return nextId;
 }
 
-/*
 function deleteAllUsers() {
-  const users = parse(jsonDbPath);
-  return users;
+  const texts = parse(jsonDbPath);
+  const allDeleted = texts.splice(1, texts.length);
+  serialize(jsonDbPath, texts);
+  return allDeleted;
 }
-*/
 
 module.exports = {
   login,
@@ -112,4 +112,5 @@ module.exports = {
   readOneUserFromUsername,
   readAllUsers,
   defaultUsers,
+  deleteAllUsers,
 };

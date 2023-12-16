@@ -1,5 +1,7 @@
 const express = require('express');
-const { register, login, readAllUsers } = require('../models/users');
+const {
+  register, login, readAllUsers, deleteAllUsers,
+} = require('../models/users');
 
 const router = express.Router();
 
@@ -35,6 +37,11 @@ router.post('/login', async (req, res) => {
   if (!authenticatedUser) return res.sendStatus(401); // 401 Unauthorized
 
   return res.json(authenticatedUser);
+});
+
+router.delete('/', (req, res) => {
+  const deleted = deleteAllUsers();
+  return res.json(deleted);
 });
 
 module.exports = router;

@@ -7,7 +7,6 @@ const corsOptions = {
   origin: ['http://localhost:8080', 'https://e-baron.github.io', 'https://group-05.github.io/web2-2023-project-group_05/'],
 };
 
-const pizzaRouter = require('./routes/pizzas');
 const authsRouter = require('./routes/auths');
 const categoriesRouter = require('./routes/categories');
 const topicsRouter = require('./routes/topics');
@@ -21,7 +20,6 @@ app.use(cookieParser());
 
 app.use(cors(corsOptions));
 
-app.use('/pizzas', pizzaRouter);
 app.use('/auths', authsRouter);
 app.use('/categories', categoriesRouter);
 app.use('/topics', topicsRouter);

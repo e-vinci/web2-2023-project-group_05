@@ -14,37 +14,27 @@ const router = express.Router();
 // Read all the topics
 router.get('/', (req, res) => {
   const allTopics = readAllTopics();
-
   if (allTopics === undefined) return res.sendStatus(400);
-
   return res.json(allTopics);
 });
 
 // Read a topics from its id in the menu
 router.get('/:id', (req, res) => {
   const foundTopic = readOneTopic(req?.params?.id);
-
   if (!foundTopic) return res.sendStatus(404);
-
   return res.json(foundTopic);
 });
 
 // Create a topic
 router.post('/', authorize, (req, res) => {
   const title = req?.body?.title?.trim()?.length !== 0 ? req.body.title : undefined;
-  // eslint-disable-next-line max-len
-  const description = req?.body?.description?.trim()?.length !== 0 ? req.body.description : undefined;
-  const category = req?.body?.categorie.trim()?.length !== 0 ? req.body.categorie : undefined;
-  // eslint-disable-next-line no-unused-vars
+  const description = req?.body?.description?.trim()?.length !== 0
+    ? req.body.description : undefined;
+  const category = req?.body?.category.trim()?.length !== 0
+    ? req.body.category : undefined;
   const user = req?.body?.user.trim()?.length !== 0 ? req.body.user : undefined;
 
-  console.log(title);
-  console.log(description);
-  console.log(category);
-  console.log(user);
-
   if (!title || !description || !category || !user) {
-    console.log('Validation failed. Sending 400 error.');
     return res.sendStatus(400);
   }
   const createdTopic = createOneTopic(title, description, category, user);
@@ -54,9 +44,7 @@ router.post('/', authorize, (req, res) => {
 // Delete a topic
 router.delete('/:id', authorize, (req, res) => {
   const deletedTopic = deleteOneTopic(req?.params?.id);
-
   if (!deletedTopic) return res.sendStatus(404);
-
   return res.json(deletedTopic);
 });
 
@@ -80,8 +68,8 @@ router.patch('/:id', authorize, (req, res) => {
   return res.json(updatedFilm);
 });
 
-// eslint-disable-next-line max-len
-// Update a topic only if all properties are given or create it if it does not exist and the id is not existant
+// Update a topic only if all properties are given
+// or create it if it does not exist and the id is not existant
 router.put('/:id', authorize, (req, res) => {
   const title = req?.body?.title;
   const link = req?.body?.link;
@@ -96,9 +84,7 @@ router.put('/:id', authorize, (req, res) => {
     || !category
     || !category.trim()
   ) return res.sendStatus(400);
-
   const updatedFilmOrNewFilm = updateFullyOneTopicOrCreateOneTopic(req?.params?.id, req?.body);
-
   return res.json(updatedFilmOrNewFilm);
 });
 

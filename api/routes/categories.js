@@ -2,24 +2,23 @@ const express = require('express');
 const { authorize, isAdmin } = require('../utils/auths');
 
 const {
-  createCategory, deleteCategory, isTitleAlreadyExists, readAllCategories,
+  createCategory,
+  deleteCategory,
+  isTitleAlreadyExists,
+  readAllCategories,
 } = require('../models/Categories');
 
 const router = express.Router();
 
-// read all categories
+// Read all the categories ordered by the title, ascending or descending
 router.get('/', (req, res) => {
-  // const allCategoriesPotentiallyOrdered = readAllCategories(req?.query?.order);
-  const getcategorie = readAllCategories();
-
+  const getcategorie = readAllCategories(req?.query?.order);
   return res.json(getcategorie);
 });
 
-// create topic
+// Create a category and verify if the category's title doesnt already exists
 router.post('/', authorize, isAdmin, (req, res) => {
   const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
-
-  console.log('TITLE', title);
 
   if (!title) return res.sendStatus(404);
 
@@ -30,6 +29,7 @@ router.post('/', authorize, isAdmin, (req, res) => {
   return res.json(categoryCreated);
 });
 
+// Delete a category by its id
 router.delete('/:id', authorize, isAdmin, (req, res) => {
   const deletedCategory = deleteCategory(req.params.id);
 
@@ -38,3 +38,18 @@ router.delete('/:id', authorize, isAdmin, (req, res) => {
   return res.json(deletedCategory);
 });
 module.exports = router;
+
+/*
+**************************************************************************************
+*    Title: <
+router.get,
+router.post
+router.delete
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

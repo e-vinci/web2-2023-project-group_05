@@ -7,9 +7,9 @@ function readAllCategories(orderBy) {
   const orderByTitle = orderBy?.includes('title') ? orderBy : undefined;
   let orderedCategoriesTable;
   const categories = parse(jsonDbPath);
-  // eslint-disable-next-line max-len
-  if (orderByTitle) orderedCategoriesTable = [...categories].sort((a, b) => a.title.localeCompare(b.title));
-  if (orderByTitle === '-title') orderedCategoriesTable = orderedCategoriesTable.reverse();
+  if (orderByTitle) {
+    orderedCategoriesTable = [...categories].sort((a, b) => a.title.localeCompare(b.title));
+  }
 
   const allCategoriesPotentiallyOrderd = orderedCategoriesTable ?? categories;
   return allCategoriesPotentiallyOrderd;
@@ -30,6 +30,8 @@ function createCategory(title) {
 
   return newCategory;
 }
+
+// Generate the next id for the category
 function getNextId() {
   const categories = parse(jsonDbPath);
 
@@ -44,10 +46,13 @@ function getNextId() {
   return nextId;
 }
 
+// Get the actuel date when a category is created
 function getDateNow() {
   const date = new Date();
-  return `Ajouté le ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} à  ${date.getHours()}:${date.getMinutes()} `;
+  return `Ajouté le ${date.getDate()}/${date.getMonth()
+    + 1}/${date.getFullYear()} à  ${date.getHours()}:${date.getMinutes()} `;
 }
+
 function deleteCategory(id) {
   const idAsNumber = Number(id);
   const topics = parse(jsonDbPath);
@@ -59,6 +64,8 @@ function deleteCategory(id) {
 
   return deletedTopic;
 }
+
+// Verify if the title of a category already exists
 function isTitleAlreadyExists(title) {
   const categories = parse(jsonDbPath);
   return categories.some((category) => category.title.toLowerCase() === title.toLowerCase());
@@ -70,3 +77,18 @@ module.exports = {
   deleteCategory,
   isTitleAlreadyExists,
 };
+
+/*
+**************************************************************************************
+*    Title: <
+createCategory,
+  readAllCategories,
+  deleteCategory,
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

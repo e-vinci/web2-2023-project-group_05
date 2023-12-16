@@ -34,7 +34,7 @@ function createOneTopic(title, description, category, user) {
 
   return createdTopic;
 }
-
+// Generate the next id for the topic
 function getNextId() {
   const topics = parse(jsonDbPath);
   const lastItemIndex = topics?.length !== 0 ? topics.length - 1 : undefined;
@@ -105,3 +105,20 @@ module.exports = {
   updatePartiallyOneTopic,
   updateFullyOneTopicOrCreateOneTopic,
 };
+/*
+**************************************************************************************
+*    Title: <
+  readAllTopics,
+  readOneTopic,
+  createOneTopic,
+  deleteOneTopic,
+  updatePartiallyOneTopic,
+  updateFullyOneTopicOrCreateOneTopic,
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/
