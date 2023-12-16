@@ -35,7 +35,7 @@ const categoriesView = async () => {
                 // eslint-disable-next-line prefer-destructuring
                 const elementId = button.closest('td').dataset.elementId;
                 
-                // eslint-disable-next-line no-restricted-globals
+                // eslint-disable-next-line no-restricted-globals, no-alert
                 const userConfirmed = confirm('Voulez-vous vraiment supprimer cette catégorie?');
     
                 if (userConfirmed) {

@@ -61,12 +61,10 @@ const PrivacyPolicy = () => {
   privacyPolicyWrapper.innerHTML = privacyPolicy;
   const myModal = new Modal(document.querySelector('#privacyPolicyModal'));
   myModal.show();
-  console.log(myModal.show(), 'ICIIIIIIDFD');
 
   // save the user's choice in local storage
   const myModalInDom = document.querySelector('#privacyPolicyModal');
   myModalInDom.addEventListener('hidden.bs.modal', () => {
-    console.log('modal closed');
   });
 
   const okBtn = document.querySelector('#okBtn');
