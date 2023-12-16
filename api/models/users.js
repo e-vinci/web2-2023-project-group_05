@@ -99,9 +99,17 @@ function getNextId() {
   return nextId;
 }
 
+/*
+function deleteAllUsers() {
+  const users = parse(jsonDbPath);
+  return users;
+}
+*/
+
 module.exports = {
   login,
   register,
   readOneUserFromUsername,
   readAllUsers,
+  defaultUsers,
 };
