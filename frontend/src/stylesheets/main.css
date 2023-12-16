@@ -88,6 +88,7 @@ header {
 
 #rules{
   margin-top: 90px;
+  padding: 20px;
 }
 
 .hero{
@@ -172,6 +173,7 @@ a {
 }
 
 button{
+  border-radius: 10px;
   color: #553870;
 }
 
@@ -453,4 +455,17 @@ body.dark-mode button {
   color: rgb(249, 249, 249);
   font-family: 'Courier New', Courier, monospace;
   position: absolute;
+}
+
+#divForRule{
+  padding : 100px;
+}
+
+:root::-webkit-scrollbar{
+  display: none;
+}
+
+:root {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }

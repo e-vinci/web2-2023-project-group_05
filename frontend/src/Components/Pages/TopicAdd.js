@@ -1,3 +1,4 @@
+import anime from 'animejs/lib/anime.es';
 import Navigate from '../Router/Navigate';
 import { addOneTopic, getAllCategories } from '../../model/topic';
 import { getAuthenticatedUser } from '../../utils/auths';
@@ -13,7 +14,7 @@ const TopicAdd = () => {
   <section class="hero">
   <div id="rules">
     <h3>Reglement :</h3>
-  <button class="buttonForRule">Cliquer ici pour afficher le réglement</button>
+  <button if="divForRule" class="buttonForRule">Cliquer ici pour afficher le réglement</button>
   <div class="rule">
   </div>
   <form class="px-5" enctype="multipart/form-data">
@@ -99,15 +100,36 @@ const TopicAdd = () => {
         </section>
         `;
 
-  buttonRule.addEventListener('click', () => {
-    if (messageIsVisible) {
-      messageRule.innerHTML = ''; // Efface le contenu du message
-      messageIsVisible = false; // Change l'état à "non visible"
-    } else {
-      messageRule.innerHTML = message; // Affiche le message
-      messageIsVisible = true; // Change l'état à "visible"
-    }
-  });
+        buttonRule.addEventListener('click', () => {
+          const paragraphs = document.querySelectorAll('.rule p');
+        
+          if (messageIsVisible) {
+            anime({
+              targets: paragraphs,
+              opacity: 0,
+              translateY: '-20px',
+              easing: 'easeInOutQuad',
+              duration: 500,
+              complete: () => {
+                messageRule.innerHTML = ''; // Efface le contenu du message
+                messageIsVisible = false; // Change l'état à "non visible"
+              },
+            });
+          } else {
+            messageRule.innerHTML = message; // Affiche le message
+        
+            anime({
+              targets: paragraphs,
+              opacity: [0, 1],
+              translateY: ['20px', '0'],
+              easing: 'easeInOutQuad',
+              duration: 500,
+              complete: () => {
+                messageIsVisible = true; // Change l'état à "visible"
+              },
+            });
+          }
+        });
 
   const updateCategoryDropdown = async () => {
     // Récupérer la liste des catégories depuis votre API ou base de données
