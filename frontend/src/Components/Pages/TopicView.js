@@ -1,4 +1,4 @@
-import { getAllCategories, readAllTopics } from '../../model/topic';
+import { getAllCategories, readAllTopics, deleteOneTopic, updateOneTopic } from '../../model/topic';
 import { getAuthenticatedUserAdmin } from '../../utils/auths';
 
 const TopicView = async () => {
@@ -21,6 +21,8 @@ const TopicView = async () => {
   const topicAsHtmlTable = getHtmlTopicTableAsString(topics, categories);
 
   topicWrapper.innerHTML = topicAsHtmlTable;
+
+  attachEventListeners();
 
 };
 
@@ -108,6 +110,44 @@ function getHtmlTopicTableAsString(topics, categories) {
     }
 
   return htmlTopicTable;
+}
+
+function attachEventListeners() {
+  const topicWrapper = document.querySelector('#topicWrapper');
+  const span = document.querySelector('.error');
+
+  topicWrapper.querySelectorAll('.delete').forEach((button) => {
+    button.addEventListener('click', async (e) => {
+      const { elementId } = e.target.dataset;
+      
+      try {
+      await deleteOneTopic(elementId);
+      TopicView();
+    } catch (error) {
+      console.error(error);
+      
+      span.innerHTML = "error.message"; 
+    }
+
+    });
+  });
+
+
+  topicWrapper.querySelectorAll('.update').forEach((button) => {
+    button.addEventListener('click', async (e) => {
+      const { elementId } = e.target.dataset;
+
+      const topicRow = e.target.parentElement.parentElement;
+
+      const newTopicData = {
+        title: topicRow.children[0].innerText,
+        description: topicRow.children[1].innerText,
+        category: topicRow.querySelector('.category-dropdown').value,
+      };
+      await updateOneTopic(elementId, newTopicData);
+      TopicView();
+    });
+  });
 }
 
 export default TopicView;
