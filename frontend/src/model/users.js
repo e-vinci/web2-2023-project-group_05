@@ -50,11 +50,7 @@ async function loginUser(username, password) {
   
   const authenticatedUser = await response.json();
 
-  console.log('Authenticated user : ', authenticatedUser);
-
   setAuthenticatedUser(authenticatedUser);
-
-  console.log("SETAUTHENTICATED",setAuthenticatedUser(authenticatedUser));
 
   Navbar();
 
@@ -63,3 +59,17 @@ async function loginUser(username, password) {
 
 
 export { addOneUser, loginUser };
+
+ /*
+**************************************************************************************
+*    Title: <
+addOneUser, 
+loginUser
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

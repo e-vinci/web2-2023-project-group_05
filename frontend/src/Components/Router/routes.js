@@ -1,5 +1,4 @@
 import HomePage from '../Pages/HomePage';
-import NewPage from '../Pages/NewPage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
 import TopicAdd from '../Pages/TopicAdd';
@@ -12,7 +11,6 @@ import MyTopics from '../Pages/MyTopics';
 
 const routes = {
   '/': HomePage,
-  '/new': NewPage,
   '/login': LoginPage,
   '/register': RegisterPage,
   '/topic/add': TopicAdd,

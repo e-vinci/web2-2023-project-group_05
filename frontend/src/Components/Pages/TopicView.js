@@ -1,6 +1,5 @@
 import { getAllCategories, readAllTopics } from '../../model/topic';
-// eslint-disable-next-line no-unused-vars
-import { getAuthenticatedUser, getAuthenticatedUserAdmin } from '../../utils/auths';
+import { getAuthenticatedUserAdmin } from '../../utils/auths';
 
 const TopicView = async () => {
   
@@ -27,8 +26,6 @@ const TopicView = async () => {
 
 function getHtmlTopicTableAsString(topics, categories) {
   
-  // if(getAuthenticatedUser() === undefined) return '<p>tes pas co</p>'
-
   if (!Array.isArray(topics) || topics.length === 0) {
     return '<p class=p-5> No topics yet : (</p>';
   }
@@ -114,3 +111,16 @@ function getHtmlTopicTableAsString(topics, categories) {
 }
 
 export default TopicView;
+
+/*
+**************************************************************************************
+*    Title: <
+getHtmlTopicTableAsString
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

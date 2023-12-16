@@ -78,3 +78,17 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+
+
+/*
+**************************************************************************************
+*    Title: <
+PrivacyPolicy
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

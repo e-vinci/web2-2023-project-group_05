@@ -6,6 +6,7 @@ import { loginUser } from '../../model/users';
 import Navigate from '../Router/Navigate';
 import image from '../../img/login-image.png';
 
+// Clear the page, render the login form 
 const LoginPage = () => {
   clearPage();
   renderPageTitle('Login');
@@ -81,3 +82,16 @@ function onCheckboxClicked(e) {
 }
 
 export default LoginPage;
+
+/*
+**************************************************************************************
+*    Title: <
+Login Page
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

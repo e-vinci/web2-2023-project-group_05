@@ -1,6 +1,7 @@
 import { readAllTopics, deleteOneTopic, updateOneTopic, getAllCategories } from '../../model/topic';
 import { getAuthenticatedUser } from '../../utils/auths';
 
+// Show topics of its owners
 const MyTopics = async () => {
   const viewTopic = `
   <section class="hero">
@@ -28,11 +29,9 @@ const MyTopics = async () => {
   const y = [];
   x.forEach((e) => 
     {
-        console.log(e)
         if(e.user===user) y.push(e)
     }
     )
-    console.log(y)
   const [topics, categories] = await Promise.all([y, getAllCategories()]);
 
   const topicAsHtmlTable = getHtmlTopicTableAsString(topics, categories);
@@ -136,3 +135,16 @@ function attachEventListeners() {
 }
 
 export default MyTopics;
+
+/*
+**************************************************************************************
+*    Title: <
+MyTopics
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/
