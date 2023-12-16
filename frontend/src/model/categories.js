@@ -2,7 +2,7 @@ import { getAuthenticatedUser } from "../utils/auths";
 
 const readAllCategories = async () => {
     try {
-        const response = await fetch(`${process.env.API_BASE_URL}/api/categories/?order=title`);
+        const response = await fetch('/api/categories/?order=title');
         const categories = await response.json();
         return categories;
     } catch (err) {
@@ -61,4 +61,3 @@ const createCategory = async (title) => {
   };
 
 export { readAllCategories, deleteCategory, createCategory } ;
-
