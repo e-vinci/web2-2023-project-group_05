@@ -6,11 +6,11 @@
     "debug": "npm run dev",
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
-    "lint": "eslint **/*.js",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prettier":"npm run prettier --check **/*.js",
-    "prettier:fix": "prettier --write **/*.js",
-    "code:fix": "prettier --write **/*.js && eslint --fix **/*.js"
+    "prettier":"npm run prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "code:fix": "prettier --write . && eslint --fix ."
   },
   "nodemonConfig": {
     "ignore": [
