@@ -90,6 +90,7 @@ async function createOneUser(username, password) {
   return createdUser;
 }
 
+// Generate the next id for the user
 function getNextId() {
   const users = parse(jsonDbPath, defaultUsers);
   const lastItemIndex = users?.length !== 0 ? users.length - 1 : undefined;
@@ -114,3 +115,20 @@ module.exports = {
   defaultUsers,
   deleteAllUsers,
 };
+
+/*
+**************************************************************************************
+*    Title: <
+  login,
+  register,
+  readOneUserFromUsername,
+  readAllUsers,
+  defaultUsers,
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

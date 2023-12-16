@@ -2,10 +2,11 @@ const express = require('express');
 const {
   register, login, readAllUsers, deleteAllUsers,
 } = require('../models/users');
+const { isAdmin } = require('../utils/auths');
 
 const router = express.Router();
 
-/* GET users listing. */
+// Read all users
 router.get('/', (req, res) => {
   const users = readAllUsers();
   res.json(users);
@@ -39,9 +40,25 @@ router.post('/login', async (req, res) => {
   return res.json(authenticatedUser);
 });
 
-router.delete('/', (req, res) => {
+// Delete all the users excpet the admin
+router.delete('/', isAdmin, (req, res) => {
   const deleted = deleteAllUsers();
   return res.json(deleted);
 });
 
 module.exports = router;
+
+/*
+**************************************************************************************
+*    Title: <
+  router.get,
+  router.post(/register),
+  router.post(/login),
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

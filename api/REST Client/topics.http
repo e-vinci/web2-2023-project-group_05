@@ -39,68 +39,65 @@ Authorization: {{user.response.body.token}}
 {
     "title":"Star Wars: Next Chapiter",
     "description": "First description",
-    "category": "Musique", 
+    "categorie": "Musique", 
     "user": "Marwan"
 }
 
-##### Login the user and get the response in a request variable named 'user'
-# @name admin
-POST {{baseUrl}}/auths/login
+### Create a topic with Authorization of the user token
+POST {{baseUrl}}/topics/
 Content-Type: application/json
+Authorization: {{user.response.body.token}}
 
 {
-    "username": "admin", 
-    "password": "admin"
+    "title":"League of league",
+    "description": "First description",
+    "categorie": "Musique", 
+    "user": "Marwan"
 }
 
+//ici 
 
-### Delete the topic with ID == 2
-DELETE {{baseUrl}}/topics/5
+### Delete the topic with ID == 8
+DELETE {{baseUrl}}/topics/8
+Authorization: {{user.response.body.token}}
 
 
-### Update topic with ID == 2
-PATCH {{baseUrl}}/topics/2
+### Update topic with ID == 11
+PATCH {{baseUrl}}/topics/11
 Content-Type: application/json
+Authorization: {{user.response.body.token}}
 
 {
-    "title":"Star Wars: Episode II – Attack of the Clones",
-    "description": "lolo"
+    "title":"Imagine Dragons the Wolrd Tour",
+    "description": "The description of imagine dragons"
 }
 
-### Try to update topic with ID == 2 with empty param
-PATCH {{baseUrl}}/topics/2
+### Try to update topic with ID == 11 with empty param
+PATCH {{baseUrl}}/topics/11
 Content-Type: application/json
+Authorization: {{user.response.body.token}}
 
 {
     "title":""
 }
 
-### Update topic with ID == 2
-PUT {{baseUrl}}/topics/6
+### Update topic with ID == 11
+PUT {{baseUrl}}/topics/11
 Content-Type: application/json
+Authorization: {{user.response.body.token}}
 
 {
-    "title":"Star Wars: Episode II – Attack of the Clones",
-    "description": "lalax",
-    "image": "IMAGE.png"
+    "title":"Imagine Dragons the Wolrd Tour 2024!",
+    "link": "The description",
+    "category":"Musique"
 }
 
-### Try to update topic with ID == 2 when missing one param
+### Try to update topic with ID == 11 when missing one param
 PUT {{baseUrl}}/topics/2
 Content-Type: application/json
+Authorization: {{user.response.body.token}}
 
 {
-    "title":"Star Wars: Episode II – Attack of the Clones",
-    "description": "lalaq",
-    "image": "IMAGE.png"
-}
-
-### Create new topic with ID == 666
-PUT {{baseUrl}}/topics/666
-Content-Type: application/json
-
-{
-    "title":"Attack of the beast",
-    "description": "lalalu",
-    "image": "IMAGE.png"
+    "title":"Imagine Dragons the Wolrd Tour 2024!",
+    "link": "The description",
 }

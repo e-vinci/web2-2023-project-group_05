@@ -30,8 +30,8 @@ router.post('/', authorize, (req, res) => {
   const title = req?.body?.title?.trim()?.length !== 0 ? req.body.title : undefined;
   const description = req?.body?.description?.trim()?.length !== 0
     ? req.body.description : undefined;
-  const category = req?.body?.category.trim()?.length !== 0
-    ? req.body.category : undefined;
+  const category = req?.body?.categorie.trim()?.length !== 0
+    ? req.body.categorie : undefined;
   const user = req?.body?.user.trim()?.length !== 0 ? req.body.user : undefined;
 
   if (!title || !description || !category || !user) {
@@ -72,7 +72,7 @@ router.patch('/:id', authorize, (req, res) => {
 // or create it if it does not exist and the id is not existant
 router.put('/:id', authorize, (req, res) => {
   const title = req?.body?.title;
-  const link = req?.body?.link;
+  const link = req?.body?.description;
   const category = req?.body?.category;
 
   if (
@@ -84,8 +84,26 @@ router.put('/:id', authorize, (req, res) => {
     || !category
     || !category.trim()
   ) return res.sendStatus(400);
+
   const updatedFilmOrNewFilm = updateFullyOneTopicOrCreateOneTopic(req?.params?.id, req?.body);
   return res.json(updatedFilmOrNewFilm);
 });
 
 module.exports = router;
+/*
+**************************************************************************************
+*    Title: <
+  router.get,
+  router.get(/:id),
+  router.post,
+  router.delete,
+  router.patch,
+  router.put,
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/
