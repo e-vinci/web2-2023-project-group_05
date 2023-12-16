@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const corsOptions = {
+  credentials: true,
   origin: ['http://localhost:8080', 'https://e-baron.github.io', 'https://group-05.github.io'],
 };
 
