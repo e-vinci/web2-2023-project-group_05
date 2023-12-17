@@ -1,22 +1,25 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './stylesheets/main.css';
+const privacyReadKey = 'privacyRead';
 
-import Navbar from './Components/Navbar/Navbar';
-import Router from './Components/Router/Router';
-import ThemeManager from './Components/ThemeManager/ThemeManager';
+const setPrivacyRead = () => {
+  localStorage.setItem(privacyReadKey, 'true');
+};
 
-Navbar();
-Router();
-ThemeManager();
+const checkPrivacyRead = () => {
+  if (localStorage.getItem(privacyReadKey) === 'true') {
+    return true;
+  }
+  return false;
+};
 
-/*
+export { setPrivacyRead, checkPrivacyRead };
+
+
+ /*
 **************************************************************************************
 *    Title: <
-Navbar
-Router
-ThemeManager
-
->
+ setPrivacyRead, 
+ checkPrivacyRead
+  >
 *    Author: <Baroni>
 *    Date: <15/12/2023>
 *    Code version: <code version>

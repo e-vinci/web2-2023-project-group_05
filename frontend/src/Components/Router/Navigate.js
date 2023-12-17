@@ -6,16 +6,27 @@
  * has to import all the pages to render them.
  */
 
- import { usePathPrefix } from '../../utils/path-prefix';
+const Navigate = (toUri) => {
+  const fromUri = window.location.pathname;
+  if (fromUri === toUri) return;
 
- const Navigate = (toUri) => {
-   const fromUri = window.location.pathname;
-   if (fromUri === toUri) return;
- 
-   window.history.pushState({}, '', usePathPrefix(toUri));
-   const popStateEvent = new PopStateEvent('popstate', { state: {} });
-   dispatchEvent(popStateEvent);
- };
- 
- export default Navigate;
- 
+  window.history.pushState({}, '', toUri);
+  const popStateEvent = new PopStateEvent('popstate', { state: {} });
+  dispatchEvent(popStateEvent);
+};
+
+export default Navigate;
+
+/*
+**************************************************************************************
+*    Title: <
+Navigate
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/
+

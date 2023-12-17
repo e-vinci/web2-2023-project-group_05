@@ -1,22 +1,21 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './stylesheets/main.css';
+import { clearAuthenticatedUser } from '../../utils/auths';
+import Navbar from '../Navbar/Navbar';
+import Navigate from '../Router/Navigate';
 
-import Navbar from './Components/Navbar/Navbar';
-import Router from './Components/Router/Router';
-import ThemeManager from './Components/ThemeManager/ThemeManager';
+// deconnect the user and clear the session
+const Logout = () => {
+  clearAuthenticatedUser();
+  Navbar();
+  Navigate('/login');
+};
 
-Navbar();
-Router();
-ThemeManager();
+export default Logout;
 
 /*
 **************************************************************************************
 *    Title: <
-Navbar
-Router
-ThemeManager
-
->
+Logout
+  >
 *    Author: <Baroni>
 *    Date: <15/12/2023>
 *    Code version: <code version>

@@ -1,12 +1,18 @@
 {
-  "name": "js-phaser-boilerplate",
+  "name": "LaGrandeCritique",
   "version": "1.0.0",
-  "description": "myJScourse's modern frontend boilerplate to build a phaser game",
+  "description": "endroit ou l'on peux debatre sur plusieur catégorie dont chaque catégorie a son lot de sujet",
   "scripts": {
     "deploy": "npm run build && gh-pages -d dist",
     "dev": "webpack --mode development --config webpack.config.base.js && cp dist/index.html dist/404.html",
     "build": "webpack --mode production --config webpack.config.prod.js && cp dist/index.html dist/404.html",
-    "start": "webpack serve --mode development --config webpack.config.base.js"
+    "start": "webpack serve --mode development --config webpack.config.base.js",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier":"npm run prettier -- --check",
+    "prettier:fix": "prettier --write .",
+    "code:fix": "prettier --write . && eslint --fix ."
+  
   },
   "author": "e-baron",
   "license": "CC-BY-SA-4.0",
@@ -29,11 +35,14 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
+    "animejs": "^3.2.2",
+    "better-sqlite3": "^9.1.1",
     "bootstrap": "^5.0.1",
     "clean-webpack-plugin": "^4.0.0",
-    "phaser": "^3.55.2",
     "gh-pages": "^4.0.0",
+    "phaser": "^3.55.2",
     "terser-webpack-plugin": "^5.3.6",
+    "validator": "^13.11.0",
     "webpack-merge": "^5.8.0"
   }
 }

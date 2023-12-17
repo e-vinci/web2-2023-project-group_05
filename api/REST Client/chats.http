@@ -1,0 +1,33 @@
+@baseUrl = http://localhost:3000
+
+### Read all messages
+GET {{baseUrl}}/chats
+
+### Create a new message without Authorization
+POST {{baseUrl}}/chats/
+Content-Type: application/json
+
+{
+    "username": "Marwan",
+    "message": "Hello, testing messages!"
+}
+
+### Login as a user to get the token
+# @name user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "username": "Marwan",
+    "password": "alice123"
+}
+
+### Create a new message with Authorization using the user token
+POST {{baseUrl}}/chats/
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "username": "Marwan",
+    "message": "Hello, testing messages with Authorization!"
+}

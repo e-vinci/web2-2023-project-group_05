@@ -1,0 +1,103 @@
+@baseUrl = http://localhost:3000
+
+### Read all topic
+GET {{baseUrl}}/topics
+
+### Read topic with ID == 1
+GET {{baseUrl}}/topics/2
+
+### Read topic which does not exist
+GET {{baseUrl}}/topics/500
+
+### Try to create a topic without Authorization
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+
+{
+    "title":"Star Wars: The Phantom Menace (Episode II)",
+    "description": "Star Wars",
+    "category": "Musique",
+    "user" : "Marwan"
+}
+### Create a topic with user token
+#### First, Login as a user 
+##### Login the user and get the response in a request variable named 'user'
+# @name user
+POST {{baseUrl}}/auths/login
+Content-type: application/json
+
+{
+    "username": "Marwan",
+    "password": "alice123"
+}
+
+### Create a topic with Authorization of the user token
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"Star Wars: Next Chapiter",
+    "description": "First description",
+    "categorie": "Musique", 
+    "user": "Marwan"
+}
+
+### Create a topic with Authorization of the user token
+POST {{baseUrl}}/topics/
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"League of league",
+    "description": "First description",
+    "categorie": "Musique", 
+    "user": "Marwan"
+}
+
+//ici 
+
+### Delete the topic with ID == 8
+DELETE {{baseUrl}}/topics/8
+Authorization: {{user.response.body.token}}
+
+
+### Update topic with ID == 11
+PATCH {{baseUrl}}/topics/11
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"Imagine Dragons the Wolrd Tour",
+    "description": "The description of imagine dragons"
+}
+
+### Try to update topic with ID == 11 with empty param
+PATCH {{baseUrl}}/topics/11
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":""
+}
+
+### Update topic with ID == 11
+PUT {{baseUrl}}/topics/11
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"Imagine Dragons the Wolrd Tour 2024!",
+    "link": "The description",
+    "category":"Musique"
+}
+
+### Try to update topic with ID == 11 when missing one param
+PUT {{baseUrl}}/topics/2
+Content-Type: application/json
+Authorization: {{user.response.body.token}}
+
+{
+    "title":"Imagine Dragons the Wolrd Tour 2024!",
+    "link": "The description",
+}

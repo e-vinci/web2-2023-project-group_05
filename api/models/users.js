@@ -59,6 +59,11 @@ async function register(username, password) {
   return authenticatedUser;
 }
 
+function readAllUsers() {
+  const users = parse(jsonDbPath);
+  return users;
+}
+
 function readOneUserFromUsername(username) {
   const users = parse(jsonDbPath, defaultUsers);
   const indexOfUserFound = users.findIndex((user) => user.username === username);
@@ -85,6 +90,7 @@ async function createOneUser(username, password) {
   return createdUser;
 }
 
+// Generate the next id for the user
 function getNextId() {
   const users = parse(jsonDbPath, defaultUsers);
   const lastItemIndex = users?.length !== 0 ? users.length - 1 : undefined;
@@ -94,8 +100,35 @@ function getNextId() {
   return nextId;
 }
 
+function deleteAllUsers() {
+  const texts = parse(jsonDbPath);
+  const allDeleted = texts.splice(1, texts.length);
+  serialize(jsonDbPath, texts);
+  return allDeleted;
+}
+
 module.exports = {
   login,
   register,
   readOneUserFromUsername,
+  readAllUsers,
+  defaultUsers,
+  deleteAllUsers,
 };
+
+/*
+**************************************************************************************
+*    Title: <
+  login,
+  register,
+  readOneUserFromUsername,
+  readAllUsers,
+  defaultUsers,
+  >
+*    Author: <Baroni>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://github.com/e-vinci/js-exercises/tree/main>
+
+***************************************************************************************
+*/

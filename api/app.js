@@ -4,12 +4,14 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const corsOptions = {
-  origin: ['http://localhost:8080', 'https://e-baron.github.io'],
+  credentials: true,
+  origin: ['http://localhost:8080', 'https://e-baron.github.io', 'https://group-05.github.io/web2-2023-project-group_05/'],
 };
 
-const usersRouter = require('./routes/users');
-const pizzaRouter = require('./routes/pizzas');
 const authsRouter = require('./routes/auths');
+const categoriesRouter = require('./routes/categories');
+const topicsRouter = require('./routes/topics');
+const chatsRouter = require('./routes/chats');
 
 const app = express();
 
@@ -20,8 +22,9 @@ app.use(cookieParser());
 
 app.use(cors(corsOptions));
 
-app.use('/users', usersRouter);
-app.use('/pizzas', pizzaRouter);
 app.use('/auths', authsRouter);
+app.use('/categories', categoriesRouter);
+app.use('/topics', topicsRouter);
+app.use('/chats', chatsRouter);
 
 module.exports = app;
