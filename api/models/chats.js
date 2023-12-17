@@ -31,3 +31,17 @@ module.exports = {
   readAllMessages,
   createOneMessage,
 };
+/*
+**************************************************************************************
+*    Title: <
+createCategory,
+  readAllCategories,
+  deleteCategory,
+  >
+*    Author: <chat gpt>
+*    Date: <15/12/2023>
+*    Code version: <code version>
+*    Availability: <https://openai.com/chatgpt>
+
+***************************************************************************************
+*/

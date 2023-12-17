@@ -1,3 +1,44 @@
+Groupe numéro 5
+Répo : 
+
+https://github.com/e-vinci/web2-2023-project-group_05
+
+Author :
+Araujo Correia Ana Carolina 
+Benali El Manichi Marwan
+Dahman Kawtar       
+Dewilde Sébastien   
+Ramadani Resul
+
+
+Repo frontend : 
+https://github.com/e-vinci/web2-2023-project-group_05/tree/main/frontend
+
+Repo backend :
+https://github.com/e-vinci/web2-2023-project-group_05/tree/main/api 
+
+
+l'endroit où se situe la documentation de notre API est dans le rapport.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12522956&assignment_repo_type=AssignmentRepo)
 # Projet Web2 2023
 ## Introduction
