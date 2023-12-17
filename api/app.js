@@ -11,6 +11,7 @@ const corsOptions = {
 const authsRouter = require('./routes/auths');
 const categoriesRouter = require('./routes/categories');
 const topicsRouter = require('./routes/topics');
+const chatsRouter = require('./routes/chats');
 
 const app = express();
 
@@ -24,5 +25,6 @@ app.use(cors(corsOptions));
 app.use('/auths', authsRouter);
 app.use('/categories', categoriesRouter);
 app.use('/topics', topicsRouter);
+app.use('/chats', chatsRouter);
 
 module.exports = app;

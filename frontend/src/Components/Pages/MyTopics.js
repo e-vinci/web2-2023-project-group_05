@@ -1,5 +1,6 @@
 import { readAllTopics, deleteOneTopic, updateOneTopic, getAllCategories } from '../../model/topic';
 import { getAuthenticatedUser } from '../../utils/auths';
+import Navigate from '../Router/Navigate';
 
 // Show topics of its owners
 const MyTopics = async () => {
@@ -58,6 +59,7 @@ function getHtmlTopicTableAsString(topics, categories) {
             <th scope="col">Title</th>
             <th scope="col">Description</th>
             <th scope="col">Category</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -83,6 +85,9 @@ function getHtmlTopicTableAsString(topics, categories) {
                   </td>
                   <td>
                     <button type="button" class="btn btn-info update" data-element-id="${element.id}">Save</button>
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-info chat" data-element-id="${element.id}">Chat</button>
                   </td>
                 </tr>
                 <span class="error"></span>
@@ -130,6 +135,15 @@ function attachEventListeners() {
       };
       await updateOneTopic(elementId, newTopicData);
       MyTopics();
+    });
+  });
+
+  // gestionnaire d'événements pour les boutons de chat
+  topicWrapper.querySelectorAll('.chat').forEach((button) => {
+    button.addEventListener('click', async () => {
+      
+
+      Navigate(`/chat`);
     });
   });
 }
